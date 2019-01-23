@@ -1,0 +1,71 @@
+SWIG_CFLAGS := -I../include ${PYTHON_INCLUDES} -Wno-shadow -Wno-missing-field-initializers
+
+ifeq ($(IS_CC_CLANG), 1)
+    SWIG_CFLAGS += -Wno-self-assign -Wno-sometimes-uninitialized -Wno-deprecated-register
+else
+    SWIG_CFLAGS += -Wno-unused-but-set-variable
+endif
+
+ifndef TRICK_VERBOSE_BUILD
+    PRINT_SWIG          = $(info $(call COLOR,SWIGing)    $<)
+    PRINT_COMPILE_SWIG  = $(info $(call COLOR,Compiling)  $<)
+endif
+
+# TRICK_FIXED_PYTHON ===========================================================
+
+TRICK_FIXED_PYTHON = \
+    trick/swig_double.py \
+    trick/swig_int.py \
+    trick/swig_ref.py \
+    trick/shortcuts.py \
+    trick/unit_test.py \
+    trick/sim_services.py \
+    trick/exception.py
+
+$(TRICK_FIXED_PYTHON): trick/% : ${TRICK_HOME}/share/trick/swig/%
+	@echo /bin/cp -f $< $@ >> $(MAKE_OUT)
+	$(ECHO_CMD)/bin/cp -f $< $@ 2>&1 | $(TEE) -a $(MAKE_OUT) ; exit $${PIPESTATUS[0]}
+
+all: $(TRICK_FIXED_PYTHON)
+
+# SWIG_I =======================================================================
+
+SWIG_I = \
+    build/root/PID_Project/SIM_cannon_analytic/S_source_py.i \
+    build/root/PID_Project/SIM_cannon_analytic/models/cannon/include/cannon_py.i \
+    build/root/PID_Project/SIM_cannon_analytic/models/cannon/include/cannon_analytic_py.i
+
+define create_convert_swig_rule
+build/%_py.i: /%.$1
+	@echo ${TRICK_HOME}/$(LIBEXEC)/trick/convert_swig ${TRICK_CONVERT_SWIG_FLAGS} $$< >> $(MAKE_OUT)
+	$(ECHO_CMD)${TRICK_HOME}/$(LIBEXEC)/trick/convert_swig ${TRICK_CONVERT_SWIG_FLAGS} $$< 2>&1 | $(TEE) -a $(MAKE_OUT) ; exit $${PIPESTATUS[0]}
+endef
+
+EXTENSIONS := H h hh hxx h++ hpp
+$(foreach EXTENSION,$(EXTENSIONS),$(eval $(call create_convert_swig_rule,$(EXTENSION))))
+
+build/top.i: build/CP_instances
+	@echo ${TRICK_HOME}/${LIBEXEC}/trick/create_top_dot_i >> $(MAKE_OUT)
+	${ECHO_CMD}${TRICK_HOME}/${LIBEXEC}/trick/create_top_dot_i 2>&1 | $(TEE) -a $(MAKE_OUT) ; exit $${PIPESTATUS[0]}
+
+# SWIG_SRC =====================================================================
+
+SWIG_SRC = $(subst .i,.cpp,$(SWIG_I)) build/top.cpp
+
+$(SWIG_SRC) : %.cpp: %.i | $(SWIG_I)
+	$(PRINT_SWIG)
+	@echo $(SWIG) $(TRICK_INCLUDE) $(TRICK_DEFINES) $(TRICK_VERSIONS) $(SWIG_FLAGS) -c++ -python -includeall -ignoremissing -w201,303,325,362,389,401,451 -outdir trick -o $@ $< >> $(MAKE_OUT)
+	$(ECHO_CMD)$(SWIG) $(TRICK_INCLUDE) $(TRICK_DEFINES) $(TRICK_VERSIONS) $(SWIG_FLAGS) -c++ -python -includeall -ignoremissing -w201,303,325,362,389,401,451 -outdir trick -o $@ $< 2>&1 | $(TEE) -a $(MAKE_OUT) ; exit $${PIPESTATUS[0]}
+
+# SWIG_OBJECTS =================================================================
+
+SWIG_OBJECTS = $(subst .cpp,.o,$(SWIG_SRC)) build/init_swig_modules.o
+
+$(SWIG_OBJECTS): %.o: %.cpp
+	$(PRINT_COMPILE_SWIG)
+	@echo $(TRICK_CPPC) $(TRICK_CXXFLAGS) $(TRICK_SYSTEM_CXXFLAGS) $(SWIG_CFLAGS) -Wno-unused-parameter -c -o $@ $< >> $(MAKE_OUT)
+	$(ECHO_CMD)$(TRICK_CPPC) $(TRICK_CXXFLAGS) $(TRICK_SYSTEM_CXXFLAGS) $(SWIG_CFLAGS) -Wno-unused-parameter -c -o $@ $< 2>&1 | $(TEE) -a $(MAKE_OUT) ; exit $${PIPESTATUS[0]}
+
+$(S_MAIN): $(SWIG_OBJECTS)
+
+LINK_LISTS += $(LD_FILELIST)build/py_link_list
