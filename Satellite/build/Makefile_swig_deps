@@ -1,0 +1,4 @@
+build/Makefile_swig: \
+    /root/PID_Project/Satellite/S_source.hh \
+    /root/PID_Project/Satellite/models/ISS/headers/satellite.h \
+    /root/PID_Project/Satellite/models/ISS/headers/satellite_analytic.h

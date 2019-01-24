@@ -1,0 +1,3 @@
+/root/PID_Project/Satellite/models/ISS/analytical/satellite_init.c
+/root/PID_Project/Satellite/models/ISS/analytical/satellite_analytic.c
+/root/PID_Project/Satellite/models/ISS/analytical/satellite_shutdown.c

@@ -1,0 +1,28 @@
+/************************TRICK HEADER*************************
+PURPOSE:
+    (This S_define works with the RUN_analytic input file)
+LIBRARY DEPENDENCIES:
+    (
+      (ISS/analytical/satellite_init.c)
+      (ISS/analytical/satellite_analytic.c)
+      (ISS/analytical/satellite_shutdown.c)
+    )
+*************************************************************/
+
+#include "sim_objects/default_trick_sys.sm"
+##include "ISS/headers/satellite_analytic.h"
+
+class SatelliteSimObject : public Trick::SimObject {
+
+    public:
+        SATELLITE satellite;
+
+        SatelliteSimObject() {
+            ("default_data") satellite_default_data( &satellite) ;
+            ("initialization") satellite_init( &satellite ) ;
+            (0.01, "scheduled") satellite_analytic( &satellite ) ;
+            ("shutdown") satellite_shutdown( &satellite ) ;
+        }
+} ;
+
+SatelliteSimObject dyn ;

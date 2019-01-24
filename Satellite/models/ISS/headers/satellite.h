@@ -6,22 +6,25 @@ PURPOSE: (Represent the state and initial conditions of a satellite)
 
 typedef struct {
 	//only need to calculate radius from earth ...
-    double initvel ;    /* *i m Init velocity of satellite */
-    double initpos ;    /* *i m Init position of satellite */   
+	//these are u(t)?
+	
+    double standardVelocity ;    /* *i m Constant factual velocity of satellite */
+    double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */   
 
-    double acc ;     /* m/s2 r-acceleration  */
-    double vel ;     /* m/s r-velocity */
-    double pos ;     /* m r-position */
+
+	double actualAcceleration; /* m/s2 r-acceleration  */
+    double actualVelocity ;     /* m/s r-velocity */
+    double actualRadius ;     /* m r-position */
 
     double time;        /* s Model time */
+	int counter;
 
-    int impact ;        /* -- Has impact occured? */
-    double impactTime;  /* s Time of Impact */
+   
 
 } SATELLITE ;
 
 #ifdef __cplusplus
-extern "S" {
+extern "C" {
 #endif
     int satellite_default_data(SATELLITE*) ;
     int satellite_init(SATELLITE*) ;
