@@ -2,10 +2,10 @@
 ===============================================================================
 General:
 
-Executable called = /root/PID_Project/Satellite/S_main_Linux_5.4_x86_64.exe
+Executable called = /home/joey/PID_Project/Satellite/S_main_Linux__x86_64.exe
 Input file = RUN_test/input.py
-S_main build time = Thu Jan 24 00:02:28 2019
-Trick version = 17.4.dev
+S_main build time = Thu Jan 24 15:16:27 2019
+Trick version = 17.5.dev
 
 ===============================================================================
 Build time Environment:
@@ -13,6 +13,7 @@ Build time Environment:
 TRICK_CC = /usr/bin/gcc
 TRICK_CFLAGS =  -Imodels
 TRICK_CONVERT_SWIG_FLAGS = 
+TRICK_CPFLAGS = 
 TRICK_CPPC = /usr/bin/g++
 TRICK_CXXFLAGS =  -Imodels
 TRICK_DEBUG = 0
@@ -22,7 +23,7 @@ TRICK_EXT_LIB_DIRS =
 TRICK_FORCE_32BIT = 0
 TRICK_GTE_EXT = 
 TRICK_HOME = /usr/local
-TRICK_HOST_CPU = Linux_5.4_x86_64
+TRICK_HOST_CPU = Linux__x86_64
 TRICK_HOST_CPU_USER_SUFFIX = 
 TRICK_HOST_TYPE = Linux
 TRICK_ICGFLAGS = 
@@ -38,13 +39,13 @@ TRICK_PRINT_CMD = lpr
 TRICK_PYTHON_PATH = 
 TRICK_SFLAGS = 
 TRICK_SWIG_EXCLUDE = 
-TRICK_SYSTEM_CFLAGS = -I/usr/local/trick_source -I/usr/local/include -I/usr/local/include/trick/compat -DTRICK_VER=17 -DTRICK_MINOR=4 -fpic  -DUSE_ER7_UTILS_INTEGRATORS -fexceptions 
-TRICK_SYSTEM_CXXFLAGS = -I/usr/local/trick_source -I/usr/local/include -I/usr/local/include/trick/compat -DTRICK_VER=17 -DTRICK_MINOR=4 -fpic  -DUSE_ER7_UTILS_INTEGRATORS 
+TRICK_SYSTEM_CFLAGS = -I/usr/local/trick_source -I/usr/local/include -I/usr/local/include/trick/compat -DTRICK_VER=17 -DTRICK_MINOR=5 -fpic  -DUSE_ER7_UTILS_INTEGRATORS -fexceptions 
+TRICK_SYSTEM_CXXFLAGS = -I/usr/local/trick_source -I/usr/local/include -I/usr/local/include/trick/compat -DTRICK_VER=17 -DTRICK_MINOR=5 -fpic  -DUSE_ER7_UTILS_INTEGRATORS 
 TRICK_SYSTEM_LDFLAGS = -Wl,--export-dynamic
-TRICK_USER_CSHRC = /root/.Trick_user_cshrc
-TRICK_USER_HOME = /root/trick_sims
+TRICK_USER_CSHRC = /home/joey/.Trick_user_cshrc
+TRICK_USER_HOME = /home/joey/trick_sims
 TRICK_USER_LINK_LIBS = 
-TRICK_USER_PROFILE = /root/.Trick_user_profile
+TRICK_USER_PROFILE = /home/joey/.Trick_user_profile
 TRICK_VER = trick_dev
 XML_CATALOG_FILES = /usr/local/libexec/trick_source/data_products/DPX/XML/catalog.xml
 

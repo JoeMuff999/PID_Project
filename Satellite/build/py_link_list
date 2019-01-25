@@ -1,5 +1,0 @@
-build/init_swig_modules.o
-build/top.o
-build/root/PID_Project/Satellite/S_source_py.o
-build/root/PID_Project/Satellite/models/ISS/headers/satellite_py.o
-build/root/PID_Project/Satellite/models/ISS/headers/satellite_analytic_py.o
