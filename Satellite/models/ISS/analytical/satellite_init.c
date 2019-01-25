@@ -11,6 +11,8 @@ int satellite_default_data( SATELLITE* S ) {
 
     S->standardVelocity = 0; //change this
     S->desiredRadius = 408773 + 6371393;  
+	
+	S->gravitational =6.67*pow(10,-11);
 
     S->time = 0.0 ;
 	S->counter = 0;

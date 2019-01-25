@@ -1,3 +1,0 @@
-build/Makefile_io_src: \
-    /root/PID_Project/Satellite/S_source.hh \
-    /root/PID_Project/Satellite/models/ISS/headers/satellite.h

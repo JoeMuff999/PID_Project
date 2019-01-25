@@ -9,7 +9,9 @@ typedef struct {
 	//these are u(t)?
 	
     double standardVelocity ;    /* *i m Constant factual velocity of satellite */
-    double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */   
+    double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */ 
+	
+	double gravitational; 
 
 
 	double actualAcceleration; /* m/s2 r-acceleration  */
