@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 |L   0|2019/01/24,15:03:11|joey-laptop| |T 0|5.000000| 
      REALTIME SHUTDOWN STATS:
             ACTUAL INIT TIME:        0.221
          ACTUAL ELAPSED TIME:        0.596
 |L   0|2019/01/24,15:03:11|joey-laptop| |T 0|5.000000| 
+=======
+|L   0|2019/01/24,15:20:20|joey-VirtualBox| |T 0|5.000000| 
+     REALTIME SHUTDOWN STATS:
+            ACTUAL INIT TIME:        0.431
+         ACTUAL ELAPSED TIME:        0.439
+|L   0|2019/01/24,15:20:20|joey-VirtualBox| |T 0|5.000000| 
+>>>>>>> f0834ec51a2865468d0786a25dbc4f70230987ff
 SIMULATION TERMINATED IN
   PROCESS: 0
   ROUTINE: Executive_loop_single_thread.cpp:98
@@ -11,6 +19,12 @@ SIMULATION TERMINATED IN
        SIMULATION START TIME:        0.000
         SIMULATION STOP TIME:        5.000
      SIMULATION ELAPSED TIME:        5.000
+<<<<<<< HEAD
         ACTUAL CPU TIME USED:        0.062
        SIMULATION / CPU TIME:       80.000
      INITIALIZATION CPU TIME:        0.062
+=======
+        ACTUAL CPU TIME USED:        0.243
+       SIMULATION / CPU TIME:       20.550
+     INITIALIZATION CPU TIME:        0.239
+>>>>>>> f0834ec51a2865468d0786a25dbc4f70230987ff
