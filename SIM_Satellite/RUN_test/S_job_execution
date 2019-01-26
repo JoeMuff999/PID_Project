@@ -4,13 +4,8 @@ Trick::Threads (Child_0)
     trigger type = mutex
     number of scheduled jobs = 6
     from Trick::ThreadBase
-<<<<<<< HEAD
-    pthread_id = 140695394715456
-    process_id = 56
-=======
-    pthread_id = 139967661778752
-    process_id = 2534
->>>>>>> f0834ec51a2865468d0786a25dbc4f70230987ff
+    pthread_id = 140706868930368
+    process_id = 4530
     rt_priority = 0
     cpus = none assigned
 
@@ -34,7 +29,7 @@ Initialization:
       1 |   0 |default_data             | 60000 |          |          |          | 10.00 | trick_em.create_thread_process_event
       1 |   0 |default_data             | 60000 |          |          |          | 11.00 | trick_vs.vs.default_data
       1 |   0 |default_data             | 60000 |          |          |          | 14.02 | trick_frame_log.frame_log.default_data
-      1 |   0 |default_data             | 60000 |          |          |          | 22.00 | dyn.satellite_default_data
+      1 |   0 |default_data             | 60000 |          |          |          | 22.00 | dyn.satellite.satellite_default_data
       1 |   0 |default_data             | 65535 |          |          |          | 21.00 | trick_udunits.udunits.read_default_xml
       1 |   0 |initialization           | 0     |          |          |          |  2.01 | trick_mc.mc.execute_monte
       1 |   0 |initialization           | 0     |          |          |          | 11.01 | trick_vs.vs.init
@@ -53,7 +48,7 @@ Initialization:
       1 |   0 |initialization           | 60000 |          |          |          | 14.03 | trick_frame_log.frame_log.create_DP_files
       1 |   0 |initialization           | 60000 |          |          |          | 17.00 | trick_dmtcp.dmtcp.init
       1 |   0 |initialization           | 60000 |          |          |          | 19.00 | trick_zero_conf.zc.init
-      1 |   0 |initialization           | 60000 |          |          |          | 22.01 | dyn.satellite_init
+      1 |   0 |initialization           | 60000 |          |          |          | 22.01 | dyn.satellite.satellite_init
       1 |   0 |initialization           | 65534 |          |          |          |  1.02 | trick_sys.exec_collect_init
       1 |   0 |initialization           | 65534 |          |          |          |  1.03 | trick_sys.sched.write_s_run_summary
       1 |   0 |initialization           | 65534 |          |          |          | 12.01 | trick_data_record.drd.init
@@ -73,7 +68,7 @@ Initialization:
 Scheduled Loop:
 
 Thread 0:
-      1 |   0 |scheduled                | 60000 | 0.000000 |     0.01 |    1e+37 | 22.02 | dyn.satellite_analytic
+      1 |   0 |scheduled                | 60000 | 0.000000 |     0.01 |    1e+37 | 22.02 | dyn.satellite.satellite_analytic
       1 |   0 |automatic_last           | 60000 | 0.000000 |        1 |    1e+37 | 11.11 | trick_vs.vs.copy_data_scheduled
       1 |   0 |system_checkpoint        | 0     | 0.000000 |        1 |    1e+37 |  4.04 | trick_cpr.cpr.write_checkpoint
       1 |   0 |system_checkpoint        | 0     | 0.000000 |        1 |    1e+37 |  4.06 | trick_cpr.cpr.safestore_checkpoint
@@ -129,7 +124,7 @@ Shutdown:
       1 |   0 |shutdown                 | 60000 |          |          |          |  7.13 | trick_message.mdevice.shutdown
       1 |   0 |shutdown                 | 60000 |          |          |          | 11.15 | trick_vs.vs.shutdown
       1 |   0 |shutdown                 | 60000 |          |          |          | 12.07 | trick_data_record.drd.shutdown
-      1 |   0 |shutdown                 | 60000 |          |          |          | 22.03 | dyn.satellite_shutdown
+      1 |   0 |shutdown                 | 60000 |          |          |          | 22.03 | dyn.satellite.satellite_shutdown
       1 |   0 |shutdown                 | 65534 |          |          |          | 15.17 | trick_master_slave.master.shutdown
       1 |   0 |shutdown                 | 65534 |          |          |          | 15.18 | trick_master_slave.slave.shutdown
       1 |   0 |shutdown                 | 65535 |          |          |          |  9.03 | trick_ip.ip.shutdown

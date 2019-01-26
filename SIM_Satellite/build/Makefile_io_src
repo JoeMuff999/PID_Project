@@ -1,0 +1,23 @@
+TRICK_IO_CXXFLAGS += -std=c++11 -Wno-invalid-offsetof -Wno-old-style-cast -Wno-write-strings -Wno-unused-variable
+
+ifeq ($(IS_CC_CLANG), 0)
+    TRICK_IO_CXXFLAGS += -Wno-unused-local-typedefs -Wno-unused-but-set-variable
+endif
+
+IO_OBJECTS = \
+    build/home/joey/PID_Project/SIM_Satellite/io_S_source.o \
+    build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/io_satellite.o \
+    build/class_map.o
+
+$(IO_OBJECTS): %.o : %.cpp | %.d
+	$(PRINT_COMPILE)
+	@echo $(TRICK_CPPC) $(TRICK_CXXFLAGS) $(TRICK_SYSTEM_CXXFLAGS) $(TRICK_IO_CXXFLAGS) -MMD -MP -c -o $@ $< >> $(MAKE_OUT)
+	$(ECHO_CMD)$(TRICK_CPPC) $(TRICK_CXXFLAGS) $(TRICK_SYSTEM_CXXFLAGS) $(TRICK_IO_CXXFLAGS) -MMD -MP -c -o $@ $< 2>&1 | $(TEE) -a $(MAKE_OUT) ; exit $${PIPESTATUS[0]}
+
+$(IO_OBJECTS:.o=.d): ;
+
+-include $(IO_OBJECTS:.o=.d)
+
+$(S_MAIN): $(IO_OBJECTS)
+
+LINK_LISTS += $(LD_FILELIST)build/io_link_list

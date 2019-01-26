@@ -2,9 +2,9 @@
 ===============================================================================
 General:
 
-Executable called = /home/joey/PID_Project/Satellite/S_main_Linux__x86_64.exe
+Executable called = /home/joey/PID_Project/SIM_Satellite/S_main_Linux__x86_64.exe
 Input file = RUN_test/input.py
-S_main build time = Thu Jan 24 15:16:27 2019
+S_main build time = Sat Jan 26 17:13:13 2019
 Trick version = 17.5.dev
 
 ===============================================================================

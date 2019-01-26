@@ -3,9 +3,9 @@ PURPOSE:
     (This S_define works with the RUN_analytic input file)
 LIBRARY DEPENDENCIES:
     (
-      (ISS/analytical/satellite_init.c)
-      (ISS/analytical/satellite_analytic.c)
-      (ISS/analytical/satellite_shutdown.c)
+      (ISS/analytical/satellite_init.cpp)
+      (ISS/analytical/satellite_analytic.cpp)
+      (ISS/analytical/satellite_shutdown.cpp)
     )
 *************************************************************/
 
@@ -15,13 +15,13 @@ LIBRARY DEPENDENCIES:
 class SatelliteSimObject : public Trick::SimObject {
 
     public:
-        SATELLITE satellite;
+        Satellite satellite;
 
         SatelliteSimObject() {
-            ("default_data") satellite_default_data( &satellite) ;
-            ("initialization") satellite_init( &satellite ) ;
-            (0.01, "scheduled") satellite_analytic( &satellite ) ;
-            ("shutdown") satellite_shutdown( &satellite ) ;
+            ("default_data") satellite.satellite_default_data( &satellite) ;
+            ("initialization") satellite.satellite_init( &satellite ) ;
+            (0.01, "scheduled") satellite.satellite_analytic( &satellite ) ;
+            ("shutdown") satellite.satellite_shutdown( &satellite ) ;
         }
 } ;
 

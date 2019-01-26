@@ -5,7 +5,7 @@ PURPOSE: (Print the final satellite state.)
 #include "../headers/satellite.h"
 #include "trick/exec_proto.h"
 
-int satellite_shutdown( SATELLITE* S) {
+int Satellite::satellite_shutdown( Satellite* S) {
     double t = exec_get_sim_time();
     printf( "========================================\n");
     printf( "      Satellite State at Shutdown     \n");

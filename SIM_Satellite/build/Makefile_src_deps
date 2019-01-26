@@ -1,0 +1,14 @@
+build/Makefile_src:\
+ /home/joey/PID_Project/SIM_Satellite/S_source.hh\
+ /home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_analytic.cpp\
+ /home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_init.cpp\
+ /home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_shutdown.cpp\
+ /home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite.h\
+ /home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic.h
+
+/home/joey/PID_Project/SIM_Satellite/S_source.hh:
+/home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_analytic.cpp:
+/home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_init.cpp:
+/home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_shutdown.cpp:
+/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite.h:
+/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic.h:

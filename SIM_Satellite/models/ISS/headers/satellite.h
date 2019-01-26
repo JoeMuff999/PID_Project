@@ -1,13 +1,15 @@
 /*************************************************************************
 PURPOSE: (Represent the state and initial conditions of a satellite)
 **************************************************************************/
+#include <iostream>
 #ifndef SATELLITE_H
 #define SATELLITE_H
 
-typedef struct {
+
+class Satellite { //sat class
 	//only need to calculate radius from earth ...
 	//these are u(t)?
-	
+public:
     double standardVelocity ;    /* *i m Constant factual velocity of satellite */
     double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */ 
 	
@@ -20,17 +22,19 @@ typedef struct {
 
     double time;        /* s Model time */
 	int counter;
-
+int satellite_default_data(Satellite*) ;
+    int satellite_init(Satellite*) ;
+    int satellite_shutdown(Satellite*) ;
+    int satellite_analytic(Satellite*);
    
 
-} SATELLITE ;
+}  ; //can use sat now as a name for this object
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-    int satellite_default_data(SATELLITE*) ;
-    int satellite_init(SATELLITE*) ;
-    int satellite_shutdown(SATELLITE*) ;
+    
+
 #ifdef __cplusplus
 }
 #endif

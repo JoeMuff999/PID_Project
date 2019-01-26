@@ -7,7 +7,7 @@ PURPOSE: ( Satellite Analytic Model )
 #ifdef __cplusplus
 extern "C" {
 #endif
-int satellite_analytic(SATELLITE*) ;
+//int satellite_analytic(Satellite*) ;
 #ifdef __cplusplus
 }
 #endif
