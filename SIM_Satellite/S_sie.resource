@@ -404,6 +404,30 @@
   <class name="EQUIV_ATTRIBUTES">
   </class>
 
+  <class name="Earth">
+    <member
+      name="earthRadius"
+      type="double"
+      io_attributes="10"
+      units="m"
+      description="radius of the Earth">
+    </member>
+    <member
+      name="earthMass"
+      type="double"
+      io_attributes="10"
+      units="m"
+      description="mass of the Earth">
+    </member>
+    <member
+      name="gravitationalConstant"
+      type="double"
+      io_attributes="10"
+      units="m"
+      description="gravitational constant of Earth">
+    </member>
+  </class>
+
   <class name="EventManagerSimObject">
     <member
       name="em"
@@ -923,12 +947,6 @@
       description="Desired radius of satellite from &quot;Earth&quot;">
     </member>
     <member
-      name="gravitational"
-      type="double"
-      io_attributes="15"
-      units="1">
-    </member>
-    <member
       name="actualAcceleration"
       type="double"
       io_attributes="15"
@@ -959,6 +977,12 @@
     <member
       name="counter"
       type="int"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="env"
+      type="Earth"
       io_attributes="15"
       units="1">
     </member>

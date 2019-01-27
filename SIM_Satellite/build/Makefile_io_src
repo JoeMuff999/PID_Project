@@ -6,6 +6,7 @@ endif
 
 IO_OBJECTS = \
     build/home/joey/PID_Project/SIM_Satellite/io_S_source.o \
+    build/home/joey/PID_Project/SIM_Satellite/models/Environment/headers/io_earth.o \
     build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/io_satellite.o \
     build/class_map.o
 

@@ -32,6 +32,7 @@ all: $(TRICK_FIXED_PYTHON)
 
 SWIG_I = \
     build/home/joey/PID_Project/SIM_Satellite/S_source_py.i \
+    build/home/joey/PID_Project/SIM_Satellite/models/Environment/headers/earth_py.i \
     build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_py.i \
     build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic_py.i
 

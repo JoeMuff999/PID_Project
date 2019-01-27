@@ -3011,12 +3011,11 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 /* -------- TYPES TABLE (BEGIN) -------- */
 
 #define SWIGTYPE_p_Earth swig_types[0]
-#define SWIGTYPE_p_Satellite swig_types[1]
-#define SWIGTYPE_p_char swig_types[2]
-#define SWIGTYPE_p_std__invalid_argument swig_types[3]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[4]
-static swig_type_info *swig_types[6];
-static swig_module_info swig_module = {swig_types, 5, 0, 0, 0, 0};
+#define SWIGTYPE_p_char swig_types[1]
+#define SWIGTYPE_p_std__invalid_argument swig_types[2]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[3]
+static swig_type_info *swig_types[5];
+static swig_module_info swig_module = {swig_types, 4, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3029,16 +3028,16 @@ static swig_module_info swig_module = {swig_types, 5, 0, 0, 0, 0};
 #endif
 
 /*-----------------------------------------------
-              @(target):= _m265e504be5526dee989c51ec4f5b15e7.so
+              @(target):= _m0240f8c64b71b1bf95173790bd2bf86c.so
   ------------------------------------------------*/
 #if PY_VERSION_HEX >= 0x03000000
-#  define SWIG_init    PyInit__m265e504be5526dee989c51ec4f5b15e7
+#  define SWIG_init    PyInit__m0240f8c64b71b1bf95173790bd2bf86c
 
 #else
-#  define SWIG_init    init_m265e504be5526dee989c51ec4f5b15e7
+#  define SWIG_init    init_m0240f8c64b71b1bf95173790bd2bf86c
 
 #endif
-#define SWIG_name    "_m265e504be5526dee989c51ec4f5b15e7"
+#define SWIG_name    "_m0240f8c64b71b1bf95173790bd2bf86c"
 
 #define SWIGVERSION 0x030012 
 #define SWIG_VERSION SWIGVERSION
@@ -3697,7 +3696,7 @@ SWIG_AsVal_ptrdiff_t (PyObject * obj, ptrdiff_t *val)
 
 
 
-#include "/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite.h"
+#include "/home/joey/PID_Project/SIM_Satellite/models/Environment/headers/earth.h"
 
 
 SWIGINTERN int
@@ -3715,7 +3714,7 @@ SWIG_AsVal_int (PyObject * obj, int *val)
   return res;
 }
 
-SWIGINTERN PyObject *Satellite___getitem__(Satellite *self,int ii){
+SWIGINTERN PyObject *Earth___getitem__(Earth *self,int ii){
 
         PyObject *resultobj ;
         int array_size = (int) get_size((char *)self) ;
@@ -3729,36 +3728,36 @@ SWIGINTERN PyObject *Satellite___getitem__(Satellite *self,int ii){
         }
 
         //std::cout << "HERE in class __getitem__!!!" << std::endl ;
-        resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(&self[ii]), SWIG_TypeQuery("Satellite *"), 0);
+        resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(&self[ii]), SWIG_TypeQuery("Earth *"), 0);
         return(resultobj) ;
     }
-SWIGINTERN PyObject *Satellite___len__(Satellite *self){
+SWIGINTERN PyObject *Earth___len__(Earth *self){
         // get_size only works if "self" was an allocated pointer
         return PyInt_FromLong(get_size((char *)self)) ;
     }
 
-/* caseAs##Satellite casts incoming ptrs as the target type.  Takes incoming object and tests if it
+/* caseAs##Earth casts incoming ptrs as the target type.  Takes incoming object and tests if it
    is a compatible type, a void *, or an integer (raw pointer value).  If it is any of these
    types it returns the incoming value as a pointer to the outgoing type.  The integer
    conversion is used by the input processor to associate named allocations in the
    memory manager to names in pyton space.
  */
-Satellite * castAsSatellite( PyObject * obj1 ) {
+Earth * castAsEarth( PyObject * obj1 ) {
     void *argp = NULL ;
-    Satellite * ret = (Satellite *)NULL ;
+    Earth * ret = (Earth *)NULL ;
 
     //std::cout << "calling __cast_as" << std::endl ;
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1,&argp,SWIG_TypeQuery("Satellite *"),SWIG_POINTER_DISOWN)) ) {
-        //std::cout << "we can cast to Satellite! " << argp << std::endl ;
-        ret = reinterpret_cast< Satellite *>(argp) ;
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1,&argp,SWIG_TypeQuery("Earth *"),SWIG_POINTER_DISOWN)) ) {
+        //std::cout << "we can cast to Earth! " << argp << std::endl ;
+        ret = reinterpret_cast< Earth *>(argp) ;
     } else if (SWIG_IsOK(SWIG_ConvertPtr(obj1, &argp,SWIG_TypeQuery("void *"), 0 ))) {
-        //std::cout << "we can cast (wrapped void *) to Satellite! " << argp << std::endl ;
-        ret = reinterpret_cast< Satellite *>(argp) ;
+        //std::cout << "we can cast (wrapped void *) to Earth! " << argp << std::endl ;
+        ret = reinterpret_cast< Earth *>(argp) ;
     } else if ( PyInt_Check(obj1) ) {
-        ret = reinterpret_cast< Satellite *>( PyInt_AsLong(obj1) ) ;
+        ret = reinterpret_cast< Earth *>( PyInt_AsLong(obj1) ) ;
         //std::cout << "we are using incoming value as address " << PyInt_AsLong(obj1) << std::endl ;
     } else {
-        std::cout << "Cast to Satellite failed." << std::endl ;
+        std::cout << "Cast to Earth failed." << std::endl ;
     }
     return ret ;
 }
@@ -4616,1022 +4615,45 @@ SWIGINTERN PyObject *SwigPyIterator_swigregister(PyObject *SWIGUNUSEDPARM(self),
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_Satellite_standardVelocity_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Earth_earthRadius_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
+  Earth *arg1 = (Earth *) 0 ;
   double arg2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_standardVelocity_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    int ret ;
-    ret = typemap_in_scalar<double >( arg2 , obj1 , "Satellite_standardVelocity_set") ;
-    if ( ret != 0 ) {
-      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
-    }
-  }
-  if (arg1) (arg1)->standardVelocity = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_standardVelocity_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_standardVelocity_get",&obj0)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (double) ((arg1)->standardVelocity);
-  {
-    // DOUBLE OUT
-    std::string temp_name ;
-    swig_double * t = new swig_double ;
-    t->value = (double)result ;
-    temp_name = "Satellite_standardVelocity_get" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_double out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_double out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_desiredRadius_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  double arg2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_desiredRadius_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    int ret ;
-    ret = typemap_in_scalar<double >( arg2 , obj1 , "Satellite_desiredRadius_set") ;
-    if ( ret != 0 ) {
-      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
-    }
-  }
-  if (arg1) (arg1)->desiredRadius = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_desiredRadius_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_desiredRadius_get",&obj0)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (double) ((arg1)->desiredRadius);
-  {
-    // DOUBLE OUT
-    std::string temp_name ;
-    swig_double * t = new swig_double ;
-    t->value = (double)result ;
-    temp_name = "Satellite_desiredRadius_get" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_double out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_double out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_actualAcceleration_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  double arg2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_actualAcceleration_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    int ret ;
-    ret = typemap_in_scalar<double >( arg2 , obj1 , "Satellite_actualAcceleration_set") ;
-    if ( ret != 0 ) {
-      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
-    }
-  }
-  if (arg1) (arg1)->actualAcceleration = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_actualAcceleration_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_actualAcceleration_get",&obj0)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (double) ((arg1)->actualAcceleration);
-  {
-    // DOUBLE OUT
-    std::string temp_name ;
-    swig_double * t = new swig_double ;
-    t->value = (double)result ;
-    temp_name = "Satellite_actualAcceleration_get" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_double out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_double out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_actualVelocity_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  double arg2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_actualVelocity_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    int ret ;
-    ret = typemap_in_scalar<double >( arg2 , obj1 , "Satellite_actualVelocity_set") ;
-    if ( ret != 0 ) {
-      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
-    }
-  }
-  if (arg1) (arg1)->actualVelocity = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_actualVelocity_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_actualVelocity_get",&obj0)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (double) ((arg1)->actualVelocity);
-  {
-    // DOUBLE OUT
-    std::string temp_name ;
-    swig_double * t = new swig_double ;
-    t->value = (double)result ;
-    temp_name = "Satellite_actualVelocity_get" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_double out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_double out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_actualRadius_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  double arg2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_actualRadius_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    int ret ;
-    ret = typemap_in_scalar<double >( arg2 , obj1 , "Satellite_actualRadius_set") ;
-    if ( ret != 0 ) {
-      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
-    }
-  }
-  if (arg1) (arg1)->actualRadius = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_actualRadius_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_actualRadius_get",&obj0)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (double) ((arg1)->actualRadius);
-  {
-    // DOUBLE OUT
-    std::string temp_name ;
-    swig_double * t = new swig_double ;
-    t->value = (double)result ;
-    temp_name = "Satellite_actualRadius_get" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_double out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_double out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_time_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  double arg2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_time_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    int ret ;
-    ret = typemap_in_scalar<double >( arg2 , obj1 , "Satellite_time_set") ;
-    if ( ret != 0 ) {
-      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
-    }
-  }
-  if (arg1) (arg1)->time = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_time_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_time_get",&obj0)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (double) ((arg1)->time);
-  {
-    // DOUBLE OUT
-    std::string temp_name ;
-    swig_double * t = new swig_double ;
-    t->value = (double)result ;
-    temp_name = "Satellite_time_get" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_double out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_double out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_counter_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  int arg2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_counter_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    int ret ;
-    ret = typemap_in_scalar<int >( arg2 , obj1 , "Satellite_counter_set") ;
-    if ( ret != 0 ) {
-      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
-    }
-  }
-  if (arg1) (arg1)->counter = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_counter_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_counter_get",&obj0)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (int) ((arg1)->counter);
-  {
-    // INT OUT
-    std::string temp_name ;
-    swig_int * t = new swig_int ;
-    t->value = (long long)result ;
-    temp_name = "Satellite_counter_get" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_int out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_int out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_int"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_satellite_default_data(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  Satellite *arg2 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_satellite_default_data",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg2 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg2 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (int)(arg1)->satellite_default_data(arg2);
-  {
-    // INT OUT
-    std::string temp_name ;
-    swig_int * t = new swig_int ;
-    t->value = (long long)result ;
-    temp_name = "Satellite_satellite_default_data" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_int out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_int out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_int"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_satellite_init(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  Satellite *arg2 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_satellite_init",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg2 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg2 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (int)(arg1)->satellite_init(arg2);
-  {
-    // INT OUT
-    std::string temp_name ;
-    swig_int * t = new swig_int ;
-    t->value = (long long)result ;
-    temp_name = "Satellite_satellite_init" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_int out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_int out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_int"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_satellite_shutdown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  Satellite *arg2 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_satellite_shutdown",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg2 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg2 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (int)(arg1)->satellite_shutdown(arg2);
-  {
-    // INT OUT
-    std::string temp_name ;
-    swig_int * t = new swig_int ;
-    t->value = (long long)result ;
-    temp_name = "Satellite_satellite_shutdown" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_int out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_int out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_int"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_satellite_PID(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  Satellite *arg2 = (Satellite *) 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_satellite_PID",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg2 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg2 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg2 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
-  result = (int)(arg1)->satellite_PID(arg2);
-  {
-    // INT OUT
-    std::string temp_name ;
-    swig_int * t = new swig_int ;
-    t->value = (long long)result ;
-    temp_name = "Satellite_satellite_PID" ;
-    temp_name.erase(temp_name.length() - 4) ;
-    //cout << "swig_int out looking for param " << temp_name << std::endl ;
-    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
-    //cout << "swig_int out found units " << t->units << std::endl ;
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_int"), SWIG_POINTER_OWN);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Satellite_env_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
-  Earth *arg2 = (Earth *) 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite_env_set",&obj0,&obj1)) SWIG_fail;
-  {
-    // Satellite *
-    void * temp_ptr ;
-    
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
-      // Array to pointer assignment
-      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
-      if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
-      if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
-      }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
-      // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
-    }
-  }
+  if (!PyArg_ParseTuple(args,(char *)"OO:Earth_earthRadius_set",&obj0,&obj1)) SWIG_fail;
   {
     // Earth *
     void * temp_ptr ;
     
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
-      arg2 = reinterpret_cast< Earth * >(temp_ptr) ;
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
       // Array to pointer assignment
       swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
       if ( temp_swig_ref != NULL ) {
-        arg2 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
       }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
       REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
       if ( temp_ref != NULL ){
-        arg2 = reinterpret_cast< Earth * >(temp_ref->address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
       }
-    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj1, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
-      arg2 = reinterpret_cast< Earth * >(temp_ptr) ;
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     }
   }
-  if (arg1) (arg1)->env = *arg2;
+  {
+    int ret ;
+    ret = typemap_in_scalar<double >( arg2 , obj1 , "Earth_earthRadius_set") ;
+    if ( ret != 0 ) {
+      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
+    }
+  }
+  if (arg1) (arg1)->earthRadius = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -5639,84 +4661,322 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Satellite_env_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Earth_earthRadius_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
+  Earth *arg1 = (Earth *) 0 ;
   PyObject * obj0 = 0 ;
-  Earth *result = 0 ;
+  double result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite_env_get",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:Earth_earthRadius_get",&obj0)) SWIG_fail;
   {
-    // Satellite *
+    // Earth *
     void * temp_ptr ;
     
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
       // Array to pointer assignment
       swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
       if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
       REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
       if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     }
   }
-  result = (Earth *)& ((arg1)->env);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Earth, 0 |  0 );
+  result = (double) ((arg1)->earthRadius);
+  {
+    // DOUBLE OUT
+    std::string temp_name ;
+    swig_double * t = new swig_double ;
+    t->value = (double)result ;
+    temp_name = "Earth_earthRadius_get" ;
+    temp_name.erase(temp_name.length() - 4) ;
+    //cout << "swig_double out looking for param " << temp_name << std::endl ;
+    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
+    //cout << "swig_double out found units " << t->units << std::endl ;
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
+  }
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Satellite___getitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Earth_earthMass_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
+  Earth *arg1 = (Earth *) 0 ;
+  double arg2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Earth_earthMass_set",&obj0,&obj1)) SWIG_fail;
+  {
+    // Earth *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    }
+  }
+  {
+    int ret ;
+    ret = typemap_in_scalar<double >( arg2 , obj1 , "Earth_earthMass_set") ;
+    if ( ret != 0 ) {
+      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
+    }
+  }
+  if (arg1) (arg1)->earthMass = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Earth_earthMass_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Earth *arg1 = (Earth *) 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Earth_earthMass_get",&obj0)) SWIG_fail;
+  {
+    // Earth *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    }
+  }
+  result = (double) ((arg1)->earthMass);
+  {
+    // DOUBLE OUT
+    std::string temp_name ;
+    swig_double * t = new swig_double ;
+    t->value = (double)result ;
+    temp_name = "Earth_earthMass_get" ;
+    temp_name.erase(temp_name.length() - 4) ;
+    //cout << "swig_double out looking for param " << temp_name << std::endl ;
+    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
+    //cout << "swig_double out found units " << t->units << std::endl ;
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Earth_gravitationalConstant_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Earth *arg1 = (Earth *) 0 ;
+  double arg2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Earth_gravitationalConstant_set",&obj0,&obj1)) SWIG_fail;
+  {
+    // Earth *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    }
+  }
+  {
+    int ret ;
+    ret = typemap_in_scalar<double >( arg2 , obj1 , "Earth_gravitationalConstant_set") ;
+    if ( ret != 0 ) {
+      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
+    }
+  }
+  if (arg1) (arg1)->gravitationalConstant = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Earth_gravitationalConstant_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Earth *arg1 = (Earth *) 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Earth_gravitationalConstant_get",&obj0)) SWIG_fail;
+  {
+    // Earth *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    }
+  }
+  result = (double) ((arg1)->gravitationalConstant);
+  {
+    // DOUBLE OUT
+    std::string temp_name ;
+    swig_double * t = new swig_double ;
+    t->value = (double)result ;
+    temp_name = "Earth_gravitationalConstant_get" ;
+    temp_name.erase(temp_name.length() - 4) ;
+    //cout << "swig_double out looking for param " << temp_name << std::endl ;
+    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
+    //cout << "swig_double out found units " << t->units << std::endl ;
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Earth_setEarthVariables(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Earth *arg1 = (Earth *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Earth_setEarthVariables",&obj0)) SWIG_fail;
+  {
+    // Earth *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
+    }
+  }
+  (arg1)->setEarthVariables();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Earth___getitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Earth *arg1 = (Earth *) 0 ;
   int arg2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:Satellite___getitem__",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:Earth___getitem__",&obj0,&obj1)) SWIG_fail;
   {
-    // Satellite *
+    // Earth *
     void * temp_ptr ;
     
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
       // Array to pointer assignment
       swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
       if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
       REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
       if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     }
   }
   {
     int ret ;
-    ret = typemap_in_scalar<int >( arg2 , obj1 , "Satellite___getitem__") ;
+    ret = typemap_in_scalar<int >( arg2 , obj1 , "Earth___getitem__") ;
     if ( ret != 0 ) {
       SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
     }
   }
-  result = (PyObject *)Satellite___getitem__(arg1,arg2);
+  result = (PyObject *)Earth___getitem__(arg1,arg2);
   resultobj = result;
   return resultobj;
 fail:
@@ -5724,37 +4984,37 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Satellite___len__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Earth___len__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
+  Earth *arg1 = (Earth *) 0 ;
   PyObject * obj0 = 0 ;
   PyObject *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:Satellite___len__",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:Earth___len__",&obj0)) SWIG_fail;
   {
-    // Satellite *
+    // Earth *
     void * temp_ptr ;
     
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
       // Array to pointer assignment
       swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
       if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
       REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
       if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     }
   }
-  result = (PyObject *)Satellite___len__(arg1);
+  result = (PyObject *)Earth___len__(arg1);
   resultobj = result;
   return resultobj;
 fail:
@@ -5762,46 +5022,46 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Satellite(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Earth(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  Satellite *result = 0 ;
+  Earth *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)":new_Satellite")) SWIG_fail;
-  result = (Satellite *)new Satellite();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Satellite, SWIG_POINTER_NEW |  0 );
+  if (!PyArg_ParseTuple(args,(char *)":new_Earth")) SWIG_fail;
+  result = (Earth *)new Earth();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Earth, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Satellite(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_Earth(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  Satellite *arg1 = (Satellite *) 0 ;
+  Earth *arg1 = (Earth *) 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Satellite",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Earth",&obj0)) SWIG_fail;
   {
-    // Satellite *
+    // Earth *
     void * temp_ptr ;
     
-    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Satellite, SWIG_POINTER_DISOWN)) ) {
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_Earth, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
       // Array to pointer assignment
       swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
       if ( temp_swig_ref != NULL ) {
-        arg1 = reinterpret_cast< Satellite * >(temp_swig_ref->ref.address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_swig_ref->ref.address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
       REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
       if ( temp_ref != NULL ){
-        arg1 = reinterpret_cast< Satellite * >(temp_ref->address) ;
+        arg1 = reinterpret_cast< Earth * >(temp_ref->address) ;
       }
     } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
       // We have an address coming in, we don't have to do any translation
-      arg1 = reinterpret_cast< Satellite * >(temp_ptr) ;
+      arg1 = reinterpret_cast< Earth * >(temp_ptr) ;
     }
   }
   delete arg1;
@@ -5812,23 +5072,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Satellite_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *Earth_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Satellite, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_Earth, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_castAsSatellite(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_castAsEarth(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   PyObject *arg1 = (PyObject *) 0 ;
   PyObject * obj0 = 0 ;
-  Satellite *result = 0 ;
+  Earth *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:castAsSatellite",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:castAsEarth",&obj0)) SWIG_fail;
   arg1 = obj0;
-  result = (Satellite *)castAsSatellite(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Satellite, 0 |  0 );
+  result = (Earth *)castAsEarth(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Earth, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -5855,32 +5115,19 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SwigPyIterator___add__", _wrap_SwigPyIterator___add__, METH_VARARGS, NULL},
 	 { (char *)"SwigPyIterator___sub__", _wrap_SwigPyIterator___sub__, METH_VARARGS, NULL},
 	 { (char *)"SwigPyIterator_swigregister", SwigPyIterator_swigregister, METH_VARARGS, NULL},
-	 { (char *)"Satellite_standardVelocity_set", _wrap_Satellite_standardVelocity_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_standardVelocity_get", _wrap_Satellite_standardVelocity_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite_desiredRadius_set", _wrap_Satellite_desiredRadius_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_desiredRadius_get", _wrap_Satellite_desiredRadius_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite_actualAcceleration_set", _wrap_Satellite_actualAcceleration_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_actualAcceleration_get", _wrap_Satellite_actualAcceleration_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite_actualVelocity_set", _wrap_Satellite_actualVelocity_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_actualVelocity_get", _wrap_Satellite_actualVelocity_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite_actualRadius_set", _wrap_Satellite_actualRadius_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_actualRadius_get", _wrap_Satellite_actualRadius_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite_time_set", _wrap_Satellite_time_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_time_get", _wrap_Satellite_time_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite_counter_set", _wrap_Satellite_counter_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_counter_get", _wrap_Satellite_counter_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite_satellite_default_data", _wrap_Satellite_satellite_default_data, METH_VARARGS, NULL},
-	 { (char *)"Satellite_satellite_init", _wrap_Satellite_satellite_init, METH_VARARGS, NULL},
-	 { (char *)"Satellite_satellite_shutdown", _wrap_Satellite_satellite_shutdown, METH_VARARGS, NULL},
-	 { (char *)"Satellite_satellite_PID", _wrap_Satellite_satellite_PID, METH_VARARGS, NULL},
-	 { (char *)"Satellite_env_set", _wrap_Satellite_env_set, METH_VARARGS, NULL},
-	 { (char *)"Satellite_env_get", _wrap_Satellite_env_get, METH_VARARGS, NULL},
-	 { (char *)"Satellite___getitem__", _wrap_Satellite___getitem__, METH_VARARGS, NULL},
-	 { (char *)"Satellite___len__", _wrap_Satellite___len__, METH_VARARGS, NULL},
-	 { (char *)"new_Satellite", _wrap_new_Satellite, METH_VARARGS, NULL},
-	 { (char *)"delete_Satellite", _wrap_delete_Satellite, METH_VARARGS, NULL},
-	 { (char *)"Satellite_swigregister", Satellite_swigregister, METH_VARARGS, NULL},
-	 { (char *)"castAsSatellite", _wrap_castAsSatellite, METH_VARARGS, NULL},
+	 { (char *)"Earth_earthRadius_set", _wrap_Earth_earthRadius_set, METH_VARARGS, NULL},
+	 { (char *)"Earth_earthRadius_get", _wrap_Earth_earthRadius_get, METH_VARARGS, NULL},
+	 { (char *)"Earth_earthMass_set", _wrap_Earth_earthMass_set, METH_VARARGS, NULL},
+	 { (char *)"Earth_earthMass_get", _wrap_Earth_earthMass_get, METH_VARARGS, NULL},
+	 { (char *)"Earth_gravitationalConstant_set", _wrap_Earth_gravitationalConstant_set, METH_VARARGS, NULL},
+	 { (char *)"Earth_gravitationalConstant_get", _wrap_Earth_gravitationalConstant_get, METH_VARARGS, NULL},
+	 { (char *)"Earth_setEarthVariables", _wrap_Earth_setEarthVariables, METH_VARARGS, NULL},
+	 { (char *)"Earth___getitem__", _wrap_Earth___getitem__, METH_VARARGS, NULL},
+	 { (char *)"Earth___len__", _wrap_Earth___len__, METH_VARARGS, NULL},
+	 { (char *)"new_Earth", _wrap_new_Earth, METH_VARARGS, NULL},
+	 { (char *)"delete_Earth", _wrap_delete_Earth, METH_VARARGS, NULL},
+	 { (char *)"Earth_swigregister", Earth_swigregister, METH_VARARGS, NULL},
+	 { (char *)"castAsEarth", _wrap_castAsEarth, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -5888,28 +5135,24 @@ static PyMethodDef SwigMethods[] = {
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
 static swig_type_info _swigt__p_Earth = {"_p_Earth", "Earth *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Satellite = {"_p_Satellite", "Satellite *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__invalid_argument = {"_p_std__invalid_argument", "std::invalid_argument *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__SwigPyIterator = {"_p_swig__SwigPyIterator", "swig::SwigPyIterator *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Earth,
-  &_swigt__p_Satellite,
   &_swigt__p_char,
   &_swigt__p_std__invalid_argument,
   &_swigt__p_swig__SwigPyIterator,
 };
 
 static swig_cast_info _swigc__p_Earth[] = {  {&_swigt__p_Earth, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Satellite[] = {  {&_swigt__p_Satellite, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__invalid_argument[] = {  {&_swigt__p_std__invalid_argument, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_swig__SwigPyIterator[] = {  {&_swigt__p_swig__SwigPyIterator, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Earth,
-  _swigc__p_Satellite,
   _swigc__p_char,
   _swigc__p_std__invalid_argument,
   _swigc__p_swig__SwigPyIterator,

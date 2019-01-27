@@ -1,5 +1,5 @@
 
-/* Created 2019/01/26 17:19:32 joey $ */
+/* Created 2019/01/26 18:27:17 joey $ */
 #include "../S_source.hh"
 
 
@@ -1083,7 +1083,7 @@ int SatelliteSimObject::call_function ( Trick::JobData * curr_job ) {
             satellite.satellite_init( &satellite ) ;
             break ;
         case 2:
-            satellite.satellite_analytic( &satellite ) ;
+            satellite.satellite_PID( &satellite ) ;
             break ;
         case 3:
             satellite.satellite_shutdown( &satellite ) ;
@@ -1224,8 +1224,8 @@ Trick::ClassSizeCheck * Trick::ClassSizeCheck::pInstance = NULL ;
 void memory_init( void ) {
 
     ALLOC_INFO * ai ;
-    exec_set_version_date_tag( "@(#)CP Version 17.5.dev, Sat Jan 26 17:19:32 2019" ) ;
-    exec_set_build_date( "Sat Jan 26 17:19:32 2019" ) ;
+    exec_set_version_date_tag( "@(#)CP Version 17.5.dev, Sat Jan 26 18:27:17 2019" ) ;
+    exec_set_build_date( "Sat Jan 26 18:27:17 2019" ) ;
     exec_set_current_version( "17.5.dev" ) ;
 
     populate_sim_services_class_map() ;

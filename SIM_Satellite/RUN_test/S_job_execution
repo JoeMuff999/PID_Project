@@ -4,8 +4,8 @@ Trick::Threads (Child_0)
     trigger type = mutex
     number of scheduled jobs = 6
     from Trick::ThreadBase
-    pthread_id = 140706868930368
-    process_id = 4530
+    pthread_id = 139752362035008
+    process_id = 9363
     rt_priority = 0
     cpus = none assigned
 
@@ -68,7 +68,7 @@ Initialization:
 Scheduled Loop:
 
 Thread 0:
-      1 |   0 |scheduled                | 60000 | 0.000000 |     0.01 |    1e+37 | 22.02 | dyn.satellite.satellite_analytic
+      1 |   0 |scheduled                | 60000 | 0.000000 |     0.01 |    1e+37 | 22.02 | dyn.satellite.satellite_PID
       1 |   0 |automatic_last           | 60000 | 0.000000 |        1 |    1e+37 | 11.11 | trick_vs.vs.copy_data_scheduled
       1 |   0 |system_checkpoint        | 0     | 0.000000 |        1 |    1e+37 |  4.04 | trick_cpr.cpr.write_checkpoint
       1 |   0 |system_checkpoint        | 0     | 0.000000 |        1 |    1e+37 |  4.06 | trick_cpr.cpr.safestore_checkpoint

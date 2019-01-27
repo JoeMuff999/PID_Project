@@ -8,12 +8,12 @@
     <page vcells="0">
         <title>User Job Execution Times</title>
         <plot grid="yes" background_color="cornsilk2">
-            <title>JOB_dyn.satellite.satellite_analytic.22.02(scheduled_0.010)</title>
+            <title>JOB_dyn.satellite.satellite_PID.22.02(scheduled_0.010)</title>
             <xaxis> <label>Time</label> <units>s</units> </xaxis>
             <yaxis> <label>Execution Time</label> </yaxis>
             <curve>
                 <var>sys.exec.out.time</var>
-                <var line_color="red" scale="1e-06">JOB_dyn.satellite.satellite_analytic.22.02(scheduled_0.010)</var>
+                <var line_color="red" scale="1e-06">JOB_dyn.satellite.satellite_PID.22.02(scheduled_0.010)</var>
             </curve>
         </plot>
     </page>

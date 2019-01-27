@@ -842,7 +842,7 @@ class SatelliteSimObject : public Trick::SimObject {
             Trick::JobData * job __attribute__((unused)) ;
             job = this->add_job(0, 0, "default_data", NULL, 1, "satellite.satellite_default_data", "", 60000) ;
             job = this->add_job(0, 1, "initialization", NULL, 1, "satellite.satellite_init", "", 60000) ;
-            job = this->add_job(0, 2, "scheduled", NULL, 0.01, "satellite.satellite_analytic", "", 60000) ;
+            job = this->add_job(0, 2, "scheduled", NULL, 0.01, "satellite.satellite_PID", "", 60000) ;
             job = this->add_job(0, 3, "shutdown", NULL, 1, "satellite.satellite_shutdown", "", 60000) ;
         }
 

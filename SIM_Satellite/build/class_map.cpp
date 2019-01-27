@@ -14,6 +14,9 @@ void populate_class_map() {
 
     Trick::AttributesMap * class_attribute_map = Trick::AttributesMap::attributes_map();
 
+    // /home/joey/PID_Project/SIM_Satellite/models/Environment/headers/earth.h
+    extern ATTRIBUTES  attrEarth[] ;
+    class_attribute_map->add_attr("Earth" , attrEarth) ;
     // /home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite.h
     extern ATTRIBUTES  attrSatellite[] ;
     class_attribute_map->add_attr("Satellite" , attrSatellite) ;

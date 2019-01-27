@@ -1,4 +1,5 @@
 build/Makefile_swig: \
     /home/joey/PID_Project/SIM_Satellite/S_source.hh \
+    /home/joey/PID_Project/SIM_Satellite/models/Environment/headers/earth.h \
     /home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite.h \
     /home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic.h

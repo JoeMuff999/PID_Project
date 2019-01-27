@@ -5,6 +5,8 @@ PURPOSE: (Set the initial data values)
 /* Model Include files */
 #include <math.h>
 #include "../headers/satellite.h"
+#include "../models/Environment/headers/earth.h"
+#include "../models/Environment/src/earth.cpp"
 
 /* default data job */
 int Satellite::satellite_default_data( Satellite* S ) {
@@ -12,10 +14,11 @@ int Satellite::satellite_default_data( Satellite* S ) {
     S->standardVelocity = 0; //change this
     S->desiredRadius = 408773 + 6371393;  
 	
-	S->gravitational =6.67*pow(10,-11);
+	
 
     S->time = 0.0 ;
 	S->counter = 0;
+	S->env.setEarthVariables();
 
    
 return 0;
