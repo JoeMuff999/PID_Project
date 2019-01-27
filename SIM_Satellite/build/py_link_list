@@ -3,4 +3,4 @@ build/top.o
 build/home/joey/PID_Project/SIM_Satellite/S_source_py.o
 build/home/joey/PID_Project/SIM_Satellite/models/Environment/headers/earth_py.o
 build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_py.o
-build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic_py.o
+build/home/joey/PID_Project/SIM_Satellite/models/STDRandomGenerator/headers/stdrandom_py.o

@@ -119,7 +119,7 @@
 extern "C" {
 #endif
 
-%import "build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic_py.i"
+%import "build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_py.i"
 %import(module="sim_services") "trick/clock_proto.h"
 %import(module="sim_services") "trick/data_record_proto.h"
 %import(module="sim_services") "trick/env_proto.h"

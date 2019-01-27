@@ -31,35 +31,55 @@ ATTRIBUTES attrSatellite[] = {
   10,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
   8, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
   NULL, NULL, NULL, NULL},
+{"error", "double", "1", "", "",
+  "",
+  15,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
+  16, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  NULL, NULL, NULL, NULL},
+{"previousError", "double", "1", "", "",
+  "",
+  15,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
+  24, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  NULL, NULL, NULL, NULL},
+{"randomNumber", "double", "1", "", "",
+  "",
+  15,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
+  32, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  NULL, NULL, NULL, NULL},
 {"actualAcceleration", "double", "m/s2", "", "",
   "r-acceleration",
   15,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
-  16, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  40, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
   NULL, NULL, NULL, NULL},
 {"actualVelocity", "double", "m/s", "", "",
   "r-velocity",
   15,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
-  24, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  48, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
   NULL, NULL, NULL, NULL},
 {"actualRadius", "double", "m", "", "",
   "r-position",
   15,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
-  32, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  56, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
   NULL, NULL, NULL, NULL},
 {"time", "double", "s", "", "",
   "Model time",
   15,TRICK_DOUBLE, sizeof(double), 0, 0, Language_CPP, 0,
-  40, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  64, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
   NULL, NULL, NULL, NULL},
 {"counter", "int", "1", "", "",
   "",
   15,TRICK_INTEGER, sizeof(int), 0, 0, Language_CPP, 0,
-  48, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  72, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
   NULL, NULL, NULL, NULL},
 {"env", "Earth", "1", "", "",
   "",
   15,TRICK_STRUCTURED, 0, 0, 0, Language_CPP, 0,
-  56, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  80, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+  NULL, NULL, NULL, NULL},
+{"random", "STDRandom", "1", "", "",
+  "",
+  15,TRICK_STRUCTURED, 0, 0, 0, Language_CPP, 0,
+  104, NULL, 0, {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
   NULL, NULL, NULL, NULL},
 {"", "", "1", "", "",
   "",
@@ -78,7 +98,8 @@ void init_attrSatellite() {
     }
     initialized = 1;
 
-    trick_MM->add_attr_info(std::string(attrSatellite[7].type_name) , &attrSatellite[7], __FILE__ , __LINE__ ) ;
+    trick_MM->add_attr_info(std::string(attrSatellite[10].type_name) , &attrSatellite[10], __FILE__ , __LINE__ ) ;
+    trick_MM->add_attr_info(std::string(attrSatellite[11].type_name) , &attrSatellite[11], __FILE__ , __LINE__ ) ;
 }
 
 extern "C" {
@@ -108,12 +129,16 @@ struct UnitsMapSatellite {
         Trick::UnitsMap* units_map_ptr = Trick::UnitsMap::units_map();
         units_map_ptr->add_param("Satellite_standardVelocity", "m") ;
         units_map_ptr->add_param("Satellite_desiredRadius", "m") ;
+        units_map_ptr->add_param("Satellite_error", "1") ;
+        units_map_ptr->add_param("Satellite_previousError", "1") ;
+        units_map_ptr->add_param("Satellite_randomNumber", "1") ;
         units_map_ptr->add_param("Satellite_actualAcceleration", "m/s2") ;
         units_map_ptr->add_param("Satellite_actualVelocity", "m/s") ;
         units_map_ptr->add_param("Satellite_actualRadius", "m") ;
         units_map_ptr->add_param("Satellite_time", "s") ;
         units_map_ptr->add_param("Satellite_counter", "1") ;
         units_map_ptr->add_param("Satellite_env", "1") ;
+        units_map_ptr->add_param("Satellite_random", "1") ;
     }
 } umSatellite;
 

@@ -13,6 +13,8 @@ int Satellite::satellite_analytic( Satellite* S ) {
     S->actualAcceleration = (env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius + env.earthRadius),2)); //+ u(t)
 	S->actualVelocity = S->actualVelocity + (S->actualAcceleration*timeInterval);
 	S->actualRadius = S->actualRadius + (S->actualVelocity*timeInterval);
+
+        
 	if(S->counter == 50)
 	{
 		printf("\n Satellite state: aRadius = %.9f, aVelocity = %.9f, aAcceleration = %.9f", S->actualRadius, S->actualVelocity, S->actualAcceleration);

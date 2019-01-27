@@ -87,7 +87,7 @@ PURPOSE:
 extern "C" {
 #endif
 
-#include "ISS/headers/satellite_analytic.h"
+#include "ISS/headers/satellite.h"
 #include "trick/clock_proto.h"
 #include "trick/data_record_proto.h"
 #include "trick/env_proto.h"

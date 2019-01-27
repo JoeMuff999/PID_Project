@@ -931,6 +931,9 @@
   <class name="SEND_ME">
   </class>
 
+  <class name="STDRandom">
+  </class>
+
   <class name="Satellite">
     <member
       name="standardVelocity"
@@ -945,6 +948,24 @@
       io_attributes="10"
       units="m"
       description="Desired radius of satellite from &quot;Earth&quot;">
+    </member>
+    <member
+      name="error"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="previousError"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="randomNumber"
+      type="double"
+      io_attributes="15"
+      units="1">
     </member>
     <member
       name="actualAcceleration"
@@ -983,6 +1004,12 @@
     <member
       name="env"
       type="Earth"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="random"
+      type="STDRandom"
       io_attributes="15"
       units="1">
     </member>

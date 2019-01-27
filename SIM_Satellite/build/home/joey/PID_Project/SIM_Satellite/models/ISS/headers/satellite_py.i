@@ -18,7 +18,10 @@
 
 #ifndef SATELLITE_H
 #define SATELLITE_H
+%import "build/home/joey/PID_Project/SIM_Satellite/models/STDRandomGenerator/headers/stdrandom_py.i"
 %import "build/home/joey/PID_Project/SIM_Satellite/models/Environment/headers/earth_py.i"
+
+
 
 class Satellite { 
 	
@@ -28,6 +31,11 @@ public:
 
     double desiredRadius ;    
  
+
+	double error;
+	double previousError;
+double randomNumber;
+
 	
 
 
@@ -46,8 +54,10 @@ int satellite_default_data(Satellite*) ;
     int satellite_init(Satellite*) ;
     int satellite_shutdown(Satellite*) ;
     
+    
     int satellite_PID(Satellite*);
     Earth env;
+STDRandom random;
 
    
 

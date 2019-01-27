@@ -34,7 +34,7 @@ SWIG_I = \
     build/home/joey/PID_Project/SIM_Satellite/S_source_py.i \
     build/home/joey/PID_Project/SIM_Satellite/models/Environment/headers/earth_py.i \
     build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_py.i \
-    build/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic_py.i
+    build/home/joey/PID_Project/SIM_Satellite/models/STDRandomGenerator/headers/stdrandom_py.i
 
 define create_convert_swig_rule
 build/%_py.i: /%.$1

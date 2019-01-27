@@ -2,10 +2,10 @@ Thread information
 Trick::Threads (Child_0)
     process_type = scheduled
     trigger type = mutex
-    number of scheduled jobs = 6
+    number of scheduled jobs = 7
     from Trick::ThreadBase
-    pthread_id = 139752362035008
-    process_id = 9363
+    pthread_id = 140552665368384
+    process_id = 25778
     rt_priority = 0
     cpus = none assigned
 
@@ -52,6 +52,7 @@ Initialization:
       1 |   0 |initialization           | 65534 |          |          |          |  1.02 | trick_sys.exec_collect_init
       1 |   0 |initialization           | 65534 |          |          |          |  1.03 | trick_sys.sched.write_s_run_summary
       1 |   0 |initialization           | 65534 |          |          |          | 12.01 | trick_data_record.drd.init
+      1 |   0 |initialization           | 65534 |          |          |          | 24.01 | trick_data_record_group_my_satellite.init
       1 |   0 |initialization           | 65535 |          |          |          |  1.04 | trick_sys.sched.check_all_jobs_handled
       1 |   0 |initialization           | 65535 |          |          |          |  1.05 | trick_sys.sched.check_all_job_cycle_times
       1 |   0 |initialization           | 65535 |          |          |          |  1.06 | trick_sys.sched.create_threads
@@ -70,6 +71,7 @@ Scheduled Loop:
 Thread 0:
       1 |   0 |scheduled                | 60000 | 0.000000 |     0.01 |    1e+37 | 22.02 | dyn.satellite.satellite_PID
       1 |   0 |automatic_last           | 60000 | 0.000000 |        1 |    1e+37 | 11.11 | trick_vs.vs.copy_data_scheduled
+      1 |   0 |data_record              | 60000 | 0.000000 |     0.01 |    1e+37 | 24.99 | trick_data_record_group_my_satellite.data_record
       1 |   0 |system_checkpoint        | 0     | 0.000000 |        1 |    1e+37 |  4.04 | trick_cpr.cpr.write_checkpoint
       1 |   0 |system_checkpoint        | 0     | 0.000000 |        1 |    1e+37 |  4.06 | trick_cpr.cpr.safestore_checkpoint
       1 |   0 |system_advance_sim_time  | 60000 | 0.000000 |        1 |    1e+37 |  1.18 | trick_sys.sched.advance_sim_time
@@ -93,6 +95,7 @@ Thread 0:
       1 |   0 |end_of_frame             | 60000 | 0.000000 |        1 |    1e+37 |  1.15 | trick_sys.sched.sched_freeze_to_exec_command
       1 |   0 |end_of_frame             | 60000 | 0.000000 |        1 |    1e+37 |  1.16 | trick_sys.sched.async_freeze_to_exec_command
       1 |   0 |end_of_frame             | 60000 | 0.000000 |        1 |    1e+37 | 12.03 | trick_data_record.drd.signal_thread
+      1 |   0 |end_of_frame             | 60000 | 0.000000 |        1 |    1e+37 | 24.02 | trick_data_record_group_my_satellite.write_data
       1 |   0 |end_of_frame             | 65534 | 0.000000 |        1 |    1e+37 | 15.08 | trick_master_slave.master.end_of_frame_status_from_slave
       1 |   0 |end_of_frame             | 65534 | 0.000000 |        1 |    1e+37 | 15.10 | trick_master_slave.slave.end_of_frame
       1 |   0 |end_of_frame             | 65535 | 0.000000 |        1 |    1e+37 | 13.10 | trick_real_time.rt_sync.rt_monitor
@@ -125,6 +128,7 @@ Shutdown:
       1 |   0 |shutdown                 | 60000 |          |          |          | 11.15 | trick_vs.vs.shutdown
       1 |   0 |shutdown                 | 60000 |          |          |          | 12.07 | trick_data_record.drd.shutdown
       1 |   0 |shutdown                 | 60000 |          |          |          | 22.03 | dyn.satellite.satellite_shutdown
+      1 |   0 |shutdown                 | 60000 |          |          |          | 24.06 | trick_data_record_group_my_satellite.shutdown
       1 |   0 |shutdown                 | 65534 |          |          |          | 15.17 | trick_master_slave.master.shutdown
       1 |   0 |shutdown                 | 65534 |          |          |          | 15.18 | trick_master_slave.slave.shutdown
       1 |   0 |shutdown                 | 65535 |          |          |          |  9.03 | trick_ip.ip.shutdown
@@ -144,7 +148,9 @@ CheckPointRestart :
 
       1 |   0 |checkpoint               | 0     |          |          |          |  1.09 | trick_sys.sched.checkpoint
       1 |   0 |checkpoint               | 60000 |          |          |          | 15.04 | trick_master_slave.master.checkpoint
+      1 |   0 |checkpoint               | 60000 |          |          |          | 24.03 | trick_data_record_group_my_satellite.checkpoint
       1 |   0 |post_checkpoint          | 0     |          |          |          |  1.10 | trick_sys.sched.post_checkpoint
+      1 |   0 |post_checkpoint          | 60000 |          |          |          | 24.04 | trick_data_record_group_my_satellite.clear_checkpoint_vars
       1 |   0 |preload_checkpoint       | 60000 |          |          |          | 10.06 | trick_em.em.preload_checkpoint
       1 |   0 |preload_checkpoint       | 60000 |          |          |          | 10.07 | trick_em.ep.preload_checkpoint
       1 |   0 |preload_checkpoint       | 60000 |          |          |          | 11.07 | trick_vs.vs.suspendPreCheckpointReload
@@ -157,6 +163,7 @@ CheckPointRestart :
       1 |   0 |restart                  | 60000 |          |          |          | 11.09 | trick_vs.vs.resumePostCheckpointReload
       1 |   0 |restart                  | 60000 |          |          |          | 12.05 | trick_data_record.drd.restart
       1 |   0 |restart                  | 60000 |          |          |          | 14.04 | trick_frame_log.frame_log.clear_data_record_info
+      1 |   0 |restart                  | 60001 |          |          |          | 24.05 | trick_data_record_group_my_satellite.restart
       1 |   0 |restart                  | 65534 |          |          |          |  1.11 | trick_sys.exec_collect_init
       1 |   0 |restart                  | 65535 |          |          |          | 10.02 | trick_em.ep.add_pending_events
       1 |   0 |restart                  | 65535 |          |          |          | 13.05 | trick_real_time.rt_sync.restart

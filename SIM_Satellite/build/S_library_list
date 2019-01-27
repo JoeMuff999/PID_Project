@@ -4,4 +4,4 @@
 /home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_init.cpp
 /home/joey/PID_Project/SIM_Satellite/models/ISS/analytical/satellite_shutdown.cpp
 /home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite.h
-/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic.h
+/home/joey/PID_Project/SIM_Satellite/models/STDRandomGenerator/headers/stdrandom.h

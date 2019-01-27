@@ -10,7 +10,7 @@ LIBRARY DEPENDENCIES:
 *************************************************************/
 
 #include "sim_objects/default_trick_sys.sm"
-##include "ISS/headers/satellite_analytic.h"
+##include "ISS/headers/satellite.h"
 	
 class SatelliteSimObject : public Trick::SimObject {
 
@@ -21,7 +21,7 @@ class SatelliteSimObject : public Trick::SimObject {
             ("default_data") satellite.satellite_default_data( &satellite) ;
             ("initialization") satellite.satellite_init( &satellite ) ;
             //(0.01, "scheduled") satellite.satellite_analytic( &satellite ) ;
- 		(0.01, "scheduled") satellite.satellite_PID( &satellite ) ;
+ 			(0.01, "scheduled") satellite.satellite_PID( &satellite ) ;
             ("shutdown") satellite.satellite_shutdown( &satellite ) ;
         }
 } ;

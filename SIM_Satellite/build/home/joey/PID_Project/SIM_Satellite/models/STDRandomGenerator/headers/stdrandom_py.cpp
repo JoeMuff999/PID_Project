@@ -3010,11 +3010,12 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_char swig_types[0]
-#define SWIGTYPE_p_std__invalid_argument swig_types[1]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[2]
-static swig_type_info *swig_types[4];
-static swig_module_info swig_module = {swig_types, 3, 0, 0, 0, 0};
+#define SWIGTYPE_p_STDRandom swig_types[0]
+#define SWIGTYPE_p_char swig_types[1]
+#define SWIGTYPE_p_std__invalid_argument swig_types[2]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[3]
+static swig_type_info *swig_types[5];
+static swig_module_info swig_module = {swig_types, 4, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3027,16 +3028,16 @@ static swig_module_info swig_module = {swig_types, 3, 0, 0, 0, 0};
 #endif
 
 /*-----------------------------------------------
-              @(target):= _m76246220acd347c59854f67074103061.so
+              @(target):= _m7efb6ea2066a027908bd2887043d1b94.so
   ------------------------------------------------*/
 #if PY_VERSION_HEX >= 0x03000000
-#  define SWIG_init    PyInit__m76246220acd347c59854f67074103061
+#  define SWIG_init    PyInit__m7efb6ea2066a027908bd2887043d1b94
 
 #else
-#  define SWIG_init    init_m76246220acd347c59854f67074103061
+#  define SWIG_init    init_m7efb6ea2066a027908bd2887043d1b94
 
 #endif
-#define SWIG_name    "_m76246220acd347c59854f67074103061"
+#define SWIG_name    "_m7efb6ea2066a027908bd2887043d1b94"
 
 #define SWIGVERSION 0x030012 
 #define SWIG_VERSION SWIGVERSION
@@ -3695,7 +3696,71 @@ SWIG_AsVal_ptrdiff_t (PyObject * obj, ptrdiff_t *val)
 
 
 
-#include "/home/joey/PID_Project/SIM_Satellite/models/ISS/headers/satellite_analytic.h"
+#include "/home/joey/PID_Project/SIM_Satellite/models/STDRandomGenerator/headers/stdrandom.h"
+
+
+SWIGINTERN int
+SWIG_AsVal_int (PyObject * obj, int *val)
+{
+  long v;
+  int res = SWIG_AsVal_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v < INT_MIN || v > INT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< int >(v);
+    }
+  }  
+  return res;
+}
+
+SWIGINTERN PyObject *STDRandom___getitem__(STDRandom *self,int ii){
+
+        PyObject *resultobj ;
+        int array_size = (int) get_size((char *)self) ;
+
+        if ( ii < 0 ) {
+            ii += array_size ;
+        }
+
+        if ( (array_size > 0) and (ii > array_size) ) {
+            return NULL ;
+        }
+
+        //std::cout << "HERE in class __getitem__!!!" << std::endl ;
+        resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(&self[ii]), SWIG_TypeQuery("STDRandom *"), 0);
+        return(resultobj) ;
+    }
+SWIGINTERN PyObject *STDRandom___len__(STDRandom *self){
+        // get_size only works if "self" was an allocated pointer
+        return PyInt_FromLong(get_size((char *)self)) ;
+    }
+
+/* caseAs##STDRandom casts incoming ptrs as the target type.  Takes incoming object and tests if it
+   is a compatible type, a void *, or an integer (raw pointer value).  If it is any of these
+   types it returns the incoming value as a pointer to the outgoing type.  The integer
+   conversion is used by the input processor to associate named allocations in the
+   memory manager to names in pyton space.
+ */
+STDRandom * castAsSTDRandom( PyObject * obj1 ) {
+    void *argp = NULL ;
+    STDRandom * ret = (STDRandom *)NULL ;
+
+    //std::cout << "calling __cast_as" << std::endl ;
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj1,&argp,SWIG_TypeQuery("STDRandom *"),SWIG_POINTER_DISOWN)) ) {
+        //std::cout << "we can cast to STDRandom! " << argp << std::endl ;
+        ret = reinterpret_cast< STDRandom *>(argp) ;
+    } else if (SWIG_IsOK(SWIG_ConvertPtr(obj1, &argp,SWIG_TypeQuery("void *"), 0 ))) {
+        //std::cout << "we can cast (wrapped void *) to STDRandom! " << argp << std::endl ;
+        ret = reinterpret_cast< STDRandom *>(argp) ;
+    } else if ( PyInt_Check(obj1) ) {
+        ret = reinterpret_cast< STDRandom *>( PyInt_AsLong(obj1) ) ;
+        //std::cout << "we are using incoming value as address " << PyInt_AsLong(obj1) << std::endl ;
+    } else {
+        std::cout << "Cast to STDRandom failed." << std::endl ;
+    }
+    return ret ;
+}
 
 #ifdef __cplusplus
 extern "C" {
@@ -4550,6 +4615,231 @@ SWIGINTERN PyObject *SwigPyIterator_swigregister(PyObject *SWIGUNUSEDPARM(self),
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *_wrap_STDRandom_getRandomNumber(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  STDRandom *arg1 = (STDRandom *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:STDRandom_getRandomNumber",&obj0,&obj1,&obj2)) SWIG_fail;
+  {
+    // STDRandom *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_STDRandom, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< STDRandom * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< STDRandom * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    }
+  }
+  {
+    int ret ;
+    ret = typemap_in_scalar<int >( arg2 , obj1 , "STDRandom_getRandomNumber") ;
+    if ( ret != 0 ) {
+      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
+    }
+  }
+  {
+    int ret ;
+    ret = typemap_in_scalar<int >( arg3 , obj2 , "STDRandom_getRandomNumber") ;
+    if ( ret != 0 ) {
+      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
+    }
+  }
+  result = (double)(arg1)->getRandomNumber(arg2,arg3);
+  {
+    // DOUBLE OUT
+    std::string temp_name ;
+    swig_double * t = new swig_double ;
+    t->value = (double)result ;
+    temp_name = "STDRandom_getRandomNumber" ;
+    temp_name.erase(temp_name.length() - 4) ;
+    //cout << "swig_double out looking for param " << temp_name << std::endl ;
+    t->units = Trick::UnitsMap::units_map()->get_units(temp_name) ;
+    //cout << "swig_double out found units " << t->units << std::endl ;
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(t), SWIG_TypeQuery("_p_swig_double"), SWIG_POINTER_OWN);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_STDRandom___getitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  STDRandom *arg1 = (STDRandom *) 0 ;
+  int arg2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:STDRandom___getitem__",&obj0,&obj1)) SWIG_fail;
+  {
+    // STDRandom *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_STDRandom, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< STDRandom * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< STDRandom * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    }
+  }
+  {
+    int ret ;
+    ret = typemap_in_scalar<int >( arg2 , obj1 , "STDRandom___getitem__") ;
+    if ( ret != 0 ) {
+      SWIG_exception_fail(SWIG_TypeError,"Right hand side could not be converted proper scalar type");
+    }
+  }
+  result = (PyObject *)STDRandom___getitem__(arg1,arg2);
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_STDRandom___len__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  STDRandom *arg1 = (STDRandom *) 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:STDRandom___len__",&obj0)) SWIG_fail;
+  {
+    // STDRandom *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_STDRandom, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< STDRandom * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< STDRandom * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    }
+  }
+  result = (PyObject *)STDRandom___len__(arg1);
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_STDRandom(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  STDRandom *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_STDRandom")) SWIG_fail;
+  result = (STDRandom *)new STDRandom();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_STDRandom, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_STDRandom(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  STDRandom *arg1 = (STDRandom *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_STDRandom",&obj0)) SWIG_fail;
+  {
+    // STDRandom *
+    void * temp_ptr ;
+    
+    if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIGTYPE_p_STDRandom, SWIG_POINTER_DISOWN)) ) {
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_swig_ref"), 0)) ) {
+      // Array to pointer assignment
+      swig_ref * temp_swig_ref = reinterpret_cast< swig_ref * >(temp_ptr);
+      if ( temp_swig_ref != NULL ) {
+        arg1 = reinterpret_cast< STDRandom * >(temp_swig_ref->ref.address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_REF2"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      REF2 * temp_ref = reinterpret_cast< REF2 * >(temp_ptr) ;
+      if ( temp_ref != NULL ){
+        arg1 = reinterpret_cast< STDRandom * >(temp_ref->address) ;
+      }
+    } else if ( SWIG_IsOK(SWIG_ConvertPtr(obj0, &temp_ptr,SWIG_TypeQuery("_p_void"), 0)) ) {
+      // We have an address coming in, we don't have to do any translation
+      arg1 = reinterpret_cast< STDRandom * >(temp_ptr) ;
+    }
+  }
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *STDRandom_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_STDRandom, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_castAsSTDRandom(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  STDRandom *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:castAsSTDRandom",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  result = (STDRandom *)castAsSTDRandom(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_STDRandom, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"delete_SwigPyIterator", _wrap_delete_SwigPyIterator, METH_VARARGS, NULL},
@@ -4570,27 +4860,38 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SwigPyIterator___add__", _wrap_SwigPyIterator___add__, METH_VARARGS, NULL},
 	 { (char *)"SwigPyIterator___sub__", _wrap_SwigPyIterator___sub__, METH_VARARGS, NULL},
 	 { (char *)"SwigPyIterator_swigregister", SwigPyIterator_swigregister, METH_VARARGS, NULL},
+	 { (char *)"STDRandom_getRandomNumber", _wrap_STDRandom_getRandomNumber, METH_VARARGS, NULL},
+	 { (char *)"STDRandom___getitem__", _wrap_STDRandom___getitem__, METH_VARARGS, NULL},
+	 { (char *)"STDRandom___len__", _wrap_STDRandom___len__, METH_VARARGS, NULL},
+	 { (char *)"new_STDRandom", _wrap_new_STDRandom, METH_VARARGS, NULL},
+	 { (char *)"delete_STDRandom", _wrap_delete_STDRandom, METH_VARARGS, NULL},
+	 { (char *)"STDRandom_swigregister", STDRandom_swigregister, METH_VARARGS, NULL},
+	 { (char *)"castAsSTDRandom", _wrap_castAsSTDRandom, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
+static swig_type_info _swigt__p_STDRandom = {"_p_STDRandom", "STDRandom *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__invalid_argument = {"_p_std__invalid_argument", "std::invalid_argument *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__SwigPyIterator = {"_p_swig__SwigPyIterator", "swig::SwigPyIterator *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_STDRandom,
   &_swigt__p_char,
   &_swigt__p_std__invalid_argument,
   &_swigt__p_swig__SwigPyIterator,
 };
 
+static swig_cast_info _swigc__p_STDRandom[] = {  {&_swigt__p_STDRandom, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__invalid_argument[] = {  {&_swigt__p_std__invalid_argument, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_swig__SwigPyIterator[] = {  {&_swigt__p_swig__SwigPyIterator, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_STDRandom,
   _swigc__p_char,
   _swigc__p_std__invalid_argument,
   _swigc__p_swig__SwigPyIterator,

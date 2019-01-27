@@ -7,13 +7,16 @@ PURPOSE: (Set the initial data values)
 #include "../headers/satellite.h"
 #include "../models/Environment/headers/earth.h"
 #include "../models/Environment/src/earth.cpp"
+#include "../models/STDRandomGenerator/headers/stdrandom.h"
+#include "../models/STDRandomGenerator/src/stdrandom.cpp"
 
 /* default data job */
 int Satellite::satellite_default_data( Satellite* S ) {
-
+	
     S->standardVelocity = 0; //change this
     S->desiredRadius = 408773 + 6371393;  
-	
+
+
 	
 
     S->time = 0.0 ;
@@ -21,16 +24,21 @@ int Satellite::satellite_default_data( Satellite* S ) {
 	S->env.setEarthVariables();
 
    
-return 0;
+	return 0;
    
 }
 
 /* initialization job */
 int Satellite::satellite_init( Satellite* S) {
-    S->actualRadius = 407164 + 6371393;    
-S->actualAcceleration = (5.972 * pow(10,24) * 6.67*pow(10,-11))/(S->actualRadius + 6371393); 
+
+    S->randomNumber = S->random.getRandomNumber(1000,100);
+
+	S->actualRadius = S->randomNumber + 6371393;   
+	S->actualAcceleration = (5.972 * pow(10,24) * 6.67*pow(10,-11))/(S->actualRadius + 6371393); 
     S->actualVelocity = 0;     
+	//S->error = S->actualRadius - S->desiredRadius; // if error is positive, U(t) must be negative (its too big), other way if error negative
+	S->error = 0; //for now leave as 0 until I can figure out a better way to structure my code
+	S->previousError = 0; //using for derivative comparisons
 
-
-  return 0;
+	return 0;
 }
