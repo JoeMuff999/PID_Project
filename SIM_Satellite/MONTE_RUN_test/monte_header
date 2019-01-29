@@ -1,0 +1,4 @@
+trick.mc_set_num_runs(20)
+
+var0 = trick.MonteVarFile("dyn.satellite.pid.kP", "MONTE_RUN_test/monte_runs", 2)
+trick_mc.mc.add_variable(var0)

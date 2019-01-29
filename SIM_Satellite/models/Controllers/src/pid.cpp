@@ -4,27 +4,33 @@ PURPOSE:    (yes )
 #include <stdio.h>
 #include <math.h>
 
+void PID::setKValues()
+{
+	 kP = .1;
+	 kD = 1;
+	 kI = .01;
+	printf("kvalues: %.9f, %.9f", kP, kD);
+
+}
+
 double PID::getShifter(double actual, double desired, double previousError) {
 	
-	double timeInterval = .01;
+	 timeInterval = .01;
 	
-	double shifter = 0;
-	double kP = .1;
-	double kD = 1;
-	double kI =.01;
-
+	 shifter = 0;
+	
 	error = desired - actual;
 
 	double derivative = (error - previousError)/timeInterval;
-	double integral = integral + (error*timeInterval);
-
+	 integral = integral + (error*timeInterval);
+	//printf("\nprop, derv, integral: %.9f, %.9f,%.9f", error, derivative, integral);
     
 
 	shifter = (kP * error) + (kD* derivative) + (kI*integral);
 	
 
 	previousError = desired - actual;
-
+	
 	return shifter;
 
 

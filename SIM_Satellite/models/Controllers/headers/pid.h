@@ -15,11 +15,13 @@ public:
 	double kD;
 	
 	double shifter;
+	double integral;
 
 	double error;
 
 	double timeInterval;
 	
+	void setKValues();
 	double getShifter(double,double, double);
 	double getError(double,double);
 	

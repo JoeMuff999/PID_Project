@@ -688,6 +688,12 @@
       units="1">
     </member>
     <member
+      name="integral"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
       name="error"
       type="double"
       io_attributes="15"

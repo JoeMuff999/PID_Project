@@ -1,0 +1,12 @@
+# This run can be executed in stand alone (non-Monte Carlo) mode by running
+# the S_main executable with this file specified as the input file.
+
+if (sys.version_info > (3, 0)):
+    exec(open("RUN_test/monte.py").read())
+else:
+    execfile("RUN_test/monte.py")
+
+trick.mc_set_enabled(0)
+dyn.satellite.pid.kP = 1
+trick.set_output_dir("MONTE_RUN_test/RUN_00000")
+trick.mc_set_current_run(0)

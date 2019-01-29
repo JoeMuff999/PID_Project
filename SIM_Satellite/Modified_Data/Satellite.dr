@@ -15,6 +15,7 @@ drg[DR_GROUP_ID].add_variable("dyn.satellite.actualRadius")
 drg[DR_GROUP_ID].add_variable("dyn.satellite.desiredRadius")
 drg[DR_GROUP_ID].add_variable("dyn.satellite.error")
 drg[DR_GROUP_ID].add_variable("dyn.satellite.previousError")
+drg[DR_GROUP_ID].add_variable("dyn.satellite.pid.kP")
 drg[DR_GROUP_ID].set_max_file_size(1 * 1073741824) # multiply converts GiB to B --Dr. Dre
 trick.add_data_record_group(drg[DR_GROUP_ID], trick.DR_Buffer)
 drg[DR_GROUP_ID].enable()

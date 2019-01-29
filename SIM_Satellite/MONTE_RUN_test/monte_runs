@@ -1,0 +1,11 @@
+#NAME:		dyn.satellite.pid.kP
+#TYPE:		FILE
+#UNIT:		
+#FILE:		kValues/kP_value_list
+#COLUMN:	1
+
+# RUN	dyn.satellite.pid.kP	
+00000	1
+00001	2
+00002	3
+00003	4

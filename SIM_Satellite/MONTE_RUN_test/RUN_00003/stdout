@@ -1,0 +1,75 @@
+|L   2|2019/01/28,23:09:07|joey-VirtualBox| |T 0|0.000000| [33mCould not find Data Record variable dyn.satellite.error.
+[00m
+ Satellite state: aRadius = 6785308.010560847, aVelocity = -5403.919958566, aAcceleration = -540391.995856561, error = -5196.049760433, shifter = -540389.694689999, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6775956.745430554, aVelocity = -228189.690901371, aAcceleration = -22400395.314014629, error = 1927.357660432, shifter = -22400393.010354221, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6712281.786840517, aVelocity = -137257.492340270, aAcceleration = -22231292.930809673, error = 66511.638236080, shifter = -22231290.604352646, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6743587.591595346, aVelocity = -95529.440517839, aAcceleration = -22398247.705230266, error = 35623.113999476, shifter = -22398245.389718123, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6753186.033707872, aVelocity = -147086.066899847, aAcceleration = -22387036.003166825, error = 25509.105623130, shifter = -22387033.691221647, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6737523.987904578, aVelocity = -139783.499943936, aAcceleration = -22330834.703278255, error = 41244.177095982, shifter = -22330832.385780130, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6740868.977559476, aVelocity = -124109.864068139, aAcceleration = -22359548.811115529, error = 38055.923799843, shifter = -22359546.494744163, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6745137.038962562, aVelocity = -133646.244874820, aAcceleration = -22367546.543276880, error = 33692.498588691, shifter = -22367544.228446256, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742043.702270412, aVelocity = -135207.370044758, aAcceleration = -22353534.085077222, error = 36770.224029141, shifter = -22353531.769159999, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6741836.010106498, aVelocity = -131033.137509412, aAcceleration = -22356742.640352864, error = 37019.658518407, shifter = -22356740.324347544, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6743059.218716465, aVelocity = -132289.590323667, aAcceleration = -22360466.643261023, error = 35783.885380299, shifter = -22360464.327692114, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742599.603960415, aVelocity = -133267.300159198, aAcceleration = -22357661.486401182, error = 36233.723037993, shifter = -22357659.170673426, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742353.133004108, aVelocity = -132379.263648729, aAcceleration = -22357526.744764753, error = 36489.074359404, shifter = -22357524.428946823, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742629.295242730, aVelocity = -132410.256882507, aAcceleration = -22358612.525572393, error = 36212.602188446, shifter = -22358610.209852096, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742598.581549611, aVelocity = -132721.735186748, aAcceleration = -22358186.387497023, error = 36240.201098521, shifter = -22358184.071766980, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742510.946608240, aVelocity = -132573.995901689, aAcceleration = -22357975.560293339, error = 36329.313432744, shifter = -22357973.244531829, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742560.563706636, aVelocity = -132524.679047363, aAcceleration = -22358223.860766903, error = 36280.189502890, shifter = -22358221.545022741, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742570.913855339, aVelocity = -132600.352002481, aAcceleration = -22358192.300832201, error = 36269.082624636, shifter = -22358189.985091958, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742548.220115373, aVelocity = -132585.266765444, aAcceleration = -22358115.234762795, error = 36291.927216972, shifter = -22358112.919014487, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742554.369099077, aVelocity = -132564.173764788, aAcceleration = -22358160.533557892, error = 36285.989163275, shifter = -22358158.217811681, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742559.983133282, aVelocity = -132578.931966713, aAcceleration = -22358168.906120654, error = 36280.227547051, shifter = -22358166.590376478, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742555.274049466, aVelocity = -132580.190145853, aAcceleration = -22358148.658994101, error = 36284.924049076, shifter = -22358146.343248267, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742555.281215143, aVelocity = -132574.237216428, aAcceleration = -22358154.460478716, error = 36284.976412692, shifter = -22358152.144732863, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742557.001754303, aVelocity = -132576.383439575, aAcceleration = -22358159.331141356, error = 36283.234411302, shifter = -22358157.015396118, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.245716121, aVelocity = -132577.622584110, aAcceleration = -22358155.074772108, error = 36283.978058038, shifter = -22358152.759026606, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742555.947008402, aVelocity = -132576.294381970, aAcceleration = -22358155.155794375, error = 36284.290047778, shifter = -22358152.840048764, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.354545409, aVelocity = -132576.422427925, aAcceleration = -22358156.678283904, error = 36283.881230311, shifter = -22358154.362538438, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.285423721, aVelocity = -132576.852522191, aAcceleration = -22358155.981936794, error = 36283.946051056, shifter = -22358153.666191306, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.166520033, aVelocity = -132576.617317152, aAcceleration = -22358155.729583204, error = 36284.067306795, shifter = -22358153.413837671, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.243888126, aVelocity = -132576.562883828, aAcceleration = -22358156.094973139, error = 36283.990483036, shifter = -22358153.779227633, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.253531625, aVelocity = -132576.672812550, aAcceleration = -22358156.027340278, error = 36283.979740249, shifter = -22358153.711594775, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.220989565, aVelocity = -132576.644599681, aAcceleration = -22358155.923211869, error = 36284.012564437, shifter = -22358153.607466355, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.231709732, aVelocity = -132576.616716487, aAcceleration = -22358155.993565004, error = 36284.002123103, shifter = -22358153.677819494, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.238926875, aVelocity = -132576.639253216, aAcceleration = -22358156.000872102, error = 36283.994680593, shifter = -22358153.685126595, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.231842594, aVelocity = -132576.639590654, aAcceleration = -22358155.971920803, error = 36284.001761499, shifter = -22358153.656175293, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.232303057, aVelocity = -132576.631193713, aAcceleration = -22358155.981923826, error = 36284.001385006, shifter = -22358153.666178316, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.234694498, aVelocity = -132576.634747181, aAcceleration = -22358155.988140631, error = 36283.998958031, shifter = -22358153.672395121, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233478755, aVelocity = -132576.636264681, aAcceleration = -22358155.981756948, error = 36284.000158599, shifter = -22358153.666011438, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233135781, aVelocity = -132576.634299495, aAcceleration = -22358155.982276712, error = 36284.000521224, shifter = -22358153.666531201, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233730966, aVelocity = -132576.634604585, aAcceleration = -22358155.984385759, error = 36283.999922988, shifter = -22358153.668640248, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233595881, aVelocity = -132576.635190311, aAcceleration = -22358155.983271945, error = 36284.000052216, shifter = -22358153.667526435, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233437172, aVelocity = -132576.634822147, aAcceleration = -22358155.982987728, error = 36284.000214607, shifter = -22358153.667242218, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233556118, aVelocity = -132576.634768968, aAcceleration = -22358155.983519882, error = 36284.000096193, shifter = -22358153.667774372, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233562123, aVelocity = -132576.634927017, aAcceleration = -22358155.983390875, error = 36284.000088607, shifter = -22358153.667645365, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233515955, aVelocity = -132576.634877270, aAcceleration = -22358155.983252544, error = 36284.000135273, shifter = -22358153.667507034, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233533976, aVelocity = -132576.634841204, aAcceleration = -22358155.983360350, error = 36284.000117612, shifter = -22358153.667614840, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233542983, aVelocity = -132576.634875208, aAcceleration = -22358155.983363748, error = 36284.000108264, shifter = -22358153.667618237, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233532439, aVelocity = -132576.634873515, aAcceleration = -22358155.983322807, error = 36284.000118826, shifter = -22358153.667577296, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233533761, aVelocity = -132576.634861809, aAcceleration = -22358155.983339544, error = 36284.000117621, shifter = -22358153.667594034, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233537042, aVelocity = -132576.634867555, aAcceleration = -22358155.983347218, error = 36284.000114283, shifter = -22358153.667601708, random = 5196.049760433, kP = 4.000000000
+ Satellite state: aRadius = 6742556.233535122, aVelocity = -132576.634869331, aAcceleration = -22358155.983337749, error = 36284.000116184, shifter = -22358153.667592239, random = 5196.049760433, kP = 4.000000000
+========================================
+      Satellite State at Shutdown     
+t = 50
+radius and velocity and error = [6742556.233535122, -132576.634869331]
+========================================
+|L   0|2019/01/28,23:09:07|joey-VirtualBox| |T 0|50.000000| [00m
+     REALTIME SHUTDOWN STATS:
+            ACTUAL INIT TIME:        0.349
+         ACTUAL ELAPSED TIME:        0.384
+[00m|L   0|2019/01/28,23:09:07|joey-VirtualBox| |T 0|50.000000| [00m
+SIMULATION TERMINATED IN
+  PROCESS: 0
+  ROUTINE: Executive_loop_single_thread.cpp:98
+  DIAGNOSTIC: Reached termination time
+
+       SIMULATION START TIME:        0.000
+        SIMULATION STOP TIME:       50.000
+     SIMULATION ELAPSED TIME:       50.000
+        ACTUAL CPU TIME USED:       -0.004
+       SIMULATION / CPU TIME: 100000000.000
+     INITIALIZATION CPU TIME:       -0.008
+[00m
