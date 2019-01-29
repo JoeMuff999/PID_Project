@@ -6,4 +6,7 @@ trick
 *.bin
 *.out
 *.o
-
+send_hs
+S_job_execution
+S_run_summary
+varserver_log
