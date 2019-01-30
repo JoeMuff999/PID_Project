@@ -1,9 +1,8 @@
-|L   2|2019/01/28,23:46:04|joey-VirtualBox| |T 0|0.000000| Could not find Data Record variable dyn.satellite.error.
-|L   0|2019/01/28,23:46:04|joey-VirtualBox| |T 0|50.000000| 
+|L   0|2019/01/29,23:17:29|joey-VirtualBox| |T 0|50.000000| 
      REALTIME SHUTDOWN STATS:
             ACTUAL INIT TIME:        0.069
          ACTUAL ELAPSED TIME:        0.093
-|L   0|2019/01/28,23:46:04|joey-VirtualBox| |T 0|50.000000| 
+|L   0|2019/01/29,23:17:29|joey-VirtualBox| |T 0|50.000000| 
 SIMULATION TERMINATED IN
   PROCESS: 0
   ROUTINE: Executive_loop_single_thread.cpp:98
@@ -12,6 +11,6 @@ SIMULATION TERMINATED IN
        SIMULATION START TIME:        0.000
         SIMULATION STOP TIME:       50.000
      SIMULATION ELAPSED TIME:       50.000
-        ACTUAL CPU TIME USED:        0.051
-       SIMULATION / CPU TIME:      975.724
-     INITIALIZATION CPU TIME:        0.038
+        ACTUAL CPU TIME USED:        0.055
+       SIMULATION / CPU TIME:      910.150
+     INITIALIZATION CPU TIME:        0.043

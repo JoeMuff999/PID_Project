@@ -1058,12 +1058,57 @@
       io_attributes="15"
       units="1">
     </member>
+    <member
+      name="scorer"
+      type="Scorer"
+      io_attributes="15"
+      units="1">
+    </member>
   </class>
 
   <class name="SatelliteSimObject">
     <member
       name="satellite"
       type="Satellite"
+      io_attributes="15"
+      units="1">
+    </member>
+  </class>
+
+  <class name="Scorer">
+    <member
+      name="startPos"
+      type="bool"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="crossed"
+      type="bool"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="maxOvershoot"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="alreadyRanOvershoot"
+      type="bool"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="currentE"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="previousE"
+      type="double"
       io_attributes="15"
       units="1">
     </member>
