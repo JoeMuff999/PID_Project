@@ -662,6 +662,45 @@
     </member>
   </class>
 
+  <class name="PID">
+    <member
+      name="kP"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="kI"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="kD"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="shifter"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="error"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="timeInterval"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+  </class>
+
   <class name="RAND_GENERATOR">
     <member
       name="option"
@@ -950,12 +989,6 @@
       description="Desired radius of satellite from &quot;Earth&quot;">
     </member>
     <member
-      name="error"
-      type="double"
-      io_attributes="15"
-      units="1">
-    </member>
-    <member
       name="previousError"
       type="double"
       io_attributes="15"
@@ -1010,6 +1043,12 @@
     <member
       name="random"
       type="STDRandom"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="pid"
+      type="PID"
       io_attributes="15"
       units="1">
     </member>

@@ -4,7 +4,7 @@ PURPOSE:
 LIBRARY DEPENDENCIES:
     (
       (ISS/analytical/satellite_init.cpp)
-      (ISS/analytical/satellite_PID.cpp)
+      (ISS/analytical/satellite_dynamics.cpp)
       (ISS/analytical/satellite_shutdown.cpp)
     )
 *************************************************************/
@@ -16,12 +16,14 @@ class SatelliteSimObject : public Trick::SimObject {
 
     public:
         Satellite satellite;
+	
 
         SatelliteSimObject() {
             ("default_data") satellite.satellite_default_data( &satellite) ;
             ("initialization") satellite.satellite_init( &satellite ) ;
+
             //(0.01, "scheduled") satellite.satellite_analytic( &satellite ) ;
- 			(0.01, "scheduled") satellite.satellite_PID( &satellite ) ;
+ 		(0.01, "scheduled") satellite.satellite_Dynamics( &satellite ) ;
             ("shutdown") satellite.satellite_shutdown( &satellite ) ;
         }
 } ;

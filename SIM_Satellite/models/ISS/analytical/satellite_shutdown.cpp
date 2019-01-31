@@ -10,7 +10,7 @@ int Satellite::satellite_shutdown( Satellite* S) {
     printf( "\n========================================\n");
     printf( "      Satellite State at Shutdown     \n");
     printf( "t = %g\n", t);
-    printf( "radius and velocity and error = [%.9f, %.9f, %.9f]\n", S->actualRadius, S->actualVelocity, S->error);
+    printf( "radius and velocity and error = [%.9f, %.9f]\n", S->actualRadius, S->actualVelocity);
     printf( "========================================\n");
     return 0 ;
 }

@@ -1,11 +1,13 @@
 /*************************************************************************
 PURPOSE: (Represent the state and initial conditions of a satellite)
 **************************************************************************/
-#include <iostream>
 #ifndef SATELLITE_H
 #define SATELLITE_H
+#include <iostream>
+
 #include "../models/STDRandomGenerator/headers/stdrandom.h"
 #include "../models/Environment/headers/earth.h"
+#include "../models/Controllers/headers/pid.h"
 
 
 
@@ -16,9 +18,10 @@ public:
     double standardVelocity ;    /* *i m Constant factual velocity of satellite */
     double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */ 
 
-	double error;
+
 	double previousError;
 	double randomNumber;
+
 
 	
 
@@ -28,16 +31,19 @@ public:
     double actualVelocity ;     /* m/s r-velocity */
     double actualRadius ;     /* m r-position */
 
-    double time;        /* s Model time */
+
+	double time;        /* s Model time */
 	int counter;
 	int satellite_default_data(Satellite*) ;
-    int satellite_init(Satellite*) ;
-    int satellite_shutdown(Satellite*) ;
+   	int satellite_init(Satellite*) ;
+   	int satellite_shutdown(Satellite*) ;
     //int satellite_analytic(Satellite*); numerical uncomment if want to use basic
     
-    int satellite_PID(Satellite*);
+    int satellite_Dynamics(Satellite*);
     Earth env;
 	STDRandom random;
+	PID pid;
+
 
    
 
