@@ -4,8 +4,8 @@ Trick::Threads (Child_0)
     trigger type = mutex
     number of scheduled jobs = 7
     from Trick::ThreadBase
-    pthread_id = 140084132276032
-    process_id = 13024
+    pthread_id = 139971215714112
+    process_id = 5609
     rt_priority = 0
     cpus = none assigned
 
@@ -141,7 +141,9 @@ Shutdown:
 MonteCarlo Loop:
 
       1 |   0 |monte_master_init        | 60000 | 0.000000 |        1 |    1e+37 | 11.02 | trick_vs.vs.init
+      1 |   0 |monte_master_post        | 60000 | 0.000000 |        1 |    1e+37 | 22.05 | dyn.money.satellite_master_post
       1 |   0 |monte_slave_init         | 60000 | 0.000000 |        1 |    1e+37 | 12.02 | trick_data_record.drd.remove_files
+      1 |   0 |monte_slave_post         | 60000 | 0.000000 |        1 |    1e+37 | 22.04 | dyn.money.satellite_slave_post
 
 ===================================================================================================
 CheckPointRestart :

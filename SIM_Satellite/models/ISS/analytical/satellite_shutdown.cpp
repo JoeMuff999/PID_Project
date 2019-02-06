@@ -7,6 +7,7 @@ PURPOSE: (Print the final satellite state.)
 
 int Satellite::satellite_shutdown( Satellite* S) {
     double t = exec_get_sim_time();
+    
     printf( "\n========================================\n");
     printf( "      Satellite State at Shutdown     \n");
     printf( "t = %g\n", t);

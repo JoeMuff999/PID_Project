@@ -6,25 +6,30 @@ LIBRARY DEPENDENCIES:
       (ISS/analytical/satellite_init.cpp)
       (ISS/analytical/satellite_dynamics.cpp)
       (ISS/analytical/satellite_shutdown.cpp)
+      (optimization/src/montecarlo.cpp)
     )
 *************************************************************/
 
 #include "sim_objects/default_trick_sys.sm"
 ##include "ISS/headers/satellite.h"
-	
+##include "optimization/headers/montecarlo.h"
+
 class SatelliteSimObject : public Trick::SimObject {
 
     public:
         Satellite satellite;
-	
+        monte money;
+
 
         SatelliteSimObject() {
             ("default_data") satellite.satellite_default_data( &satellite) ;
             ("initialization") satellite.satellite_init( &satellite ) ;
 
             //(0.01, "scheduled") satellite.satellite_analytic( &satellite ) ;
- 		(0.01, "scheduled") satellite.satellite_Dynamics( &satellite ) ;
+ 		         (0.01, "scheduled") satellite.satellite_Dynamics( &satellite ) ;
             ("shutdown") satellite.satellite_shutdown( &satellite ) ;
+            ("monte_slave_post") money.satellite_slave_post(&satellite);
+            ("monte_master_post") money.satellite_master_post(&satellite);
         }
 } ;
 

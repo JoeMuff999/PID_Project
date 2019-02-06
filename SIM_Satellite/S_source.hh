@@ -88,6 +88,7 @@ extern "C" {
 #endif
 
 #include "ISS/headers/satellite.h"
+#include "optimization/headers/montecarlo.h"
 #include "trick/clock_proto.h"
 #include "trick/data_record_proto.h"
 #include "trick/env_proto.h"
@@ -837,6 +838,7 @@ class SatelliteSimObject : public Trick::SimObject {
 
     public:
         Satellite satellite;
+        monte money;
 
 
         SatelliteSimObject() {
@@ -845,6 +847,8 @@ class SatelliteSimObject : public Trick::SimObject {
             job = this->add_job(0, 1, "initialization", NULL, 1, "satellite.satellite_init", "", 60000) ;
             job = this->add_job(0, 2, "scheduled", NULL, 0.01, "satellite.satellite_Dynamics", "", 60000) ;
             job = this->add_job(0, 3, "shutdown", NULL, 1, "satellite.satellite_shutdown", "", 60000) ;
+            job = this->add_job(0, 4, "monte_slave_post", NULL, 1, "money.satellite_slave_post", "", 60000) ;
+            job = this->add_job(0, 5, "monte_master_post", NULL, 1, "money.satellite_master_post", "", 60000) ;
         }
 
     public:

@@ -1041,6 +1041,18 @@
       units="1">
     </member>
     <member
+      name="finalSettlingTime"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="finalPercentOvershoot"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
       name="env"
       type="Earth"
       io_attributes="15"
@@ -1073,6 +1085,12 @@
       io_attributes="15"
       units="1">
     </member>
+    <member
+      name="money"
+      type="monte"
+      io_attributes="15"
+      units="1">
+    </member>
   </class>
 
   <class name="Scorer">
@@ -1089,13 +1107,49 @@
       units="1">
     </member>
     <member
-      name="maxOvershoot"
+      name="alreadyRanOvershoot"
+      type="bool"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="maxPercentOvershoot"
       type="double"
       io_attributes="15"
       units="1">
     </member>
     <member
-      name="alreadyRanOvershoot"
+      name="withinTwoPercent"
+      type="bool"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="twoPercent"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="elapsedTime"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="elapsedTimeInRange"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="settlingTime"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="alreadyFoundTime"
       type="bool"
       io_attributes="15"
       units="1">
@@ -1108,6 +1162,12 @@
     </member>
     <member
       name="previousE"
+      type="double"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="score"
       type="double"
       io_attributes="15"
       units="1">
@@ -14094,6 +14154,9 @@
       description="n Position derivative at the first step of the integration cycle.">
       <dimension>0</dimension>
     </member>
+  </class>
+
+  <class name="monte">
   </class>
 
   <class name="triad_t">

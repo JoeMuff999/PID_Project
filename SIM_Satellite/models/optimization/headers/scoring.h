@@ -8,17 +8,32 @@ PURPOSE: (Function for finding optimization score)
 class Scorer{
 
 public:
-	
+
+//vars for percent overshoot
 	bool startPos;
 	bool crossed;
-	double maxOvershoot;
 	bool alreadyRanOvershoot;
+	double maxPercentOvershoot;
+
+//vars for settling time
+
+	bool withinTwoPercent;
+	double twoPercent;
+	double elapsedTime;
+	double elapsedTimeInRange;
+	double settlingTime;
+	bool alreadyFoundTime;
+
 
 	double currentE;
 	double previousE; //for dre recording :(
-	
+
+	double score;
+
 	void setCross(double);
-	double getScore(double,double);
+	double getScore();
+	void setPercentOvershoot(double,double);
+	void setSettlingTime(double,double,double);
 
 
 

@@ -4,3 +4,5 @@ log_my_satellite	double	     m	dyn.satellite.actualRadius
 log_my_satellite	double	     m	dyn.satellite.desiredRadius
 log_my_satellite	double	     1	dyn.satellite.previousError
 log_my_satellite	double	     1	dyn.satellite.pid.kP
+log_my_satellite	double	     1	dyn.satellite.scorer.currentE
+log_my_satellite	double	     1	dyn.satellite.scorer.previousE
