@@ -6,9 +6,9 @@ PURPOSE:    (yes )
 
 void PID::setKValues()
 {
-	 kP = .1;
+	 kP = 1;  //.1,1,.01
 	 kD = 1;
-	 kI = .01;
+	 kI = .1;
 	printf("kvalues: %.9f, %.9f", kP, kD);
 
 }

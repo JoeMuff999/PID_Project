@@ -31,7 +31,7 @@ double Scorer::getScore()
 void Scorer::setSettlingTime(double currentErr, double previousErr,double elapsedTimeR)
 {
 	elapsedTime = elapsedTimeR;//same as below for this situation, dunno how it works in c++ but yeah
-	if(abs(currentErr) < twoPercent)
+	/*if(abs(currentErr) < twoPercent)
 	{
 		elapsedTimeInRange+=0.01;
 		//printf("current error, and two percent: %.9f, %.9f", currentErr, twoPercent);
@@ -46,10 +46,21 @@ void Scorer::setSettlingTime(double currentErr, double previousErr,double elapse
 	if(elapsedTimeInRange >5 && !alreadyFoundTime)
 	{
 
-	 settlingTime = elapsedTime -3;
+	 settlingTime = elapsedTime -5;
 	 printf("\n settlingTime: %.9f", settlingTime);
 	 alreadyFoundTime = true;
+	}*/
+	if((abs(currentErr) < twoPercent) && !alreadyFoundTime)
+	{
+		settlingTime = elapsedTime;
+printf("\n settlingTime: %.9f", settlingTime);
+		alreadyFoundTime = true;
 	}
+	if(alreadyFoundTime && (abs(currentErr) > twoPercent))
+	{
+		alreadyFoundTime = false; 
+	}
+	
 
 }
 
