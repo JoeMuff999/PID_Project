@@ -13,18 +13,18 @@ public:
 	double kP;
 	double kI;
 	double kD;
-	
+
 	double shifter;
 	double integral;
 
 	double error;
 
 	double timeInterval;
-	
-	void setKValues();
+
+	void setKValues(double,double,double);
 	double getShifter(double,double, double);
 	double getError(double,double);
-	
+
 
 };
 #endif

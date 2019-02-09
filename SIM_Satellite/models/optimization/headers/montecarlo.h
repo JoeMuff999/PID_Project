@@ -5,10 +5,14 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 #define MONTE_H
 
 #include "../models/ISS/headers/satellite.h"
+#include "../models/Controllers/headers/pid.h"
 
 class monte {
 public:
-  Satellite satelliteArray[20];
+  Satellite satelliteArray[5000];
+  int runsPerGainValueSet;
+  PID storage[1000];
+  bool timeToSwitchGain;
   int satellite_slave_post(Satellite*);
   int satellite_master_post(Satellite*);
   int satellite_master_pre(Satellite*);

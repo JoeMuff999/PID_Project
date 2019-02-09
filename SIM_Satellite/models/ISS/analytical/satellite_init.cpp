@@ -17,12 +17,14 @@ PURPOSE: (Set the initial data values)
 /* default data job */
 int Satellite::satellite_default_data( Satellite* S ) {
 
+
   S->standardVelocity = 0; //change this
   S->desiredRadius = 408773 + 6371393;
   S->time = 0.0 ;
 	S->counter = 0;
 	env.setEarthVariables();
-	pid.setKValues();
+	//pid.setKValues();
+
   scorer.setTwoPercent(100);
 
 

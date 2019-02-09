@@ -12,8 +12,8 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 
 
 
-	double shifter = pid.getShifter(S->actualRadius, S->desiredRadius, S->previousError);
-	double error = pid.getError(S->actualRadius, S->desiredRadius);
+	double shifter = S->pid.getShifter(S->actualRadius, S->desiredRadius, S->previousError);
+	double error = S->pid.getError(S->actualRadius, S->desiredRadius);
 	//set settling time and maxOverShoot
 	scorer.setSettlingTime(error, S->previousError, S->time);
 	scorer.setPercentOvershoot(error, S->previousError);
@@ -45,5 +45,8 @@ if(S->counter == 100 || S->counter ==0)
 }
 void Satellite::satellite_printState(Satellite* S)
 {
-	printf("\n Satellite state... Settling Time = %.9f, Percent Overshoot = %.9f, Random = %.9f ",S->finalSettlingTime, S->finalPercentOvershoot, S->randomNumber);
+	if(S->randomNumber!=0)
+	{
+	printf("\n Satellite state... Settling Time = %.9f, Percent Overshoot = %.9f, Random = %.9f, kP = %.9f, kD = %.9f, kI = %.9f ",S->finalSettlingTime, S->finalPercentOvershoot, S->randomNumber, S->pid.kP, S->pid.kD, S->pid.kI);
+}
 }

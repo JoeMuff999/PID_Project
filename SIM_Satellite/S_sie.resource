@@ -14162,7 +14162,26 @@
       type="Satellite"
       io_attributes="15"
       units="1">
-      <dimension>20</dimension>
+      <dimension>5000</dimension>
+    </member>
+    <member
+      name="runsPerGainValueSet"
+      type="int"
+      io_attributes="15"
+      units="1">
+    </member>
+    <member
+      name="storage"
+      type="PID"
+      io_attributes="15"
+      units="1">
+      <dimension>1000</dimension>
+    </member>
+    <member
+      name="timeToSwitchGain"
+      type="bool"
+      io_attributes="15"
+      units="1">
     </member>
   </class>
 
