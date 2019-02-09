@@ -3,10 +3,14 @@ PURPOSE: (Set the initial data values)
 *************************************************************************/
 #include <stdio.h>
 #include <math.h>
+void Scorer::setTwoPercent(double two)
+{
+		twoPercent = two;//get within 100 meters, really isnt that hard so, 2 percent is wayyy too big, most will start in that range so
+}
 
 void Scorer::setCross(double startingError)
 {
-	if(startingError >0)
+	if(startingError <0)
 	{
 		startPos = true;
 	}
@@ -17,7 +21,7 @@ void Scorer::setCross(double startingError)
 	alreadyRanOvershoot = false;
 	alreadyFoundTime = false;
 	currentE= previousE ; //fix so that currentE isnt zero
-	twoPercent = 100;//get within 100 meters, really isnt that hard so, 2 percent is wayyy too big, most will start in that range so
+
 
 
 }
@@ -58,9 +62,9 @@ printf("\n settlingTime: %.9f", settlingTime);
 	}
 	if(alreadyFoundTime && (abs(currentErr) > twoPercent))
 	{
-		alreadyFoundTime = false; 
+		alreadyFoundTime = false;
 	}
-	
+
 
 }
 

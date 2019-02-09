@@ -1,66 +1,67 @@
 
- Satellite state: aRadius = 6780286.984752412, aVelocity = -2.506963642, aAcceleration = -250.696364205, error = -121.009822048, shifter = -242.031745079, maxOverShoot = 0.000000000
- Satellite state: aRadius = 6780206.142136152, aVelocity = -111.667714594, aAcceleration = 19.772335616, error = -41.258813297, shifter = 28.437158576, maxOverShoot = 0.000000000
- Satellite state: aRadius = 6780128.395889345, aVelocity = -32.038613156, aAcceleration = 98.064537550, error = 37.283724524, shifter = 106.729561261, maxOverShoot = 0.000000000(previous,current): 42.997924811, 42.990993362
- Satellite state: aRadius = 6780135.194790709, aVelocity = 31.640164557, aAcceleration = 21.693622556, error = 31.121610937, shifter = 30.358630518, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780165.828417349, aVelocity = 21.156920624, aAcceleration = -29.667174469, error = 0.383151857, shifter = -21.002245074, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780172.400732948, aVelocity = -5.365479571, aAcceleration = -16.744021406, error = -6.454387743, shifter = -8.079109489, maxOverShoot = 0.010518778
- settlingTime: 2.450000000
- Satellite state: aRadius = 6780163.097300379, aVelocity = -9.343604549, aAcceleration = 5.967549035, error = 2.809263576, shifter = 14.632484630, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780157.955659163, aVelocity = -0.761991586, aAcceleration = 7.922292294, error = 8.036720921, shifter = 16.587241251, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780159.883491723, aVelocity = 3.236261947, aAcceleration = 0.144764737, error = 6.148870897, shifter = 8.809708868, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.368460735, aVelocity = 1.260259398, aAcceleration = -2.871744555, error = 3.644141858, shifter = 5.793193175, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.417223987, aVelocity = -0.794398879, aAcceleration = -0.901663266, error = 3.574832024, shifter = 7.763274286, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.541278549, aVelocity = -0.674531413, aAcceleration = 0.789970711, error = 4.451976136, shifter = 9.454910505, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.288274061, aVelocity = 0.116608224, aAcceleration = 0.564928525, error = 4.712892021, shifter = 9.229868986, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.559336715, aVelocity = 0.306090177, aAcceleration = -0.123850601, error = 4.443724186, shifter = 8.541089172, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.755924221, aVelocity = 0.070906176, aAcceleration = -0.244522853, error = 4.244784840, shifter = 8.420416411, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.737605741, aVelocity = -0.068387138, aAcceleration = -0.026785508, error = 4.261710388, shifter = 8.638153800, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.683086525, aVelocity = -0.023132010, aAcceleration = 0.081924784, error = 4.316682155, shifter = 8.746864232, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.696815695, aVelocity = 0.041362260, aAcceleration = 0.033937996, error = 4.303597928, shifter = 8.698877411, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.743906600, aVelocity = 0.043650054, aAcceleration = -0.020227706, error = 4.256529900, shifter = 8.644711589, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.775630741, aVelocity = 0.020485633, aAcceleration = -0.018574222, error = 4.224574115, shifter = 8.646364991, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.790428520, aVelocity = 0.012687410, aAcceleration = 0.001840801, error = 4.209698354, shifter = 8.666779976, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.805765642, aVelocity = 0.018791952, aAcceleration = 0.007263511, error = 4.194422278, shifter = 8.672202647, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.827375638, aVelocity = 0.023351022, aAcceleration = 0.001355798, error = 4.172857872, shifter = 8.666294878, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.850527557, aVelocity = 0.022339713, aAcceleration = -0.002383620, error = 4.149695841, shifter = 8.662555401, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.871715287, aVelocity = 0.020252063, aAcceleration = -0.001314346, error = 4.128487234, shifter = 8.663624621, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.891644103, aVelocity = 0.019896196, aAcceleration = 0.000377693, error = 4.108554860, shifter = 8.665316609, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.911812665, aVelocity = 0.020448417, aAcceleration = 0.000484711, error = 4.088391819, shifter = 8.665423576, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.932404805, aVelocity = 0.020632344, aAcceleration = -0.000105548, error = 4.067801518, shifter = 8.664833264, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.952924036, aVelocity = 0.020373979, aAcceleration = -0.000318761, error = 4.047279703, shifter = 8.664619999, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.973156638, aVelocity = 0.020120992, aAcceleration = -0.000164044, error = 4.027044573, shifter = 8.664774664, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780161.993222659, aVelocity = 0.020032849, aAcceleration = -0.000039355, error = 4.006977670, shifter = 8.664899301, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.013236737, aVelocity = 0.019991951, aAcceleration = -0.000058909, error = 3.986963183, shifter = 8.664879697, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.033189094, aVelocity = 0.019904924, aAcceleration = -0.000109998, error = 3.967009955, shifter = 8.664828557, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.053035231, aVelocity = 0.019787418, aAcceleration = -0.000117359, error = 3.947162643, shifter = 8.664821144, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.072766122, aVelocity = 0.019678416, aAcceleration = -0.000100232, error = 3.927430661, shifter = 8.664838221, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.092396005, aVelocity = 0.019583674, aAcceleration = -0.000091941, error = 3.907799832, shifter = 8.664846462, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.111932945, aVelocity = 0.019490534, aAcceleration = -0.000095246, error = 3.888261961, shifter = 8.664843108, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.131374598, aVelocity = 0.019393154, aAcceleration = -0.000098776, error = 3.868819333, shifter = 8.664839528, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.150717846, aVelocity = 0.019294458, aAcceleration = -0.000098052, error = 3.849475099, shifter = 8.664840203, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.169963144, aVelocity = 0.019197449, aAcceleration = -0.000096018, error = 3.830228831, shifter = 8.664842187, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.189112294, aVelocity = 0.019101944, aAcceleration = -0.000095217, error = 3.811078726, shifter = 8.664842939, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.208166178, aVelocity = 0.019006777, aAcceleration = -0.000095179, error = 3.792023890, shifter = 8.664842928, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.227124911, aVelocity = 0.018911670, aAcceleration = -0.000094996, error = 3.773064206, shifter = 8.664843063, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.245988708, aVelocity = 0.018816969, aAcceleration = -0.000094425, error = 3.754199462, shifter = 8.664843586, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.264758107, aVelocity = 0.018722872, aAcceleration = -0.000093776, error = 3.735429121, shifter = 8.664844187, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.283433691, aVelocity = 0.018629311, aAcceleration = -0.000093363, error = 3.716752603, shifter = 8.664844552, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.302015940, aVelocity = 0.018536194, aAcceleration = -0.000092941, error = 3.698169422, shifter = 8.664844927, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.320505282, aVelocity = 0.018443493, aAcceleration = -0.000092430, error = 3.679679153, shifter = 8.664845390, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.338902161, aVelocity = 0.018351264, aAcceleration = -0.000091980, error = 3.661281352, shifter = 8.664845793, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.357207055, aVelocity = 0.018259514, aAcceleration = -0.000091529, error = 3.642975540, shifter = 8.664846197, maxOverShoot = 0.010518778
- Satellite state: aRadius = 6780162.375420433, aVelocity = 0.018168227, aAcceleration = -0.000091098, error = 3.624761249, shifter = 8.664846582, maxOverShoot = 0.010518778
+ Satellite state: aRadius = 6780884.266832674, aVelocity = -7.277210370, aAcceleration = -727.721037039, error = -718.339604777, shifter = -719.057944382, maxOverShoot = 0.000000000
+ Satellite state: aRadius = 6780621.177219394, aVelocity = -412.546362683, aAcceleration = -119.461862453, error = -459.302683021, shifter = -110.798107879, maxOverShoot = 0.000000000
+ settlingTime: 1.880000000
+ Satellite state: aRadius = 6780217.130385077, aVelocity = -344.168822455, aAcceleration = 195.150178219, error = -54.572073301, shifter = 203.814967151, maxOverShoot = 0.000000000
+ Satellite state: aRadius = 6779984.568483143, aVelocity = -120.601240399, aAcceleration = 214.869728933, error = 180.225504453, shifter = 223.535118016, maxOverShoot = 0.000000000(previous,current): 218.179590144, 218.168404322
+ Satellite state: aRadius = 6779955.476772184, aVelocity = 41.721027361, aAcceleration = 103.081726593, error = 210.940438089, shifter = 111.747194190, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780029.419228788, aVelocity = 88.373118255, aAcceleration = -0.310615294, error = 137.464502394, shifter = 8.354664486, maxOverShoot = 0.053374266
+ settlingTime: 5.440000000
+ Satellite state: aRadius = 6780107.672425405, aVelocity = 61.429315995, aAcceleration = -42.764172659, error = 58.941867755, shifter = -34.099093588, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780147.123677905, aVelocity = 19.038520988, aAcceleration = -36.664942138, error = 19.066707306, shifter = -27.999964989, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780151.400498026, aVelocity = -6.399507133, aAcceleration = -14.067476822, error = 14.535506902, shifter = -5.402511255, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780141.261132794, aVelocity = -11.026491009, aAcceleration = 2.746310793, error = 24.628602296, shifter = 11.411302158, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780132.961043919, aVelocity = -4.803954650, aAcceleration = 7.875636419, error = 32.990916535, shifter = 16.540649158, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780131.905371794, aVelocity = 2.188611210, aAcceleration = 5.398812179, error = 34.116514319, shifter = 14.063827795, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780136.080934136, aVelocity = 5.423049549, aAcceleration = 1.208725830, error = 29.973296359, shifter = 9.873730856, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780141.580407250, aVelocity = 5.155885086, aAcceleration = -1.334644807, error = 24.471151602, shifter = 7.330346155, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780145.912051724, aVelocity = 3.455731190, aAcceleration = -1.774402896, error = 20.122505588, shifter = 6.890576952, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780148.564520435, aVelocity = 1.980696791, aAcceleration = -1.094618783, error = 17.455286533, shifter = 7.570354248, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780150.135404660, aVelocity = 1.297795641, aAcceleration = -0.321528017, error = 15.877573296, shifter = 8.343440981, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780151.356947080, aVelocity = 1.211214698, aAcceleration = 0.071931111, error = 14.655165067, shifter = 8.736896985, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780152.621369171, aVelocity = 1.320692080, aAcceleration = 0.102097944, error = 13.391837750, shifter = 8.767060589, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780153.974486015, aVelocity = 1.363638852, aAcceleration = -0.023545940, error = 12.039150374, shifter = 8.641413246, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780155.304509417, aVelocity = 1.278657285, aAcceleration = -0.134550826, error = 10.708277156, shifter = 8.530404959, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780156.505855472, aVelocity = 1.119806565, aAcceleration = -0.170241670, error = 9.505342593, shifter = 8.494711041, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780157.541791345, aVelocity = 0.957470086, aAcceleration = -0.148465214, error = 8.467783356, shifter = 8.516484844, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780158.430986927, aVelocity = 0.828830570, aAcceleration = -0.109177033, error = 7.577301378, shifter = 8.555770749, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780159.210505639, aVelocity = 0.736148932, aAcceleration = -0.079091759, error = 6.796855850, shifter = 8.585854028, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780159.909804665, aVelocity = 0.665541003, aAcceleration = -0.064593892, error = 6.096850745, shifter = 8.600350107, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780160.543755461, aVelocity = 0.603693481, aAcceleration = -0.060144848, error = 5.462281473, shifter = 8.604797528, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780161.117382210, aVelocity = 0.544439709, aAcceleration = -0.058354821, error = 4.888062187, shifter = 8.606586087, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780161.632812632, aVelocity = 0.487527850, aAcceleration = -0.055135420, error = 4.372062646, shifter = 8.609804170, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780162.093318674, aVelocity = 0.434875366, aAcceleration = -0.049977729, error = 3.911030080, shifter = 8.614960682, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780162.503964453, aVelocity = 0.387872479, aAcceleration = -0.044080857, error = 3.499914272, shifter = 8.620856504, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780162.870545320, aVelocity = 0.346609022, aAcceleration = -0.038641255, error = 3.132920770, shifter = 8.626295168, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780163.198452312, aVelocity = 0.310313782, aAcceleration = -0.034158374, error = 2.804650826, shifter = 8.630777210, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780163.492168235, aVelocity = 0.278042051, aAcceleration = -0.030541133, error = 2.510612186, shifter = 8.634393699, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780163.755329881, aVelocity = 0.249079454, aAcceleration = -0.027483015, error = 2.247160913, shifter = 8.637451143, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780163.991011970, aVelocity = 0.223002586, aAcceleration = -0.024737340, error = 2.011218056, shifter = 8.640196216, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780164.201966200, aVelocity = 0.199563102, aAcceleration = -0.022199176, error = 1.800029431, shifter = 8.642733840, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780164.390728973, aVelocity = 0.178561826, aAcceleration = -0.019862114, error = 1.611056645, shifter = 8.645070419, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780164.559633301, aVelocity = 0.159786784, aAcceleration = -0.017747513, error = 1.441964568, shifter = 8.647184588, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780164.710790869, aVelocity = 0.143010066, aAcceleration = -0.015862209, error = 1.290639232, shifter = 8.649069505, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780164.846086139, aVelocity = 0.128008857, aAcceleration = -0.014190299, error = 1.155193950, shifter = 8.650741069, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780164.967191366, aVelocity = 0.114583296, aAcceleration = -0.012704195, error = 1.033954468, shifter = 8.652226863, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.075593282, aVelocity = 0.102561835, aAcceleration = -0.011376438, error = 0.925432336, shifter = 8.653554343, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.172619932, aVelocity = 0.091797369, aAcceleration = -0.010185832, error = 0.828298042, shifter = 8.654744700, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.259461826, aVelocity = 0.082160705, aAcceleration = -0.009117482, error = 0.741359781, shifter = 8.655812828, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.337187160, aVelocity = 0.073535702, aAcceleration = -0.008159696, error = 0.663548198, shifter = 8.656770415, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.406753513, aVelocity = 0.065816976, aAcceleration = -0.007302208, error = 0.593904656, shifter = 8.657627725, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.469018187, aVelocity = 0.058909158, aAcceleration = -0.006535326, error = 0.531570904, shifter = 8.658394447, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.524748043, aVelocity = 0.052726607, aAcceleration = -0.005849404, error = 0.475779223, shifter = 8.659080227, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.574628999, aVelocity = 0.047192845, aAcceleration = -0.005235586, error = 0.425842929, shifter = 8.659693918, maxOverShoot = 0.053374266
+ Satellite state: aRadius = 6780165.619274768, aVelocity = 0.042239698, aAcceleration = -0.004686237, error = 0.381147629, shifter = 8.660243152, maxOverShoot = 0.053374266
 ========================================
       Satellite State at Shutdown     
 t = 50
-radius and velocity and error = [6780162.375420433, 0.018168227]
+radius and velocity and error = [6780165.619274768, 0.042239698]
 ========================================
-|L   0|2019/02/06,09:53:53|joey-VirtualBox| |T 0|50.000000| [00m
+|L   0|2019/02/08,18:04:15|joey-VirtualBox| |T 0|50.000000| [00m
      REALTIME SHUTDOWN STATS:
-            ACTUAL INIT TIME:        0.140
-         ACTUAL ELAPSED TIME:        0.185
-[00m|L   0|2019/02/06,09:53:53|joey-VirtualBox| |T 0|50.000000| [00m
+            ACTUAL INIT TIME:        0.147
+         ACTUAL ELAPSED TIME:        0.314
+[00m|L   0|2019/02/08,18:04:15|joey-VirtualBox| |T 0|50.000000| [00m
 SIMULATION TERMINATED IN
   PROCESS: 0
   ROUTINE: Executive_loop_single_thread.cpp:98
@@ -69,7 +70,7 @@ SIMULATION TERMINATED IN
        SIMULATION START TIME:        0.000
         SIMULATION STOP TIME:       50.000
      SIMULATION ELAPSED TIME:       50.000
-        ACTUAL CPU TIME USED:        0.011
-       SIMULATION / CPU TIME:     4676.831
-     INITIALIZATION CPU TIME:       -0.002
+        ACTUAL CPU TIME USED:        0.013
+       SIMULATION / CPU TIME:     3976.459
+     INITIALIZATION CPU TIME:       -0.005
 [00m

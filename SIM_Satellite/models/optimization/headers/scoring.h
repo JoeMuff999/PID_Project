@@ -31,6 +31,7 @@ public:
 	double score;
 
 	void setCross(double);
+	void setTwoPercent(double);
 	double getScore();
 	void setPercentOvershoot(double,double);
 	void setSettlingTime(double,double,double);

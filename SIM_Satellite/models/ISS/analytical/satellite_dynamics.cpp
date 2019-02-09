@@ -3,6 +3,7 @@ PURPOSE:    (Satellite Eulers)
 *****************************************************************************/
 #include <stdio.h>
 #include <math.h>
+#include <string>
 #include "../headers/satellite.h"
 
 int Satellite::satellite_Dynamics( Satellite* S ) {
@@ -41,4 +42,8 @@ if(S->counter == 100 || S->counter ==0)
     return 0 ;
 
 
+}
+void Satellite::satellite_printState(Satellite* S)
+{
+	printf("\n Satellite state... Settling Time = %.9f, Percent Overshoot = %.9f, Random = %.9f ",S->finalSettlingTime, S->finalPercentOvershoot, S->randomNumber);
 }

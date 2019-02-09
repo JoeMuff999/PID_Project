@@ -4,6 +4,7 @@ PURPOSE: (Represent the state and initial conditions of a satellite)
 #ifndef SATELLITE_H
 #define SATELLITE_H
 #include <iostream>
+#include <string>
 
 #include "../models/STDRandomGenerator/headers/stdrandom.h"
 #include "../models/Environment/headers/earth.h"
@@ -51,6 +52,8 @@ public:
     //int satellite_analytic(Satellite*); numerical uncomment if want to use basic
 
     int satellite_Dynamics(Satellite*);
+    void satellite_printState(Satellite*);
+
     Earth env;
 	STDRandom random;
 	PID pid;

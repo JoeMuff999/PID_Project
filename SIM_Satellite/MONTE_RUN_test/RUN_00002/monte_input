@@ -7,6 +7,5 @@ else:
     execfile("RUN_test/monte.py")
 
 trick.mc_set_enabled(0)
-dyn.satellite.pid.kP = 3
 trick.set_output_dir("MONTE_RUN_test/RUN_00002")
 trick.mc_set_current_run(2)

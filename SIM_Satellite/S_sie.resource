@@ -14157,6 +14157,13 @@
   </class>
 
   <class name="monte">
+    <member
+      name="satelliteArray"
+      type="Satellite"
+      io_attributes="15"
+      units="1">
+      <dimension>20</dimension>
+    </member>
   </class>
 
   <class name="triad_t">
