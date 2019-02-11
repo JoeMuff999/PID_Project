@@ -5,13 +5,13 @@ Machine work unit breakdown:
 ----------------------------------------------------------------------
                   machine    units  (units %)  cpu_time (s)  cpu/unit (s)
 ----------------------------------------------------------------------
-  1.       joey-VirtualBox      24  ( 24.00%)          6.50          0.27
-  2.       joey-VirtualBox      25  ( 25.00%)          6.41          0.26
-  3.       joey-VirtualBox      26  ( 26.00%)          6.62          0.25
-  4.       joey-VirtualBox      25  ( 25.00%)          6.62          0.26
+  1.       joey-VirtualBox      24  ( 24.00%)          3.40          0.14
+  2.       joey-VirtualBox      25  ( 25.00%)          3.46          0.14
+  3.       joey-VirtualBox      26  ( 26.00%)          3.43          0.13
+  4.       joey-VirtualBox      25  ( 25.00%)          3.47          0.14
 
-Total monte carlo time taken: 7.42
-Actual average time per unit (sum of CPU time / number of runs): 0.26
-Effective average time per unit (total time / number of runs): 0.07
-Speedup (sum of CPU time / total time): 3.52
-Efficency (speedup / num slaves): 88.09%
+Total monte carlo time taken: 3.93
+Actual average time per unit (sum of CPU time / number of runs): 0.14
+Effective average time per unit (total time / number of runs): 0.04
+Speedup (sum of CPU time / total time): 3.50
+Efficency (speedup / num slaves): 87.46%

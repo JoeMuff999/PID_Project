@@ -20,14 +20,14 @@ int monte::satellite_master_init(Satellite* S)
   //satelliteArray [20]; //20 is the amount of runs.
   int counter;
   runsPerGainValueSet = 5;
-  S->pid.setKValues(0,0,0);
+  S->pid.setKValues(1,1,1);
   for(double p = 4.5;p <= 5; p+=.5)
   {
 
     for(double d = .5; d<= 5; d+=.5)
     {
 
-      for(double i = .5; i <= 5; i+=.5)
+      for(double i = .1; i <= 1; i+=.1)
       {
 
         storage[counter].setKValues(p,i,d); //each storage[x] will be a new set of gain values.

@@ -20,4 +20,4 @@ trick_mc.mc.add_variable(mcvar_kI)
 #mcvar_SettlingTime = trick.MonteVarCalculated("")
 
 # Stop the simulation run after 15 seconds of simulation time.
-trick.stop(50)
+trick.stop(15)
