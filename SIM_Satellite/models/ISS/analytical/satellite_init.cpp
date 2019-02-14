@@ -11,7 +11,7 @@ PURPOSE: (Set the initial data values)
 #include "../models/STDRandomGenerator/src/stdrandom.cpp"
 #include "../models/Controllers/headers/pid.h"
 #include "../models/Controllers/src/pid.cpp"
-#include "../models/optimization/headers/scoring.h"
+#include "../models/optimization/include/scoring.h"
 #include "../models/optimization/src/scoring.cpp"
 
 /* default data job */

@@ -88,7 +88,7 @@ extern "C" {
 #endif
 
 #include "ISS/headers/satellite.h"
-#include "optimization/headers/montecarlo.h"
+#include "optimization/include/montecarlo.h"
 #include "trick/clock_proto.h"
 #include "trick/data_record_proto.h"
 #include "trick/env_proto.h"

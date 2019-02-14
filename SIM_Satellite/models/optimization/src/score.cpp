@@ -1,8 +1,11 @@
 /*
 PURPOSE: (record satelliteasdfpercent overshoot for sdcoring)
+
+Library dependency:
+	((score.o))
 */
 #include <iostream>
-#include "../models/optimization/headers/score.h"
+#include "../models/optimization/include/score.h"
 
 void Score::setGainValues(double p,double i, double d)
 {

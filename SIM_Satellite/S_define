@@ -12,7 +12,7 @@ LIBRARY DEPENDENCIES:
 
 #include "sim_objects/default_trick_sys.sm"
 ##include "ISS/headers/satellite.h"
-##include "optimization/headers/montecarlo.h"
+##include "optimization/include/montecarlo.h"
 
 class SatelliteSimObject : public Trick::SimObject {
 

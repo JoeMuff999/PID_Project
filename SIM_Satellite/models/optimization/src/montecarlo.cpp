@@ -1,10 +1,12 @@
 /*
 PURPOSE: (record satellite settling time and max percent overshoot for scoring)
+
+Library 
 */
 
 #include "../models/ISS/headers/satellite.h"
-#include "../headers/montecarlo.h"
-#include "../models/optimization/src/score.cpp"
+#include "../include/montecarlo.h"z
+#include "../include/score.h"
 
 #include "sim_services/MonteCarlo/include/montecarlo_c_intf.h"
 #include <math.h>

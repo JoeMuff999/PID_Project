@@ -9,7 +9,7 @@ PURPOSE: (Represent the state and initial conditions of a satellite)
 #include "../models/STDRandomGenerator/headers/stdrandom.h"
 #include "../models/Environment/headers/earth.h"
 #include "../models/Controllers/headers/pid.h"
-#include "../models/optimization/headers/scoring.h"
+#include "../models/optimization/include/scoring.h"
 
 
 

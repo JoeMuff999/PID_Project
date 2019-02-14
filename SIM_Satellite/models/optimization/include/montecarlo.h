@@ -7,7 +7,7 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 #include <vector>
 #include "../models/ISS/headers/satellite.h"
 #include "../models/Controllers/headers/pid.h"
-#include "../models/optimization/headers/score.h"
+#include "../models/optimization/include/score.h"
 #include "score.h"
 
 class monte {

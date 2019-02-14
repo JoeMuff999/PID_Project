@@ -1,5 +1,7 @@
 /*
 PURPOSE: (record ssdfd max percent overshoot for sdcoring)
+Library dependency:
+	((score.o))
 */
 #ifndef SCORE_H
 #define SCORE_H
