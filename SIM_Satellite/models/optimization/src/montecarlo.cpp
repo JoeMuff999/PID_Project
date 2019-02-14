@@ -4,6 +4,7 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 
 #include "../models/ISS/headers/satellite.h"
 #include "../headers/montecarlo.h"
+#include "../models/optimization/src/score.cpp"
 
 #include "sim_services/MonteCarlo/include/montecarlo_c_intf.h"
 #include <math.h>
@@ -65,7 +66,8 @@ int monte::satellite_master_post(Satellite* S)
   {
 //Setting score vector place holders then adding to vector
   placeholderForScoreVector.setScoreParameters(settlingTimePerGainValueSet/runsPerGainValueSet, percentOvershootPerGainValueSet/runsPerGainValueSet);
-  placeholderForScoreVector.setGainValues(S->pid.kP,S->pid.kI,S->pid.kD);
+ placeholderForScoreVector.setGainValues(S->pid.kP,S->pid.kI,S->pid.kD);
+
   scoreArray.push_back(placeholderForScoreVector);
    timeToSwitchGain = true;
    settlingTimePerGainValueSet = 0;//reset for next gain value set
@@ -102,6 +104,6 @@ int monte::satellite_master_shutdown(Satellite* S)
   }
   for(Score s : scoreArray)
   {
-
+    s.printScore();
   }
 }

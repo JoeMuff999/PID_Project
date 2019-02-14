@@ -1,5 +1,5 @@
 /*
-PURPOSE: (record satellite settling time and max percent overshoot for sdcoring)
+PURPOSE: (record satelliteasdfpercent overshoot for sdcoring)
 */
 #include <iostream>
 #include "../models/optimization/headers/score.h"
