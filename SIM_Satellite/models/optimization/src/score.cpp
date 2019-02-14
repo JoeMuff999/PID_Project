@@ -7,12 +7,13 @@ Library dependency:
 #include <iostream>
 #include "../models/optimization/include/score.h"
 
-void Score::setGainValues(double p,double i, double d)
+void Score::setGainValues(double p,double i, double d, int run)
 {
 
   kP = p;
   kI = i;
   kD = d;
+	runNumber = run;
 }
 
 void Score::setScoreParameters(double thyme, double overshoot)

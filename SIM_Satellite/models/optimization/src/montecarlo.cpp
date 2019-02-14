@@ -1,15 +1,18 @@
 /*
 PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 
-Library 
+
 */
 
 #include "../models/ISS/headers/satellite.h"
-#include "../include/montecarlo.h"z
+#include "../include/montecarlo.h"
 #include "../include/score.h"
 
 #include "sim_services/MonteCarlo/include/montecarlo_c_intf.h"
 #include <math.h>
+#include <cstdio>
+#include <string>
+#include <iostream>
 int monte::satellite_slave_post(Satellite* S)
 {
 
@@ -49,13 +52,17 @@ int monte::satellite_master_post(Satellite* S)
 
   Satellite run_satellite;
   mc_read((char*) &run_satellite, sizeof(Satellite));
+
+  static double totalSettlingTime;
+	static double totalPercentOvershoot;
+
   static double settlingTimePerGainValueSet; //for averaging each gain value set
-  static double totalSettlingTime; //for getting averaging all runs for future scoring
+
   settlingTimePerGainValueSet += run_satellite.finalSettlingTime;
-  totalSettlingTime+= run_satellite.finalSettlingTime;
+  totalSettlingTime+= run_satellite.finalSettlingTime;//for getting averaging all runs for future scoring
 
   static double percentOvershootPerGainValueSet;
-  static double totalPercentOvershoot;
+
 
   percentOvershootPerGainValueSet += run_satellite.finalPercentOvershoot;
   totalPercentOvershoot += run_satellite.finalPercentOvershoot;
@@ -68,7 +75,7 @@ int monte::satellite_master_post(Satellite* S)
   {
 //Setting score vector place holders then adding to vector
   placeholderForScoreVector.setScoreParameters(settlingTimePerGainValueSet/runsPerGainValueSet, percentOvershootPerGainValueSet/runsPerGainValueSet);
- placeholderForScoreVector.setGainValues(S->pid.kP,S->pid.kI,S->pid.kD);
+ placeholderForScoreVector.setGainValues( S->pid.kP,S->pid.kI,S->pid.kD, runCounter/runsPerGainValueSet);
 
   scoreArray.push_back(placeholderForScoreVector);
    timeToSwitchGain = true;
@@ -99,6 +106,8 @@ int monte::satellite_master_pre(Satellite* S)
 
 int monte::satellite_master_shutdown(Satellite* S)
 {
+	//double totalMeanSettlingTime = totalSettlingTime/(scoreArray.size()*runsPerGainValueSet); for scoring, this is the average.
+	fp = fopen("Modified_Data/hmm.csv", "w");
   for(Satellite p :satelliteArray)
   {
     Satellite* f = &p;
@@ -107,5 +116,10 @@ int monte::satellite_master_shutdown(Satellite* S)
   for(Score s : scoreArray)
   {
     s.printScore();
+	fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kD, s.kI, s.meanSettlingTime, s.meanPercentOvershoot);
   }
+//some sorting stuff...
+//some printing stuff..
+
+
 }

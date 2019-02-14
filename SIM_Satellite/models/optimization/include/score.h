@@ -18,8 +18,9 @@ public:
   double kD;
   double meanSettlingTime;
   double meanPercentOvershoot;
+	int runNumber;
 
-  void setGainValues(double,double,double);
+  void setGainValues(double,double,double,int);
 
   void printScore();
    void setScoreParameters(double,double);

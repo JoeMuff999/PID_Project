@@ -26,7 +26,7 @@ class SatelliteSimObject : public Trick::SimObject {
             ("initialization") satellite.satellite_init( &satellite ) ;
 
             //(0.01, "scheduled") satellite.satellite_analytic( &satellite ) ;
- 		         (0.01, "scheduled") satellite.satellite_Dynamics( &satellite ) ;
+ 	    (0.01, "scheduled") satellite.satellite_Dynamics( &satellite ) ;
             ("shutdown") satellite.satellite_shutdown( &satellite ) ;
             ("monte_master_init") money.satellite_master_init(&satellite);
             ("monte_master_pre")  money.satellite_master_pre(&satellite);

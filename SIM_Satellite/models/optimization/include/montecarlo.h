@@ -22,6 +22,11 @@ public:
   double runsPerGainValueSet;
   bool timeToSwitchGain;
 
+	//static double totalSettlingTime;
+	//static double totalPercentOvershoot;
+
+	FILE* fp;
+
   int satellite_slave_post(Satellite*);
   int satellite_master_post(Satellite*);
   int satellite_master_pre(Satellite*);
