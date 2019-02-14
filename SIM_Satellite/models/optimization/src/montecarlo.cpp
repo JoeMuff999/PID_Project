@@ -4,8 +4,9 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 
 #include "../models/ISS/headers/satellite.h"
 #include "../headers/montecarlo.h"
-#include "sim_services/MonteCarlo/include/montecarlo_c_intf.h"
 
+#include "sim_services/MonteCarlo/include/montecarlo_c_intf.h"
+#include <math.h>
 int monte::satellite_slave_post(Satellite* S)
 {
 
@@ -29,9 +30,10 @@ int monte::satellite_master_init(Satellite* S)
 
       for(double i = .1; i <= 1; i+=.1)
       {
-
-        storage[counter].setKValues(p,i,d); //each storage[x] will be a new set of gain values.
-        counter++;
+        placeholderForPIDVector.setKValues(p,i,d);
+        storage.push_back(placeholderForPIDVector);
+        //storage[counter].setKValues(p,i,d); //each storage[x] will be a new set of gain values.
+        //counter++;
 
       }
     }
@@ -44,21 +46,31 @@ int monte::satellite_master_post(Satellite* S)
 
   Satellite run_satellite;
   mc_read((char*) &run_satellite, sizeof(Satellite));
-
-  static double totalSettlingTime;
+  static double settlingTimePerGainValueSet; //for averaging each gain value set
+  static double totalSettlingTime; //for getting averaging all runs for future scoring
+  settlingTimePerGainValueSet += run_satellite.finalSettlingTime;
   totalSettlingTime+= run_satellite.finalSettlingTime;
+
+  static double percentOvershootPerGainValueSet;
+  static double totalPercentOvershoot;
+
+  percentOvershootPerGainValueSet += run_satellite.finalPercentOvershoot;
+  totalPercentOvershoot += run_satellite.finalPercentOvershoot;
   //printf("settling time : %.9f", totalSettlingTime);
 
-  static int runCounter;
-  satelliteArray [runCounter] = run_satellite;
+  static double runCounter;
+  satelliteArray.push_back(run_satellite) ;
   runCounter+=1;
-  if(runCounter%runsPerGainValueSet == 0)
+  if(fmod(runCounter,runsPerGainValueSet) == 0)
   {
+//Setting score vector place holders then adding to vector
+  placeholderForScoreVector.setScoreParameters(settlingTimePerGainValueSet/runsPerGainValueSet, percentOvershootPerGainValueSet/runsPerGainValueSet);
+  placeholderForScoreVector.setGainValues(S->pid.kP,S->pid.kI,S->pid.kD);
+  scoreArray.push_back(placeholderForScoreVector);
    timeToSwitchGain = true;
-   totalSettlingTime = 0;
-
-
-  }
+   settlingTimePerGainValueSet = 0;//reset for next gain value set
+   percentOvershootPerGainValueSet = 0;
+   }
 
   return 0;
 }
@@ -87,5 +99,9 @@ int monte::satellite_master_shutdown(Satellite* S)
   {
     Satellite* f = &p;
     p.satellite_printState(f);
+  }
+  for(Score s : scoreArray)
+  {
+
   }
 }
