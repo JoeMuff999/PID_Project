@@ -2,13 +2,9 @@ execfile("Modified_Data/Satellite.dr")
 
 # Enable Monte Carlo.
 trick.mc_set_enabled(1)
-trick.mc_add_slave("joey-VirtualBox")
-trick.mc_add_slave("joey-VirtualBox")
-trick.mc_add_slave("joey-VirtualBox")
-trick.mc_add_slave("joey-VirtualBox")
 
 # Sets the number of runs to perform to 20. Trick will not exceed the number of values in an input file.
-trick.mc_set_num_runs(100)
+#trick.mc_set_num_runs(2005);
 
 # Create and add a new Monte Carlo File variable to the simulation.
 mcvar_kP = trick.MonteVarCalculated("dyn.satellite.pid.kP","1")

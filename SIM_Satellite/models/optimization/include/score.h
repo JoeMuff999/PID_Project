@@ -14,15 +14,18 @@ class Score {
 public:
 
   double kP;
-   double kI;
+  double kI;
   double kD;
   double meanSettlingTime;
   double meanPercentOvershoot;
 	int runNumber;
 
-  void setGainValues(double,double,double,int);
+  double settlingTimeRank;
+  double percentOvershootRank;
+  double overallRank;
 
+  void setGainValues(double,double,double,int);
+  void setScoreParameters(double,double);
   void printScore();
-   void setScoreParameters(double,double);
 };
 #endif

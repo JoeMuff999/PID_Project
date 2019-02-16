@@ -9,7 +9,7 @@ void PID::setKValues(double p, double i, double d)
 	 kP = p;  //.1,1,.01
 	 kD = d;
 	 kI = i;
-	printf("kvalues: %.9f, %.9f", kP, kD);
+//	printf("kvalues: %.9f, %.9f", kP, kD);
 
 }
 
