@@ -5,6 +5,13 @@ trick.mc_set_enabled(1)
 
 # Sets the number of runs to perform to 20. Trick will not exceed the number of values in an input file.
 #trick.mc_set_num_runs(2005);
+trick.mc_set_custom_slave_dispatch("hello");
+slave1 = trick.MonteSlave("joey-VirtualBox");
+trick_mc.mc.add_slave(slave1);
+slave2 = trick.MonteSlave("joey-VirtualBox");
+trick_mc.mc.add_slave(slave2);
+#slave3 = trick.MonteSlave("joey-VirtualBox");
+#trick_mc.mc.add_slave(slave3);
 
 # Create and add a new Monte Carlo File variable to the simulation.
 mcvar_kP = trick.MonteVarCalculated("dyn.satellite.pid.kP","1")

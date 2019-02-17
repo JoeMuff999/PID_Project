@@ -26,10 +26,8 @@ int monte::satellite_slave_post(Satellite* S)
 }
 int monte::satellite_master_init(Satellite* S)
 {
-  mc_add_slave("joey-VirtualBox");
-  mc_add_slave("joey-VirtualBox");
-  mc_add_slave("joey-VirtualBox");
-  mc_add_slave("joey-VirtualBox");
+
+  //mc_add_slave("joey-VirtualBox");
 
 
   //change run number based on what u put in ur monte.py input file, this is essential!!!
@@ -37,7 +35,7 @@ int monte::satellite_master_init(Satellite* S)
 
   //satelliteArray [20]; //20 is the amount of runs.
   int counter;
-  mc_set_num_runs(2000);
+  mc_set_num_runs(100);
   runsPerGainValueSet = 10;
   S->pid.setKValues(1,1,1);
   for(double p = 4.5;p <= 5; p+=.5)
