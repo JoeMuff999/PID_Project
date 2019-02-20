@@ -30,6 +30,7 @@ class SatelliteSimObject : public Trick::SimObject {
             ("shutdown") satellite.satellite_shutdown( &satellite ) ;
             ("monte_master_init") money.satellite_master_init(&satellite);
             ("monte_master_pre")  money.satellite_master_pre(&satellite);
+            ("monte_slave_pre") money.satellite_slave_pre(&satellite);
             ("monte_slave_post") money.satellite_slave_post(&satellite);
             ("monte_master_post") money.satellite_master_post(&satellite);
             ("monte_master_shutdown") money.satellite_master_shutdown(&satellite);

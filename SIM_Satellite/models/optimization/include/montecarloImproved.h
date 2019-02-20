@@ -1,8 +1,8 @@
 /*
 PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 */
-#ifndef MONTE_H
-#define MONTE_H
+#ifndef MONTEIMPROVED_H
+#define MONTEIMPROVED_H
 #include <cstdio>
 #include <vector>
 #include "../models/ISS/headers/satellite.h"
@@ -22,15 +22,20 @@ public:
   double runsPerGainValueSet;
   bool timeToSwitchGain;
 
+  int runCounter;
+
 	//static double totalSettlingTime;
 	//static double totalPercentOvershoot;
 
 	FILE* fp;
+  void setRuns(int);
+  int getRuns();
 
   int satellite_slave_post(Satellite*);
   int satellite_master_post(Satellite*);
   int satellite_master_pre(Satellite*);
   int satellite_master_init(Satellite*);
   int satellite_master_shutdown(Satellite*);
+  int satellite_slave_pre(Satellite*);
 };
 #endif

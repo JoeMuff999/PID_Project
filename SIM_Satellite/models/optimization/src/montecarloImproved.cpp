@@ -5,7 +5,7 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 */
 
 #include "../models/ISS/headers/satellite.h"
-#include "../include/montecarlo.h"
+#include "../include/montecarloImproved.h"
 #include "../include/score.h"
 #include "../include/settlingTimeComparer.h"
 #include "../include/percentOvershootComparer.h"
@@ -79,14 +79,14 @@ int monte::satellite_master_post(Satellite* S)
   totalPercentOvershoot += run_satellite.finalPercentOvershoot;
   //printf("settling time : %.9f", totalSettlingTime);
 
-  static double runCounter;
+  static double runCounterForPost;
   satelliteArray.push_back(run_satellite) ;
-  runCounter+=1;
+  runCounterForPost+=1;
   if(fmod(runCounter,runsPerGainValueSet) == 0)
   {
 //Setting score vector place holders then adding to vector
   placeholderForScoreVector.setScoreParameters(settlingTimePerGainValueSet/runsPerGainValueSet, percentOvershootPerGainValueSet/runsPerGainValueSet);
- placeholderForScoreVector.setGainValues( S->pid.kP,S->pid.kI,S->pid.kD, runCounter/runsPerGainValueSet);
+ placeholderForScoreVector.setGainValues( S->pid.kP,S->pid.kI,S->pid.kD, runCounterForPost/runsPerGainValueSet);
 
   scoreArray.push_back(placeholderForScoreVector);
    timeToSwitchGain = true;
@@ -97,25 +97,44 @@ int monte::satellite_master_post(Satellite* S)
 
   return 0;
 }
-
-int monte::satellite_master_pre(Satellite* S)
+int monte::satellite_slave_pre(Satellite*S)
 {
 
   static int counter;
-
-  if(timeToSwitchGain)
+  int f = getRuns();
+  if(f&runsPerGainValueSet ==0)
   {
 
     S->pid.setKValues(storage[counter].kP,storage[counter].kI,storage[counter].kD );
 
     //printf("(P,I,D): %.9f,%.9f,%.9f",storage[counter].kP,storage[counter].kI,storage[counter].kD);
     counter+=1;
+    std::cout << "YO THIS SHIT IS TRUE";
     timeToSwitchGain = false;
   }
+
+  std::cout << "YO THIS IS THE NUMBER OF RUNS" << f; //prints to stdout
+  return 0;
+}
+
+int monte::satellite_master_pre(Satellite* S)
+{
+
+  runCounter++;
+  setRuns(runCounter);
+  printf("%5i\n LOOOOL",runCounter);
 
 
   return 0;
 
+}
+void monte::setRuns(int x)
+{
+  runCounter = x;
+}
+int monte::getRuns()
+{
+  return runCounter ;
 }
 
 int monte::satellite_master_shutdown(Satellite* S)
