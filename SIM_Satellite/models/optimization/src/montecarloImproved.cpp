@@ -17,7 +17,7 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+int runCounter;
 int monte::satellite_slave_post(Satellite* S)
 {
 
@@ -101,8 +101,8 @@ int monte::satellite_slave_pre(Satellite*S)
 {
 
   static int counter;
-  int f = getRuns();
-  if(f&runsPerGainValueSet ==0)
+
+  if(runCounter&runsPerGainValueSet ==0)
   {
 
     S->pid.setKValues(storage[counter].kP,storage[counter].kI,storage[counter].kD );
@@ -113,7 +113,7 @@ int monte::satellite_slave_pre(Satellite*S)
     timeToSwitchGain = false;
   }
 
-  std::cout << "YO THIS IS THE NUMBER OF RUNS" << f; //prints to stdout
+  std::cout << "YO THIS IS THE NUMBER OF RUNS" << runCounter; //prints to stdout
   return 0;
 }
 
@@ -121,21 +121,14 @@ int monte::satellite_master_pre(Satellite* S)
 {
 
   runCounter++;
-  setRuns(runCounter);
+
   printf("%5i\n LOOOOL",runCounter);
 
 
   return 0;
 
 }
-void monte::setRuns(int x)
-{
-  runCounter = x;
-}
-int monte::getRuns()
-{
-  return runCounter ;
-}
+
 
 int monte::satellite_master_shutdown(Satellite* S)
 {
