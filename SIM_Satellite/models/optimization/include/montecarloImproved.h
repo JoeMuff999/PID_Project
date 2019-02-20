@@ -9,7 +9,7 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 #include "../models/Controllers/headers/pid.h"
 #include "../models/optimization/include/score.h"
 #include "score.h"
-extern int runCounter;
+
 
 class monte {
 public:
@@ -22,7 +22,7 @@ public:
 
   double runsPerGainValueSet;
   bool timeToSwitchGain;
-
+  int runCounter;
 
 	//static double totalSettlingTime;
 	//static double totalPercentOvershoot;

@@ -10,6 +10,10 @@ slave1 = trick.MonteSlave("joey-VirtualBox");
 trick_mc.mc.add_slave(slave1);
 slave2 = trick.MonteSlave("joey-VirtualBox");
 trick_mc.mc.add_slave(slave2);
+slave3 = trick.MonteSlave("joey-VirtualBox");
+trick_mc.mc.add_slave(slave3);
+slave4 = trick.MonteSlave("joey-VirtualBox");
+trick_mc.mc.add_slave(slave4);
 #slave3 = trick.MonteSlave("joey-VirtualBox");
 #trick_mc.mc.add_slave(slave3);
 
@@ -20,6 +24,14 @@ mcvar_kD = trick.MonteVarCalculated("dyn.satellite.pid.kD","1")
 trick_mc.mc.add_variable(mcvar_kD)
 mcvar_kI = trick.MonteVarCalculated("dyn.satellite.pid.kI","1")
 trick_mc.mc.add_variable(mcvar_kI)
+mcvar_RunCounter = trick.MonteVarCalculated("dyn.money.runCounter","1")
+trick_mc.mc.add_variable(mcvar_RunCounter)
+mcvar_runspgs = trick.MonteVarCalculated("dyn.money.runsPerGainValueSet","1")
+trick_mc.mc.add_variable(mcvar_runspgs)
+
+#mcvar_runstore = trick.MonteVarCalculated("dyn.money.storage","1")
+#trick_mc.mc.add_variable(mcvar_runstore)
+
 #mcvar_SettlingTime = trick.MonteVarCalculated("")
 
 # Stop the simulation run after 15 seconds of simulation time.

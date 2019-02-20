@@ -17,7 +17,7 @@ PURPOSE: (record satellite settling time and max percent overshoot for scoring)
 #include <iostream>
 #include <vector>
 #include <algorithm>
-int runCounter;
+
 int monte::satellite_slave_post(Satellite* S)
 {
 
@@ -79,17 +79,17 @@ int monte::satellite_master_post(Satellite* S)
   totalPercentOvershoot += run_satellite.finalPercentOvershoot;
   //printf("settling time : %.9f", totalSettlingTime);
 
-  static double runCounterForPost;
+
   satelliteArray.push_back(run_satellite) ;
-  runCounterForPost+=1;
-  if(fmod(runCounter,runsPerGainValueSet) == 0)
+
+  if(timeToSwitchGain)
   {
 //Setting score vector place holders then adding to vector
   placeholderForScoreVector.setScoreParameters(settlingTimePerGainValueSet/runsPerGainValueSet, percentOvershootPerGainValueSet/runsPerGainValueSet);
- placeholderForScoreVector.setGainValues( S->pid.kP,S->pid.kI,S->pid.kD, runCounterForPost/runsPerGainValueSet);
+ placeholderForScoreVector.setGainValues( S->pid.kP,S->pid.kI,S->pid.kD, runCounter/runsPerGainValueSet);
 
   scoreArray.push_back(placeholderForScoreVector);
-   timeToSwitchGain = true;
+   timeToSwitchGain = false;
 
    settlingTimePerGainValueSet = 0;//reset for next gain value set
    percentOvershootPerGainValueSet = 0;
@@ -100,29 +100,30 @@ int monte::satellite_master_post(Satellite* S)
 int monte::satellite_slave_pre(Satellite*S)
 {
 
-  static int counter;
 
-  if(runCounter&runsPerGainValueSet ==0)
-  {
+  //std::cout << "hello     " << runCounter ;
 
-    S->pid.setKValues(storage[counter].kP,storage[counter].kI,storage[counter].kD );
 
-    //printf("(P,I,D): %.9f,%.9f,%.9f",storage[counter].kP,storage[counter].kI,storage[counter].kD);
-    counter+=1;
-    std::cout << "YO THIS SHIT IS TRUE";
-    timeToSwitchGain = false;
-  }
 
-  std::cout << "YO THIS IS THE NUMBER OF RUNS" << runCounter; //prints to stdout
+ //prints to stdout
   return 0;
 }
 
 int monte::satellite_master_pre(Satellite* S)
 {
 
-  runCounter++;
+  if(fmod(runCounter,runsPerGainValueSet) ==0)
 
-  printf("%5i\n LOOOOL",runCounter);
+  {
+
+    S->pid.setKValues(storage[runCounter/runsPerGainValueSet].kP,storage[runCounter/runsPerGainValueSet].kI,storage[runCounter/runsPerGainValueSet].kD );
+
+    //printf("(P,I,D): %.9f,%.9f,%.9f",storage[counter].kP,storage[counter].kI,storage[counter].kD);
+
+    timeToSwitchGain = true;
+  }
+runCounter++;
+  printf("%5i\n",runCounter);
 
 
   return 0;
