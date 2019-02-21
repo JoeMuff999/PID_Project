@@ -4,11 +4,12 @@ PURPOSE:    (yes )
 #include <stdio.h>
 #include <math.h>
 
-void PID::setKValues(double p, double i, double d)
+void PID::setKValues(double p, double i, double d,int x)
 {
 	 kP = p;  //.1,1,.01
 	 kD = d;
 	 kI = i;
+	 runneth = x;
 //	printf("kvalues: %.9f, %.9f", kP, kD);
 
 }

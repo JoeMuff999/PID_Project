@@ -16,10 +16,16 @@ void Score::setGainValues(double p,double i, double d, int run)
 	runNumber = run;
 }
 
-void Score::setScoreParameters(double thyme, double overshoot)
+void Score::setScoreParameters()
 {
-  meanSettlingTime = thyme;
-  meanPercentOvershoot = overshoot;
+  meanSettlingTime= meanSettlingTime/runsPGVS;
+  meanPercentOvershoot = meanPercentOvershoot/runsPGVS;
+}
+void Score::addTimeAndPO(double thyme, double overshoot)
+{
+  runsPGVS++;
+  meanSettlingTime+=thyme;
+  meanPercentOvershoot+=overshoot;
 }
 void Score::printScore()
 {

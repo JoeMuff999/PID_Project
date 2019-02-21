@@ -21,7 +21,9 @@ public:
 
 	double timeInterval;
 
-	void setKValues(double,double,double);
+	int runneth; //used for run number for verifying which gain value set you are adding values to.
+
+	void setKValues(double,double,double,int);
 	double getShifter(double,double, double);
 	double getError(double,double);
 

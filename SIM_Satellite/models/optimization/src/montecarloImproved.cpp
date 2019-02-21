@@ -35,9 +35,9 @@ int monte::satellite_master_init(Satellite* S)
 
   //satelliteArray [20]; //20 is the amount of runs.
   int counter;
-  mc_set_num_runs(100);
+  mc_set_num_runs(1000);
   runsPerGainValueSet = 10;
-  S->pid.setKValues(1,1,1);
+
   for(double p = 4.5;p <= 5; p+=.5)
   {
 
@@ -46,9 +46,11 @@ int monte::satellite_master_init(Satellite* S)
 
       for(double i = .1; i <= 1; i+=.1)
       {
-
-        placeholderForPIDVector.setKValues(p,i,d);
+        counter++;
+        placeholderForPIDVector.setKValues(p,i,d,counter);
         storage.push_back(placeholderForPIDVector);
+        placeholderForScoreVector.setGainValues(p,i,d,counter);
+        scoreArray.push_back(placeholderForScoreVector);
         //storage[counter].setKValues(p,i,d); //each storage[x] will be a new set of gain values.
         //counter++;
 
@@ -64,65 +66,48 @@ int monte::satellite_master_post(Satellite* S)
   Satellite run_satellite;
   mc_read((char*) &run_satellite, sizeof(Satellite));
 
-  static double totalSettlingTime;
-	static double totalPercentOvershoot;
+  for(PID p: storage)
+  {
 
-  static double settlingTimePerGainValueSet; //for averaging each gain value set
+  //  if(p.kP == run_satellite.pid.kP&&p.kI == run_satellite.pid.kI&&p.kD == run_satellite.pid.kD) //run through storage to find the right run
+  if(p.runneth == run_satellite.pid.runneth)
+    {
 
-  settlingTimePerGainValueSet += run_satellite.finalSettlingTime;
-  totalSettlingTime+= run_satellite.finalSettlingTime;//for getting averaging all runs for future scoring
+      for(int x = 0; x < scoreArray.size(); x++)
+      {
+        if(scoreArray[x].runNumber == p.runneth)//run through scoreArray to find the right score to add final stuff to.
+        {
+         scoreArray[x].addTimeAndPO(run_satellite.finalSettlingTime,run_satellite.finalPercentOvershoot);
+         //printf("RUN NUMBER:: %15i, SETTLING:: %15.5f, PO:: %15.5f \n", scoreArray[x].runNumber, run_satellite.finalSettlingTime,run_satellite.finalPercentOvershoot);
+        //printf("\n(kp,ki,kd):: (%5.5f,%5.5f,%5.5f) || (kp,ki,kd):: (%5.5f,%5.5f,%5.5f)\n", scoreArray[x].kP,scoreArray[x].kI,scoreArray[x].kD, p.kP,p.kI,p.kD);
 
-  static double percentOvershootPerGainValueSet;
+        }
+      }
 
 
-  percentOvershootPerGainValueSet += run_satellite.finalPercentOvershoot;
-  totalPercentOvershoot += run_satellite.finalPercentOvershoot;
-  //printf("settling time : %.9f", totalSettlingTime);
-
-
+    }
+  }
   satelliteArray.push_back(run_satellite) ;
 
-  if(timeToSwitchGain)
-  {
-//Setting score vector place holders then adding to vector
-  placeholderForScoreVector.setScoreParameters(settlingTimePerGainValueSet/runsPerGainValueSet, percentOvershootPerGainValueSet/runsPerGainValueSet);
- placeholderForScoreVector.setGainValues( S->pid.kP,S->pid.kI,S->pid.kD, runCounter/runsPerGainValueSet);
 
-  scoreArray.push_back(placeholderForScoreVector);
-   timeToSwitchGain = false;
-
-   settlingTimePerGainValueSet = 0;//reset for next gain value set
-   percentOvershootPerGainValueSet = 0;
-   }
 
   return 0;
 }
 int monte::satellite_slave_pre(Satellite*S)
 {
 
-
-  //std::cout << "hello     " << runCounter ;
-
-
-
- //prints to stdout
   return 0;
 }
 
 int monte::satellite_master_pre(Satellite* S)
 {
 
-  if(fmod(runCounter,runsPerGainValueSet) ==0)
-
+runCounter = mc_get_current_run()+1;
+  if(fmod(runCounter-1,runsPerGainValueSet) ==0 && (runCounter-1) !=0)
   {
+    S->pid.setKValues(storage[runCounter/runsPerGainValueSet].kP,storage[runCounter/runsPerGainValueSet].kI,storage[runCounter/runsPerGainValueSet].kD,storage[runCounter/runsPerGainValueSet].runneth );
+    }
 
-    S->pid.setKValues(storage[runCounter/runsPerGainValueSet].kP,storage[runCounter/runsPerGainValueSet].kI,storage[runCounter/runsPerGainValueSet].kD );
-
-    //printf("(P,I,D): %.9f,%.9f,%.9f",storage[counter].kP,storage[counter].kI,storage[counter].kD);
-
-    timeToSwitchGain = true;
-  }
-runCounter++;
   printf("%5i\n",runCounter);
 
 
@@ -133,6 +118,11 @@ runCounter++;
 
 int monte::satellite_master_shutdown(Satellite* S)
 {
+  for(int x = 0; x < scoreArray.size(); x++)
+  {
+    printf("%15.5f, %15.5f ", scoreArray[x].meanSettlingTime, scoreArray[x].meanPercentOvershoot );
+   scoreArray[x].setScoreParameters();
+  }
 //sort by ts98
   std::sort(scoreArray.begin(),scoreArray.end(),comparerSettlingTime());
 //give rank for ts98
@@ -158,8 +148,11 @@ int monte::satellite_master_shutdown(Satellite* S)
   //some printing stuff..
   for(Score s : scoreArray)
   {
+    if(s.meanSettlingTime >0)
+    {
     s.printScore();
 	fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
+}
   }
 
 

@@ -19,13 +19,15 @@ public:
   double meanSettlingTime;
   double meanPercentOvershoot;
 	int runNumber;
+  int runsPGVS;
 
   double settlingTimeRank;
   double percentOvershootRank;
   double overallRank;
 
   void setGainValues(double,double,double,int);
-  void setScoreParameters(double,double);
+  void setScoreParameters();
+  void addTimeAndPO(double , double );
   void printScore();
 };
 #endif

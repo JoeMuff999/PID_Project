@@ -30,6 +30,7 @@ public:
 	FILE* fp;
 
 
+
   int satellite_slave_post(Satellite*);
   int satellite_master_post(Satellite*);
   int satellite_master_pre(Satellite*);
