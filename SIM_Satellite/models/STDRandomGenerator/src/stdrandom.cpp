@@ -19,7 +19,7 @@ double STDRandom::getRandomNumber(int mean, int stddev)
 		 gettimeofday(&t1, NULL);
 		srand(t1.tv_usec * t1.tv_sec);
 
-	double terribleCode = (rand () % 1000);
+	double terribleCode = (rand () % 10000);
 
 
 	for(int x =0; x<terribleCode; x++)

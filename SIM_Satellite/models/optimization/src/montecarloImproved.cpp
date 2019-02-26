@@ -36,7 +36,7 @@ int monte::satellite_master_init(Satellite* S)
   //satelliteArray [20]; //20 is the amount of runs.
   int counter;
   mc_set_num_runs(1000);
-  runsPerGainValueSet = 10;
+  runsPerGainValueSet = 100;
 
   for(double p = 4.5;p <= 5; p+=.5)
   {
@@ -72,8 +72,9 @@ int monte::satellite_master_post(Satellite* S)
   //  if(p.kP == run_satellite.pid.kP&&p.kI == run_satellite.pid.kI&&p.kD == run_satellite.pid.kD) //run through storage to find the right run
   if(p.runneth == run_satellite.pid.runneth)
     {
-
-      for(int x = 0; x < scoreArray.size(); x++)
+    if(p.runneth>10)//optimize runtime by making it only look near relevant runs
+    {
+      for(int x = (p.runneth-5); x < scoreArray.size(); x++)
       {
         if(scoreArray[x].runNumber == p.runneth)//run through scoreArray to find the right score to add final stuff to.
         {
@@ -83,6 +84,20 @@ int monte::satellite_master_post(Satellite* S)
 
         }
       }
+    }
+    else
+    {
+      for(int x = 0; x < scoreArray.size(); x++)
+      {
+        if(scoreArray[x].runNumber == p.runneth)//run through scoreArray to find the right score to add final stuff to.
+        {
+         scoreArray[x].addTimeAndPO(run_satellite.finalSettlingTime,run_satellite.finalPercentOvershoot);
+         //printf("RUN NUMBER:: %15i, SETTLING:: %15.5f, PO:: %15.5f \n", scoreArray[x].runNumber, run_satellite.finalSettlingTime,run_satellite.finalPercentOvershoot);
+        //printf("\n(kp,ki,kd):: (%5.5f,%5.5f,%5.5f) || (kp,ki,kd):: (%5.5f,%5.5f,%5.5f)\n", scoreArray[x].kP,scoreArray[x].kI,scoreArray[x].kD, p.kP,p.kI,p.kD);
+
+        }
+    }
+  }
 
 
     }
@@ -148,7 +163,7 @@ int monte::satellite_master_shutdown(Satellite* S)
   //some printing stuff..
   for(Score s : scoreArray)
   {
-    if(s.meanSettlingTime >0)
+    if(s.meanPercentOvershoot >0)
     {
     s.printScore();
 	fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
