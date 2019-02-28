@@ -30,6 +30,8 @@ mcvar_RunCounter = trick.MonteVarCalculated("dyn.money.runCounter","1")
 trick_mc.mc.add_variable(mcvar_RunCounter)
 mcvar_runspgs = trick.MonteVarCalculated("dyn.money.runsPerGainValueSet","1")
 trick_mc.mc.add_variable(mcvar_runspgs)
+mcvar_genNumber = trick.MonteVarFixed("dyn.money.generation",1,"0")
+trick_mc.mc.add_variable(mcvar_genNumber)
 
 #mcvar_runstore = trick.MonteVarCalculated("dyn.money.storage","1")
 #trick_mc.mc.add_variable(mcvar_runstore)

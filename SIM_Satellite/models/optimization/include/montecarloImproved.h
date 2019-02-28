@@ -24,10 +24,13 @@ public:
   bool timeToSwitchGain;
   int runCounter;
 
+
+
 	//static double totalSettlingTime;
 	//static double totalPercentOvershoot;
 
 	FILE* fp;
+  int generation;
 
 
 

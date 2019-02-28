@@ -27,17 +27,43 @@ int monte::satellite_slave_post(Satellite* S)
 int monte::satellite_master_init(Satellite* S)
 {
 
+  runsPerGainValueSet = 100;
   //mc_add_slave("joey-VirtualBox");
+  // maybe do different input files? for different generations?
+  //structure of text file is : (runNumber, kp,ki,kd)
+  //fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
+  /*std::string filename;
+  if(generation >0)
+  {
+
+    filename = "Modified_Data/gen" + std::to_string(generation) + ".csv";
+  }
+  fp = fopen(filename.c_str(),"r");
+  //declare variables, all are throwaway except k's and rank
+
+  float kp,ki,kd,rank;
+  while(fscanf(fp, "%*d %f %f %f %*d %*d %f",&kp,&ki,&kd,&rank) != EOF)
+  {
+    printf ("%15f %15.5f %15.5f %15.5f", kp,ki,kd,rank);
+  }*/
+
+
+
+
+
+
 
 
   //change run number based on what u put in ur monte.py input file, this is essential!!!
   timeToSwitchGain = false;
 
   //satelliteArray [20]; //20 is the amount of runs.
+
+
+
+
   int counter;
   mc_set_num_runs(1000);
-  runsPerGainValueSet = 100;
-
   for(double p = 4.5;p <= 5; p+=.5)
   {
 
@@ -116,7 +142,7 @@ int monte::satellite_slave_pre(Satellite*S)
 
 int monte::satellite_master_pre(Satellite* S)
 {
-
+printf("15.5%d", generation);
 runCounter = mc_get_current_run()+1;
   if(fmod(runCounter-1,runsPerGainValueSet) ==0 && (runCounter-1) !=0)
   {
@@ -154,7 +180,7 @@ int monte::satellite_master_shutdown(Satellite* S)
   std::sort(scoreArray.begin(),scoreArray.end(),comparerOverallRank());
 
 	//double totalMeanSettlingTime = totalSettlingTime/(scoreArray.size()*runsPerGainValueSet); for scoring, this is the average.
-	fp = fopen("Modified_Data/hmm.csv", "w");
+	fp = fopen("Modified_Data/gen1.csv", "w");
   for(Satellite p :satelliteArray)
   {
     Satellite* f = &p;
