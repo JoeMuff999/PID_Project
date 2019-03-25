@@ -22,10 +22,13 @@ int Satellite::satellite_default_data( Satellite* S ) {
   S->desiredRadius = 408773 + 6371393;
   S->time = 0.0 ;
 	S->counter = 0;
+  mass = 2000;
+  pid.setKValues(7.896,1,251.332,1);
+  //pid.setKValues(1,1,1,1);
 	env.setEarthVariables();
 	//pid.setKValues();
 
-  scorer.setTwoPercent(100);
+  scorer.setTwoPercent(200);
 
 
 	return 0;
@@ -35,17 +38,17 @@ int Satellite::satellite_default_data( Satellite* S ) {
 /* initialization job */
 int Satellite::satellite_init( Satellite* S) {
 
-    randomNumber = random.getRandomNumber(0,1000);
+    randomNumber = random.getRandomNumber(0,500);
 
-    while(abs(randomNumber) < scorer.twoPercent)
+    while(abs(randomNumber) < 450 && abs(randomNumber) >500 )
     {
-      randomNumber = random.getRandomNumber(0,1000);
+      randomNumber = random.getRandomNumber(0,500);
     }
 
  //giving the initial error to the scorer so it knows if it crossed or not
   scorer.setCross(randomNumber);
 	S->actualRadius = randomNumber+ 408773 + 6371393;
-	S->actualAcceleration = (5.972 * pow(10,24) * 6.67*pow(10,-11))/(S->actualRadius);
+
   S->actualVelocity = 0;
 	S->previousError= S->desiredRadius - S->actualRadius;//using for derivative comparisons
 

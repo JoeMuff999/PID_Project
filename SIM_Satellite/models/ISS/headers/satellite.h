@@ -17,21 +17,17 @@ class Satellite { //sat class
 	//only need to calculate radius from earth ...
 	//these are u(t)?
 public:
-    double standardVelocity ;    /* *i m Constant factual velocity of satellite */
-    double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */
-
-
+  double mass;
+  double standardVelocity ;    /* *i m Constant factual velocity of satellite */
+  double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */
 	double previousError;
 	double randomNumber;
 
 
-
-
-
-
+  double thrust; /*N r-force */
 	double actualAcceleration; /* m/s2 r-acceleration  */
-    double actualVelocity ;     /* m/s r-velocity */
-    double actualRadius ;     /* m r-position */
+  double actualVelocity ;     /* m/s r-velocity */
+  double actualRadius ;     /* m r-position */
 
 
 	double time;        /* s Model time */

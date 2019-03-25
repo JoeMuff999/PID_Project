@@ -57,7 +57,7 @@ void Scorer::setSettlingTime(double currentErr, double previousErr,double elapse
 	if((abs(currentErr) < twoPercent) && !alreadyFoundTime)
 	{
 		settlingTime = elapsedTime;
-printf("\n settlingTime: %.9f", settlingTime);
+//printf("\n settlingTime: %.9f", settlingTime);
 		alreadyFoundTime = true;
 	}
 	if(alreadyFoundTime && (abs(currentErr) > twoPercent))

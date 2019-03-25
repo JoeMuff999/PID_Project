@@ -37,7 +37,7 @@ int monte::satellite_master_init(Satellite* S)
 
   //satelliteArray [20]; //20 is the amount of runs.
   int counter;
-  mc_set_num_runs(2000);
+  mc_set_num_runs(200);
   runsPerGainValueSet = 10;
   S->pid.setKValues(1,1,1);
   for(double p = 4.5;p <= 5; p+=.5)

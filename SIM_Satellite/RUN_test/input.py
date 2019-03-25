@@ -1,5 +1,5 @@
 execfile("Modified_Data/Satellite.dr")
-trick.stop(50)
+trick.stop(200)
 # Enable Monte Carlo.
 #trick.mc_set_enabled(1)
 
@@ -7,9 +7,7 @@ trick.stop(50)
 #trick.mc_set_num_runs(20)
 
 # Create and add a new Monte Carlo File variable to the simulation.
-#mcvar_kP = trick.MonteVarFile("dyn.satellite.pid.kP", "kValues/kP_value_list", 1) 
+#mcvar_kP = trick.MonteVarFile("dyn.satellite.pid.kP", "kValues/kP_value_list", 1)
 #trick_mc.mc.add_variable(mcvar_kP)
 
 # Stop the simulation run after 15 seconds of simulation time.
-
-

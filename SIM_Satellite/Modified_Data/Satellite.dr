@@ -9,7 +9,7 @@ except NameError:
 
 drg.append(trick.DRBinary("my_satellite"))
 drg[DR_GROUP_ID].set_freq(trick.DR_Always)
-drg[DR_GROUP_ID].set_cycle(0.01)
+drg[DR_GROUP_ID].set_cycle(0.1)
 drg[DR_GROUP_ID].set_single_prec_only(False)
 drg[DR_GROUP_ID].add_variable("dyn.satellite.actualRadius")
 drg[DR_GROUP_ID].add_variable("dyn.satellite.desiredRadius")

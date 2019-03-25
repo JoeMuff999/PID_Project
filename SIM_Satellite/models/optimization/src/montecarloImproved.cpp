@@ -27,23 +27,24 @@ int monte::satellite_slave_post(Satellite* S)
 int monte::satellite_master_init(Satellite* S)
 {
   double percentageToKeep = .2; //how many runs I want to keep for each generation
-  int numRuns = 2000;
+  int numRuns = 200;
   timeToSwitchGain = false;
-  runsPerGainValueSet = 100;
+  runsPerGainValueSet = 50;
   mc_set_num_runs(numRuns);
   //mc_add_slave("joey-VirtualBox")
   if(generation ==0)
   {
     int counter=0;
 
-    for(double p = 4.5;p <= 5; p+=.5)
+    for(double p = 5.5272;p < 10.2648; p+=.07896)
     {
 
-      for(double d = .5; d<= 5; d+=.5)
+      for(double d = 175.9324; d< 326.7316; d+=2.51332) //+-30%, 1% increments
         {
 
-        for(double i = .1; i <= 1; i+=.1)
-        {
+      //  for(double i = .1; i <= 1; i+=.1)
+      //  {
+          double i = 1;
           counter++;
           placeholderForPIDVector.setKValues(p,i,d,counter);
           storage.push_back(placeholderForPIDVector);
@@ -55,7 +56,7 @@ int monte::satellite_master_init(Satellite* S)
             S->pid.setKValues(storage[0].kP,storage[0].kI,storage[0].kD, storage[0].runneth);
           }
 
-        }
+      //  }
       }
     }
   }
@@ -183,6 +184,19 @@ int monte::satellite_master_shutdown(Satellite* S)
   {
     scoreArray[i].settlingTimeRank = i;
   }
+  //print settling time independently
+  std::string tsfile;
+  tsfile = "Modified_Data/settlingtime.csv";
+	fp = fopen(tsfile.c_str(), "w");
+  for(Score s : scoreArray)
+  {
+    if(s.meanPercentOvershoot >0)
+    {
+    s.printScore();
+  fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
+}
+  }
+
   std::sort(scoreArray.begin(),scoreArray.end(),comparerPercentOvershoot());
   for(int i = 0; i < scoreArray.size(); i++)
   {

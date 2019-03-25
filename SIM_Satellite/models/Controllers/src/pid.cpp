@@ -16,7 +16,7 @@ void PID::setKValues(double p, double i, double d,int x)
 
 double PID::getShifter(double actual, double desired, double previousError) {
 
-	 timeInterval = .01;
+	 timeInterval = .1;
 
 	 shifter = 0;
 
@@ -28,10 +28,6 @@ double PID::getShifter(double actual, double desired, double previousError) {
 
 
 	shifter = (kP * error) + (kD* derivative) + (kI*integral);
-
-
-	previousError = desired - actual;
-
 	return shifter;
 
 

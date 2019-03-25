@@ -8,12 +8,15 @@ PURPOSE:    (Satellite Eulers)
 
 int Satellite::satellite_Dynamics( Satellite* S ) {
 
-	double interval = .01;
-
-
-
-	double shifter = S->pid.getShifter(S->actualRadius, S->desiredRadius, S->previousError);
+	double interval = .1;
+  //to prevent previous error from being 0 and making derivative controller very large
 	double error = S->pid.getError(S->actualRadius, S->desiredRadius);
+	if(counter == 0)
+	{
+		previousError = error;
+	}
+	double shifter = S->pid.getShifter(S->actualRadius, S->desiredRadius, S->previousError);
+
 	//set settling time and maxOverShoot
 	scorer.setSettlingTime(error, S->previousError, S->time);
 	scorer.setPercentOvershoot(error, S->previousError);
@@ -23,8 +26,8 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 
 	S->previousError =  S->desiredRadius-S->actualRadius;
 
-
-	S->actualAcceleration = -1*(env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius),2)) + shifter;
+	thrust = -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((S->actualRadius),2)) + shifter*mass;
+	S->actualAcceleration = actualAcceleration + (thrust/mass)*interval; //actualAcceleration + -1*((env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius),2))*interval) + shifter;////
 	S->actualVelocity = S->actualVelocity + (S->actualAcceleration*interval);
 	S->actualRadius = S->actualRadius + (S->actualVelocity*interval);
 
@@ -34,7 +37,7 @@ if(S->counter == 100 || S->counter ==0)
 		S->counter = 0;
 	}
 
-    S->time += 0.01 ;
+    S->time += interval;
 	S->counter+=1;
 	S->finalSettlingTime = scorer.settlingTime;
 	S->finalPercentOvershoot = scorer.maxPercentOvershoot;    //i want to put this in shutdown but idk why monte ignores shutdowns very dumb :(

@@ -38,4 +38,4 @@ dyn.money.generation = 0;
 #mcvar_SettlingTime = trick.MonteVarCalculated("")
 
 # Stop the simulation run after 15 seconds of simulation time.
-trick.stop(15)
+trick.stop(200)
