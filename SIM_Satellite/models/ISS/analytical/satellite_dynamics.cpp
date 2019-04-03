@@ -26,10 +26,13 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 
 	S->previousError =  S->desiredRadius-S->actualRadius;
 
-	thrust = -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((S->actualRadius),2)) + shifter*mass;
-	S->actualAcceleration = actualAcceleration + (thrust/mass)*interval; //actualAcceleration + -1*((env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius),2))*interval) + shifter;////
-	S->actualVelocity = S->actualVelocity + (S->actualAcceleration*interval);
+
+	thrust = shifter;
+	sumForces = thrust +  -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((S->actualRadius),2));
+	S->actualAcceleration = (sumForces/mass); //actualAcceleration + -1*((env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius),2))*interval) + shifter;////
+
 	S->actualRadius = S->actualRadius + (S->actualVelocity*interval);
+	S->actualVelocity = S->actualVelocity + (S->actualAcceleration*interval); //move below because eulers !
 
 if(S->counter == 100 || S->counter ==0)
 	{
@@ -37,7 +40,7 @@ if(S->counter == 100 || S->counter ==0)
 		S->counter = 0;
 	}
 
-    S->time += interval;
+  S->time += interval;
 	S->counter+=1;
 	S->finalSettlingTime = scorer.settlingTime;
 	S->finalPercentOvershoot = scorer.maxPercentOvershoot;    //i want to put this in shutdown but idk why monte ignores shutdowns very dumb :(

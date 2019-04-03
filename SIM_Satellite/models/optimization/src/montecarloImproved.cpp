@@ -54,6 +54,11 @@ int monte::satellite_master_init(Satellite* S)
           if(counter ==1)
           {//fix for 0,0,0 k values :)
             S->pid.setKValues(storage[0].kP,storage[0].kI,storage[0].kD, storage[0].runneth);
+
+          }
+          if(counter == numRuns)
+          {
+            break;
           }
 
       //  }
@@ -178,11 +183,26 @@ int monte::satellite_master_shutdown(Satellite* S)
    scoreArray[x].setScoreParameters();
   }
 //sort by ts98
+  for(int i = 0; i < scoreArray.size(); i++)
+  {
+    if(scoreArray[i].meanPercentOvershoot <0){
+    scoreArray.erase(scoreArray.begin() + i -1);
+    scoreArray[i].meanPercentOvershoot = 10000000000;}
+  }
+  for(int i = 0; i < scoreArray.size(); i++)
+  {
+    Score s = scoreArray[i];
+    printf("AHHHHHHHHHHHHHHH%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
+  }
   std::sort(scoreArray.begin(),scoreArray.end(),comparerSettlingTime());
 //give rank for ts98
   for(int i = 0; i < scoreArray.size(); i++)
   {
+    if(scoreArray[i].meanPercentOvershoot >0)
+    {
     scoreArray[i].settlingTimeRank = i;
+    }
+
   }
   //print settling time independently
   std::string tsfile;
@@ -193,7 +213,7 @@ int monte::satellite_master_shutdown(Satellite* S)
     if(s.meanPercentOvershoot >0)
     {
     s.printScore();
-  fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
+  fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.settlingTimeRank);
 }
   }
 
