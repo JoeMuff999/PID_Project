@@ -56,7 +56,7 @@ int monte::satellite_master_init(Satellite* S)
             S->pid.setKValues(storage[0].kP,storage[0].kI,storage[0].kD, storage[0].runneth);
 
           }
-          if(counter == numRuns)
+          if(counter*runsPerGainValueSet == numRuns)
           {
             break;
           }

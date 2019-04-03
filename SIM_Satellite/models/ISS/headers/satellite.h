@@ -23,7 +23,7 @@ public:
 	double previousError;
 	double randomNumber;
 
-
+  double sumForces;
   double thrust; /*N r-force */
 	double actualAcceleration; /* m/s2 r-acceleration  */
   double actualVelocity ;     /* m/s r-velocity */
