@@ -8,7 +8,7 @@ PURPOSE:    (Satellite Eulers)
 
 int Satellite::satellite_Dynamics( Satellite* S ) {
 
-	double interval = .1;
+	double interval = .01;
   //to prevent previous error from being 0 and making derivative controller very large
 	double error = S->pid.getError(S->actualRadius, S->desiredRadius);
 	if(counter == 0)
@@ -27,7 +27,7 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 	S->previousError =  S->desiredRadius-S->actualRadius;
 
 
-	thrust = shifter*10;
+	thrust = shifter;
 	sumForces = thrust +  -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((S->actualRadius),2));
 	S->actualAcceleration = (sumForces/mass); //actualAcceleration + -1*((env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius),2))*interval) + shifter;////
 
@@ -36,7 +36,7 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 
 if(S->counter == 100 || S->counter ==0)
 	{
-		printf("\n Satellite state: aRadius = %.9f, aVelocity = %.9f, aAcceleration = %.9f, error = %.9f, shifter = %.9f, maxOverShoot = %.9f", S->actualRadius, S->actualVelocity, S->actualAcceleration, error,shifter, optimizationScore);
+		printf("\n Satellite state: aRadius = %.9f, aVelocity = %.9f, aAcceleration = %.9f, error = %.9f, shifter = %.9f", S->actualRadius, S->actualVelocity, S->actualAcceleration, error,shifter);
 		S->counter = 0;
 	}
 

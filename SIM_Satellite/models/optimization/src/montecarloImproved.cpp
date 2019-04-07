@@ -27,19 +27,21 @@ int monte::satellite_slave_post(Satellite* S)
 int monte::satellite_master_init(Satellite* S)
 {
   double percentageToKeep = .2; //how many runs I want to keep for each generation
-  int numRuns = 200;
+  int setsToRun = 800;
   timeToSwitchGain = false;
-  runsPerGainValueSet = 50;
+  runsPerGainValueSet = 1;
+  int numRuns = setsToRun *runsPerGainValueSet;
   mc_set_num_runs(numRuns);
   //mc_add_slave("joey-VirtualBox")
+
   if(generation ==0)
   {
     int counter=0;
 
-    for(double p = 5.5272;p < 10.2648; p+=.07896)
+    for(double p = 631.655;p < 947.496; p+=7.896)
     {
 
-      for(double d = 175.9324; d< 326.7316; d+=2.51332) //+-30%, 1% increments
+      for(double d = 2010.619; d< 3015.940; d+=25.133) //+-20%, 1% increments
         {
 
       //  for(double i = .1; i <= 1; i+=.1)
@@ -56,14 +58,23 @@ int monte::satellite_master_init(Satellite* S)
             S->pid.setKValues(storage[0].kP,storage[0].kI,storage[0].kD, storage[0].runneth);
 
           }
+          //double break because c++ doesnt break nested for loops
           if(counter*runsPerGainValueSet == numRuns)
           {
+            std::cout << "counter, numRuns"<< counter << "   "<< numRuns;
             break;
           }
 
-      //  }
+
+
+      }
+      if(counter*runsPerGainValueSet == numRuns)
+      {
+        std::cout << "counter, numRuns"<< counter << "   "<< numRuns;
+        break;
       }
     }
+
   }
   else {
     int counter=0;
@@ -179,20 +190,21 @@ int monte::satellite_master_shutdown(Satellite* S)
 {
   for(int x = 0; x < scoreArray.size(); x++)
   {
-    printf("%15.5f, %15.5f ", scoreArray[x].meanSettlingTime, scoreArray[x].meanPercentOvershoot );
+    //printf("%15.5f, %15.5f ", scoreArray[x].meanSettlingTime, scoreArray[x].meanPercentOvershoot );
    scoreArray[x].setScoreParameters();
   }
 //sort by ts98
   for(int i = 0; i < scoreArray.size(); i++)
   {
     if(scoreArray[i].meanPercentOvershoot <0){
+      std::cout << "this array will be deleted right?"<< i;
     scoreArray.erase(scoreArray.begin() + i -1);
     scoreArray[i].meanPercentOvershoot = 10000000000;}
   }
   for(int i = 0; i < scoreArray.size(); i++)
   {
     Score s = scoreArray[i];
-    printf("AHHHHHHHHHHHHHHH%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
+    //printf("AHHHHHHHHHHHHHHH%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
   }
   std::sort(scoreArray.begin(),scoreArray.end(),comparerSettlingTime());
 //give rank for ts98
@@ -240,7 +252,7 @@ int monte::satellite_master_shutdown(Satellite* S)
   {
     if(s.meanPercentOvershoot >0)
     {
-    s.printScore();
+    //s.printScore();
 	fprintf(fp, "%15d %15.5f %15.5f %15.5f %15.5f %15.5f %15.5f\n", s.runNumber, s.kP, s.kI, s.kD, s.meanSettlingTime, s.meanPercentOvershoot, s.overallRank);
 }
   }

@@ -23,7 +23,7 @@ int Satellite::satellite_default_data( Satellite* S ) {
   S->time = 0.0 ;
 	S->counter = 0;
   mass = 2000;
-  pid.setKValues(7.896,1,251.332,1);
+  //pid.setKValues(789.568,1,2513.274,1);
   //pid.setKValues(1,1,1,1);
 	env.setEarthVariables();
 	//pid.setKValues();
@@ -38,11 +38,11 @@ int Satellite::satellite_default_data( Satellite* S ) {
 /* initialization job */
 int Satellite::satellite_init( Satellite* S) {
 
-    randomNumber = random.getRandomNumber(0,500);
+    randomNumber = random.getRandomNumber(0,700);
 
-    while(abs(randomNumber) < 450 && abs(randomNumber) >500 )
+    while(abs(randomNumber) < 950 || abs(randomNumber) >1000 )
     {
-      randomNumber = random.getRandomNumber(0,500);
+      randomNumber = random.getRandomNumber(0,700);
     }
 
  //giving the initial error to the scorer so it knows if it crossed or not

@@ -23,7 +23,11 @@ void Score::setScoreParameters()
 }
 void Score::addTimeAndPO(double thyme, double overshoot)
 {
-  runsPGVS++;
+  if(thyme == 0){}
+  else{
+    runsPGVS++; // dont include 0 as a valid run
+  }
+
   meanSettlingTime+=thyme;
   meanPercentOvershoot+=overshoot;
 }
