@@ -27,7 +27,7 @@ int monte::satellite_slave_post(Satellite* S)
 int monte::satellite_master_init(Satellite* S)
 {
   double percentageToKeep = .2; //how many runs I want to keep for each generation
-  int setsToRun = 800;
+  int setsToRun = 40; //currently 1600 is all
   timeToSwitchGain = false;
   runsPerGainValueSet = 1;
   int numRuns = setsToRun *runsPerGainValueSet;
@@ -41,16 +41,16 @@ int monte::satellite_master_init(Satellite* S)
     for(double p = 631.655;p < 947.496; p+=7.896)
     {
 
-      for(double d = 2010.619; d< 3015.940; d+=25.133) //+-20%, 1% increments
-        {
+    //  for(double d = 2010.619; d< 3015.940; d+=25.133) //+-20%, 1% increments
+    //{
 
       //  for(double i = .1; i <= 1; i+=.1)
       //  {
           double i = 1;
           counter++;
-          placeholderForPIDVector.setKValues(p,i,d,counter);
+          placeholderForPIDVector.setKValues(p,i,2513.274,counter);
           storage.push_back(placeholderForPIDVector);
-          placeholderForScoreVector.setGainValues(p,i,d,counter);
+          placeholderForScoreVector.setGainValues(p,i,2513.274,counter);
           scoreArray.push_back(placeholderForScoreVector);
 
           if(counter ==1)
@@ -67,7 +67,7 @@ int monte::satellite_master_init(Satellite* S)
 
 
 
-      }
+  //    }
       if(counter*runsPerGainValueSet == numRuns)
       {
         std::cout << "counter, numRuns"<< counter << "   "<< numRuns;

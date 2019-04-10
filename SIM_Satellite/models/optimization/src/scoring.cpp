@@ -62,7 +62,7 @@ void Scorer::setSettlingTime(double currentErr, double previousErr,double elapse
 	}
 	if(alreadyFoundTime && (abs(currentErr) > twoPercent))
 	{
-		settlingTime = 9999;
+		settlingTime = 25;
 		alreadyFoundTime = false;
 	}
 

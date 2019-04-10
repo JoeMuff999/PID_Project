@@ -27,7 +27,7 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 	S->previousError =  S->desiredRadius-S->actualRadius;
 
 
-	thrust = shifter;
+	thrust = shifter*5;
 	sumForces = thrust +  -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((S->actualRadius),2));
 	S->actualAcceleration = (sumForces/mass); //actualAcceleration + -1*((env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius),2))*interval) + shifter;////
 
