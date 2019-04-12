@@ -24,6 +24,7 @@ int Satellite::satellite_default_data( Satellite* S ) {
 	S->counter = 0;
   mass = 2000;
   //pid.setKValues(789.568,1,2513.274,1);
+  pid.setKValues(7.89,1,251.332,1);
   //pid.setKValues(1,1,1,1);
 	env.setEarthVariables();
 	//pid.setKValues();

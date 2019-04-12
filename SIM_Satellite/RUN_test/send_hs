@@ -1,8 +1,8 @@
-|L   0|2019/04/06,17:56:44|joey-VirtualBox| |T 0|200.000000| 
+|L   0|2019/04/11,15:00:57|joey-VirtualBox| |T 0|200.000000| 
      REALTIME SHUTDOWN STATS:
-            ACTUAL INIT TIME:        0.078
-         ACTUAL ELAPSED TIME:        0.104
-|L   0|2019/04/06,17:56:44|joey-VirtualBox| |T 0|200.000000| 
+            ACTUAL INIT TIME:        0.212
+         ACTUAL ELAPSED TIME:        0.237
+|L   0|2019/04/11,15:00:57|joey-VirtualBox| |T 0|200.000000| 
 SIMULATION TERMINATED IN
   PROCESS: 0
   ROUTINE: Executive_loop_single_thread.cpp:98
@@ -11,6 +11,6 @@ SIMULATION TERMINATED IN
        SIMULATION START TIME:        0.000
         SIMULATION STOP TIME:      200.000
      SIMULATION ELAPSED TIME:      200.000
-        ACTUAL CPU TIME USED:        0.045
-       SIMULATION / CPU TIME:     4429.777
-     INITIALIZATION CPU TIME:        0.037
+        ACTUAL CPU TIME USED:        0.067
+       SIMULATION / CPU TIME:     2979.471
+     INITIALIZATION CPU TIME:        0.049
