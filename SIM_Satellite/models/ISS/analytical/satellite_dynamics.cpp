@@ -21,7 +21,7 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 	scorer.setSettlingTime(error, S->previousError, S->time);
 	scorer.setPercentOvershoot(error, S->previousError);
 	double optimizationScore = scorer.getScore();
-
+kkkkkkkk
 	//line for testing
 
 	 //for printing purposes and for graphing as well
