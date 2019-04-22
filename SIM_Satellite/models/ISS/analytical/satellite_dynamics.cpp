@@ -22,6 +22,8 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 	scorer.setPercentOvershoot(error, S->previousError);
 	double optimizationScore = scorer.getScore();
 
+	//line for testing
+
 	 //for printing purposes and for graphing as well
 
 	S->previousError =  S->desiredRadius-S->actualRadius;
