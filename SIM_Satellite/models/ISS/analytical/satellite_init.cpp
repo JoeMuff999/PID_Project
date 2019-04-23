@@ -18,10 +18,10 @@ PURPOSE: (Set the initial data values)
 int Satellite::satellite_default_data( Satellite* S ) {
 
 
-  S->standardVelocity = 0; //change this
-  S->desiredRadius = 408773 + 6371393;
-  S->time = 0.0 ;
-	S->counter = 0;
+  standardVelocity = 0; //change this
+  desiredRadius = 408773 + 6371393;
+  time = 0.0 ;
+	counter = 0;
   mass = 2000;
   //pid.setKValues(789.568,1,2513.274,1);
   pid.setKValues(7.89,1,251.332,1);
@@ -49,10 +49,15 @@ int Satellite::satellite_init( Satellite* S) {
 
  //giving the initial error to the scorer so it knows if it crossed or not
   scorer.setCross(randomNumber);
-	S->actualRadius = randomNumber+ 408773 + 6371393;
+  r[0] = 0;
+  r[1] = 0;
+	r[2] = 1000;//randomNumber+ 408773 + 6371393;
 
-  S->actualVelocity = 0;
-	S->previousError= S->desiredRadius - S->actualRadius;//using for derivative comparisons
+  v[0] = 7667; //m/s
+  v[1] = 0;
+  v[2] = 0;
+
+	//previousError= desiredRadius - actualRadius;//using for derivative comparisons
 
 	return 0;
 }

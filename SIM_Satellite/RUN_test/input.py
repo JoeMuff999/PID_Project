@@ -1,5 +1,5 @@
 execfile("Modified_Data/Satellite.dr")
-trick.stop(200)
+trick.stop(20)
 # Enable Monte Carlo.
 #trick.mc_set_enabled(1)
 

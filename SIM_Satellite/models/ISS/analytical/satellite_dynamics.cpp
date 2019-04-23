@@ -8,44 +8,74 @@ PURPOSE:    (Satellite Eulers)
 
 int Satellite::satellite_Dynamics( Satellite* S ) {
 
-	double interval = .01;
+	double interval = .1;
+
+	sumForces[0] = thrust[0];
+	sumForces[1] = thrust[1];
+	sumForces[2] = thrust[2]; //+ -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((r[2]),2));
+
+	for(int i = 0; i < 3; i++)
+	{
+		a[i] = a[i] + (sumForces[i]*interval);
+	}
+
+	theta = atan2(r[0],r[2]); // arctan of x/z will give me the total elapsed distance from the start
+	r[0] = r[0] + (v[0]*cos(theta) *interval);
+	r[1] = r[1] + v[1]*interval;
+	r[2] = r[2] + (v[0]*sin(theta) *interval);
+
+
+	for(int i = 0; i < 3; i++)
+	{
+		v[i] = v[i] + (a[i]*interval);
+	}
+
+
+
+
+
+
+
+
+
+
+
+	/*
   //to prevent previous error from being 0 and making derivative controller very large
-	double error = S->pid.getError(S->actualRadius, S->desiredRadius);
+	double error = pid.getError(actualRadius, desiredRadius);
 	if(counter == 0)
 	{
 		previousError = error;
 	}
-	double shifter = S->pid.getShifter(S->actualRadius, S->desiredRadius, S->previousError);
+	double shifter = pid.getShifter(actualRadius, desiredRadius, previousError);
 
 	//set settling time and maxOverShoot
-	scorer.setSettlingTime(error, S->previousError, S->time);
-	scorer.setPercentOvershoot(error, S->previousError);
+	scorer.setSettlingTime(error, previousError, time);
+	scorer.setPercentOvershoot(error, previousError);
 	double optimizationScore = scorer.getScore();
-
-	//line for testing hello
 
 	 //for printing purposes and for graphing as well
 
-	S->previousError =  S->desiredRadius-S->actualRadius;
+	previousError =  desiredRadius-actualRadius;
 
 
 	thrust = shifter*2;
-	sumForces = thrust +  -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((S->actualRadius),2));
-	S->actualAcceleration = (sumForces/mass); //actualAcceleration + -1*((env.earthMass * env.gravitationalConstant)/(pow((S->actualRadius),2))*interval) + shifter;////
+	sumForces = thrust +  -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((actualRadius),2));
+	actualAcceleration = (sumForces/mass); //actualAcceleration + -1*((env.earthMass * env.gravitationalConstant)/(pow((actualRadius),2))*interval) + shifter;////
 
-	S->actualRadius = S->actualRadius + (S->actualVelocity*interval);
-	S->actualVelocity = S->actualVelocity + (S->actualAcceleration*interval); //move below because eulers !
+	actualRadius = actualRadius + (actualVelocity*interval);
+	actualVelocity = actualVelocity + (actualAcceleration*interval); //move below because eulers !*/
 
-if(S->counter == 100 || S->counter ==0)
+if(counter == 1 || counter ==0)
 	{
-		printf("\n Satellite state: aRadius = %.9f, aVelocity = %.9f, aAcceleration = %.9f, error = %.9f, shifter = %.9f", S->actualRadius, S->actualVelocity, S->actualAcceleration, error,shifter);
-		S->counter = 0;
+		printf("\n Satellite state: Position (x,y,z) = (%.5f,%.5f,%.5f), Velocity (vx,vy,vz) = (%.5f,%.5f,%.5f), Acceleration (ax,ay,az) = (%.5f,%.5f,%.5f), THETA (%.5f)", r[0],r[1],r[2], v[0],v[1],v[2], a[0],a[1],a[2], theta);
+		counter = 0;
 	}
 
-  S->time += interval;
-	S->counter+=1;
-	S->finalSettlingTime = scorer.settlingTime;
-	S->finalPercentOvershoot = scorer.maxPercentOvershoot;    //i want to put this in shutdown but idk why monte ignores shutdowns very dumb :(
+  time += interval;
+	counter+=1;
+	finalSettlingTime = scorer.settlingTime;
+	finalPercentOvershoot = scorer.maxPercentOvershoot;    //i want to put this in shutdown but idk why monte ignores shutdowns very dumb :(
 
     return 0 ;
 
@@ -53,8 +83,8 @@ if(S->counter == 100 || S->counter ==0)
 }
 void Satellite::satellite_printState(Satellite* S)
 {
-	if(S->randomNumber!=0)
+	if(randomNumber!=0)
 	{
-	printf("\n Satellite state... Settling Time = %.9f, Percent Overshoot = %.9f, Random = %.9f, kP = %.9f, kD = %.9f, kI = %.9f ",S->finalSettlingTime, S->finalPercentOvershoot, S->randomNumber, S->pid.kP, S->pid.kD, S->pid.kI);
+	printf("\n Satellite state... Settling Time = %.9f, Percent Overshoot = %.9f, Random = %.9f, kP = %.9f, kD = %.9f, kI = %.9f ",finalSettlingTime, finalPercentOvershoot, randomNumber, pid.kP, pid.kD, pid.kI);
 }
 }

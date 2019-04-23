@@ -23,11 +23,12 @@ public:
 	double previousError;
 	double randomNumber;
 
-  double sumForces;
-  double thrust; /*N r-force */
-	double actualAcceleration; /* m/s2 r-acceleration  */
-  double actualVelocity ;     /* m/s r-velocity */
-  double actualRadius ;     /* m r-position */
+  double theta;
+  double sumForces[3];
+  double thrust[3]; /*N r-force */
+	double a[3]; /* m/s2 r-acceleration  */
+  double v[3] ;     /* m/s r-velocity */
+  double r[3];     /* m r-position */
 
 
 	double time;        /* s Model time */
