@@ -49,9 +49,9 @@ int Satellite::satellite_init( Satellite* S) {
 
  //giving the initial error to the scorer so it knows if it crossed or not
   scorer.setCross(randomNumber);
-  r[0] = 0;
-  r[1] = 0;
-	r[2] = 1000;//randomNumber+ 408773 + 6371393;
+  r[0] = 1;
+  r[1] = 1;
+	r[2] = 408773 + 6371393;//randomNumber+ 408773 + 6371393;
 
   v[0] = 7667; //m/s
   v[1] = 0;

@@ -9,22 +9,18 @@ PURPOSE:    (Satellite Eulers)
 int Satellite::satellite_Dynamics( Satellite* S ) {
 
 	double interval = .1;
-
-	sumForces[0] = thrust[0];
-	sumForces[1] = thrust[1];
-	sumForces[2] = thrust[2]; //+ -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((r[2]),2));
-
+	for(int i = 0; i < 3; i++)
+	{
+	sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((r[i]),2));
+  }
 	for(int i = 0; i < 3; i++)
 	{
 		a[i] = a[i] + (sumForces[i]*interval);
 	}
-
-	theta = atan2(r[0],r[2]); // arctan of x/z will give me the total elapsed distance from the start
-	r[0] = r[0] + (v[0]*cos(theta) *interval);
-	r[1] = r[1] + v[1]*interval;
-	r[2] = r[2] + (v[0]*sin(theta) *interval);
-
-
+	for(int i = 0; i < 3; i++)
+	{
+		r[i] = r[i] + v[i]*interval;
+	}
 	for(int i = 0; i < 3; i++)
 	{
 		v[i] = v[i] + (a[i]*interval);
