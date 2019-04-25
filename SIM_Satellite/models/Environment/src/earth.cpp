@@ -12,9 +12,9 @@ void Earth::setEarthVariables() {
 
     
     earthRadius = 6371393;  
-	earthMass =5.972*pow(10,24);
+	earthMass =5.972e+24;
 	
-    gravitationalConstant =6.67*pow(10,-11);
+    gravitationalConstant =6.67e-11;
 
    
    

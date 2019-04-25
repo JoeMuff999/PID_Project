@@ -11,3 +11,7 @@ send_hs
 S_job_execution
 S_run_summary
 varserver_log
+S_default.dat
+S_sie.resource
+S_source.hh
+SIM_*/makefile

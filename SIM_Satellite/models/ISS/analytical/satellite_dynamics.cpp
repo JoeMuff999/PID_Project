@@ -5,36 +5,24 @@ PURPOSE:    (Satellite Eulers)
 #include <math.h>
 #include <string>
 #include "../headers/satellite.h"
+#include "../../Math/headers/Vector.hh"
+#include "../../Math/headers/Algebra.hh"
 
 int Satellite::satellite_Dynamics( Satellite* S ) {
 
 	double interval = .1;
+
+    // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
-	sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/(pow((r[i]),2));
-  }
-	for(int i = 0; i < 3; i++)
-	{
-		a[i] = a[i] + (sumForces[i]*interval);
-	}
-	for(int i = 0; i < 3; i++)
-	{
+	    // Newton's Second Law
+        sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i]; 
+		a[i] = sumForces[i]/mass;
+		
+        // Euler-Cromer Integration Method
+        v[i] = v[i] + (a[i]*interval);
 		r[i] = r[i] + v[i]*interval;
 	}
-	for(int i = 0; i < 3; i++)
-	{
-		v[i] = v[i] + (a[i]*interval);
-	}
-
-
-
-
-
-
-
-
-
-
 
 	/*
   //to prevent previous error from being 0 and making derivative controller very large
