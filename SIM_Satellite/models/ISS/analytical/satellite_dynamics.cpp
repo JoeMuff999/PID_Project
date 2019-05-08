@@ -12,13 +12,26 @@ int Satellite::satellite_Dynamics( Satellite* S ) {
 
 	double interval = .1;
 
+	double error[3];
+
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
+		error[i] = pid.getError(r[i], rtarget[i]);
+		if(counter == 0)
+		{
+			previousError[i] = error[i];
+		}
+		else{
+			previousError[i] = rtarget[i] - r[i];
+		}
+			thrust[i] = pid.getShifter(r[i], rtarget[i], previousError[i]);
+			thrust[0] = 0;
+			thrust[2] = 0;
 	    // Newton's Second Law
-        sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i]; 
+        sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
 		a[i] = sumForces[i]/mass;
-		
+
         // Euler-Cromer Integration Method
         v[i] = v[i] + (a[i]*interval);
 		r[i] = r[i] + v[i]*interval;

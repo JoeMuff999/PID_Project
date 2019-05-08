@@ -19,10 +19,9 @@ double PID::getShifter(double actual, double desired, double previousError) {
 	 timeInterval = .1;
 
 	 shifter = 0;
+	  error = desired - actual;
 
-	error = desired - actual;
-
-	double derivative = (error - previousError)/timeInterval;
+	 double derivative = (error - previousError)/timeInterval;
 	 integral = integral + (error*timeInterval);
 	//printf("\nprop, derv, integral: %.9f, %.9f,%.9f", error, derivative, integral);
 
@@ -34,6 +33,9 @@ double PID::getShifter(double actual, double desired, double previousError) {
 }
 double PID::getError(double actual, double desired)
 {
-	error = desired - actual;
+
+		error = desired - actual;
+
+
 	return error;
 }

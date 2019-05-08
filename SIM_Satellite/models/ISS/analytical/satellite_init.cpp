@@ -24,8 +24,8 @@ int Satellite::satellite_default_data( Satellite* S ) {
 	counter = 0;
   mass = 2000;
   //pid.setKValues(789.568,1,2513.274,1);
-  pid.setKValues(7.89,1,251.332,1);
-  //pid.setKValues(1,1,1,1);
+  //pid.setKValues(7.89,1,251.332,1);
+  pid.setKValues(1,1,1,1);
 	env.setEarthVariables();
 	//pid.setKValues();
 
@@ -56,6 +56,10 @@ int Satellite::satellite_init( Satellite* S) {
   v[0] = 7664.832; //m/s
   v[1] = 0;
   v[2] = 0;
+
+  rtarget[0] = 0.0;
+  rtarget[1] = 500;
+  rtarget[2] = 0.0;
 
 	//previousError= desiredRadius - actualRadius;//using for derivative comparisons
 

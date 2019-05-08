@@ -20,7 +20,7 @@ public:
   double mass;
   double standardVelocity ;    /* *i m Constant factual velocity of satellite */
   double desiredRadius ;    /* *i m Desired radius of satellite from "Earth" */
-	double previousError;
+	double previousError[3];
 	double randomNumber;
 
   double theta;
@@ -29,6 +29,10 @@ public:
 	double a[3]; /* m/s2 r-acceleration  */
   double v[3] ;     /* m/s r-velocity */
   double r[3];     /* m r-position */
+
+  double rtarget[3]; /* m r-position */
+
+
 
 
 	double time;        /* s Model time */
@@ -51,7 +55,7 @@ public:
     int satellite_Dynamics(Satellite*);
     void satellite_printState(Satellite*);
 
-    Earth env;
+  Earth env;
 	STDRandom random;
 	PID pid;
 	Scorer scorer;
