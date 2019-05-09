@@ -15,20 +15,13 @@ PURPOSE: (Set the initial data values)
 #include "../models/optimization/src/scoring.cpp"
 
 /* default data job */
-int Satellite::satellite_default_data( Satellite* S ) {
+int Satellite::satellite_default_data() {
 
 
   standardVelocity = 0; //change this
-  desiredRadius = 408773 + 6371393;
   time = 0.0 ;
 	counter = 0;
   mass = 2000;
-  //pid.setKValues(789.568,1,2513.274,1);
-  //pid.setKValues(7.89,1,251.332,1);
-  pid.setKValues(1,1,1,1);
-	env.setEarthVariables();
-	//pid.setKValues();
-
   scorer.setTwoPercent(200);
 
 
@@ -37,7 +30,7 @@ int Satellite::satellite_default_data( Satellite* S ) {
 }
 
 /* initialization job */
-int Satellite::satellite_init( Satellite* S) {
+int Satellite::satellite_init() {
 
     /*randomNumber = random.getRandomNumber(0,700);
 
@@ -50,7 +43,7 @@ int Satellite::satellite_init( Satellite* S) {
  //giving the initial error to the scorer so it knows if it crossed or not
   scorer.setCross(randomNumber);
   r[0] = 0.0;
-  r[1] = 0.0;
+  r[1] = 5.0;
   r[2] = 408773 + 6371393;//randomNumber+ 408773 + 6371393;
 
   v[0] = 7664.832; //m/s
