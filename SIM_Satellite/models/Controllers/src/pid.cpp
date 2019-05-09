@@ -14,19 +14,19 @@ void PID::setKValues(double p, double i, double d,int x)
 
 }
 
-double PID::getShifter(double actual, double desired, double previousError) {
-
+double PID::getShifter(double actual, double desired, double previousError, int direction) {
+	//direction is for keeping integral separate
 	 timeInterval = .1;
 
 	 shifter = 0;
 	  error = desired - actual;
 
 	 double derivative = (error - previousError)/timeInterval;
-	 integral = integral + (error*timeInterval);
+	 integral[direction] = integral[direction]  + (error*timeInterval);
 	//printf("\nprop, derv, integral: %.9f, %.9f,%.9f", error, derivative, integral);
 
 
-	shifter = (kP * error) + (kD* derivative) + (kI*integral);
+	shifter = (kP * error) + (kD* derivative) + (kI*integral[direction]);
 	return shifter;
 
 

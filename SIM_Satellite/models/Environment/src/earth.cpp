@@ -8,14 +8,13 @@ PURPOSE: (Set the initial data values)
 #include "../headers/earth.h"
 
 
-void Earth::setEarthVariables() {
+void Earth::setEarthVariables(double rad, double mass, double grav) {
 
-    
-    earthRadius = 6371393;  
-	earthMass =5.972e+24;
-	
-    gravitationalConstant =6.67e-11;
 
-   
-   
+    earthRadius = rad;
+    earthMass =mass;
+    gravitationalConstant =grav;
+
+
+
 }

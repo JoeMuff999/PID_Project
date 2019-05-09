@@ -15,7 +15,7 @@ public:
 	double kD;
 
 	double shifter;
-	double integral;
+	double integral[3];
 
 	double error;
 
@@ -24,7 +24,7 @@ public:
 	int runneth; //used for run number for verifying which gain value set you are adding values to.
 
 	void setKValues(double,double,double,int);
-	double getShifter(double,double, double);
+	double getShifter(double,double, double,int);
 	double getError(double,double);
 
 

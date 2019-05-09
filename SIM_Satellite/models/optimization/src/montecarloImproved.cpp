@@ -245,7 +245,7 @@ int monte::satellite_master_shutdown(Satellite* S)
   for(Satellite p :satelliteArray)
   {
     Satellite* f = &p;
-    p.satellite_printState(f);
+    p.satellite_printState();
   }
   //some printing stuff..
   for(Score s : scoreArray)
