@@ -10,34 +10,30 @@ PURPOSE:    (Satellite Eulers)
 
 int Satellite::satellite_Dynamics( ) {
 
-	double error[3];
+
 
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
-		error[i] = pid.getError(r[i], rtarget[i]);
 		if(counter == 0)
 		{
 			previousError[i] = error[i];
 		}
 
-
-
 			thrust[i] = pid.getShifter(r[i], rtarget[i], previousError[i], i);
-
-			thrust[0] = 0;
-			thrust[2] = 0;
-
 			previousError[i] = rtarget[i] - r[i];
-	    // Newton's Second Law
-        sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
-		a[i] = sumForces[i]/mass;
 
-        // Euler-Cromer Integration Method
-        v[i] = v[i] + (a[i]*interval);
-		r[i] = r[i] + v[i]*interval;
+			sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
+			a[i] = sumForces[i]/mass;
+
+      v[i] = v[i] + (a[i]*interval);
+			r[i] = r[i] + v[i]*interval;
 
 
+			atarget[i] = (-1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(rtarget) , 3 ) ) * rtarget[i])/mass;
+
+			vtarget[i] = vtarget[i] + (atarget[i]*interval);
+			rtarget[i] = rtarget[i] + vtarget[i]*interval;
 
 	}
 
@@ -69,11 +65,24 @@ int Satellite::satellite_Dynamics( ) {
 	actualRadius = actualRadius + (actualVelocity*interval);
 	actualVelocity = actualVelocity + (actualAcceleration*interval); //move below because eulers !*/
 
-if(counter == 10 || counter ==0)
+if(counter == runtime/10 || counter ==0)
 	{
 		printf("\n Satellite state: Position (x,y,z) = (%.5f,%.5f,%.5f), Velocity (vx,vy,vz) = (%.5f,%.5f,%.5f), Acceleration (ax,ay,az) = (%.5f,%.5f,%.5f)", r[0],r[1],r[2], v[0],v[1],v[2], a[0],a[1],a[2]);
 		counter = 0;
 	}
+	bool reachedTarget = true;
+	for(int i = 0; i < 3; i++)
+	{
+		error[i] = pid.getError(r[i], rtarget[i]);
+		if(error[i]!=0)
+		{reachedTarget=false;
+		break;}
+	}
+	if(reachedTarget)
+	{
+	//Trick::exit();
+	}
+
 
   time += interval;
 	counter+=1;
