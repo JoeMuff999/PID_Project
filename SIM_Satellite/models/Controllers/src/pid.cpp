@@ -14,18 +14,16 @@ void PID::setKValues(double p, double i, double d,int x)
 
 }
 
-double PID::getShifter(double actual, double desired, double previousError, int direction) {
-	//direction is for keeping integral separate
-	 shifter = 0;
-	  error = desired - actual;
-
+double PID::getShifter() {
 	 double derivative = (error - previousError)/timeInterval;
 	 integral[direction] = integral[direction]  + (error*timeInterval);
 
 	shifter = (kP * error) + (kD* derivative) + (kI*integral[direction]);
 //	std::cout << " thrust == " << shifter;
 
-	return shifter;
+
+    previousError = error;
+    return shifter;
 
 
 }

@@ -10,19 +10,31 @@ PURPOSE:    (Satellite Eulers)
 
 int Satellite::satellite_Dynamics( ) {
 
+    // ERROR
+    error_mag = 0.0;
+    for(int i = 0; i < 3; i++ )
+    {
+            error[i] = r[i] - rtarget[i];
+            error_mag += error[i]*error[i];
+    }
+    error_mag = sqrt(error_mag);
 
+    // SET PID
+    pid.getShifter();
 
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
 		// FIXME do not add one time jobs inside of derivative loop
-        if(counter == 0)
-		{
-			previousError[i] = error[i];
-		}
+        // if(counter == 0)
+		// {
+		// 	previousError[i] = error[i];
+		// }
+        // END FIXME
 
-			thrust[i] = pid.getShifter(r[i], rtarget[i], previousError[i], i);
-			previousError[i] = rtarget[i] - r[i];
+			// thrust[i] = pid.getShifter(r[i], rtarget[i], previousError[i], i); // PID needs to have pointers to these values, not be passed them.
+			
+
 
 			sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
 			a[i] = sumForces[i]/mass;
