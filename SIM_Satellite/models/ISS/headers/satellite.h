@@ -21,20 +21,24 @@ public:
   double standardVelocity ;    /* *i m Constant factual velocity of satellite */
 	double previousError[3];
 	double randomNumber;
-  
+
   double sumForces[3];
   double thrust[3]; /*N r-force */
 	double a[3]; /* m/s2 r-acceleration  */
   double v[3] ;     /* m/s r-velocity */
   double r[3];     /* m r-position */
 
+  double atarget[3]; /* m/s2 r-acceleration  */
   double rtarget[3]; /* m r-position */
+  double vtarget[3]; /* m/s r-velocity */
+  double error[3];
 
 
 
   double interval;
 	double time;        /* s Model time */
 	int counter;
+  int runtime; // seconds to run this baby set in input file
 
 //montecarlo stuff, using these to have a variable to point to for montecarlo
   double finalSettlingTime;
@@ -46,12 +50,12 @@ public:
 
 
 	int satellite_default_data() ;
-   	int satellite_init() ;
-   	int satellite_shutdown() ;
-    //int satellite_analytic(Satellite*); numerical uncomment if want to use basic
+  int satellite_init() ;
+  int satellite_shutdown() ;
+  //int satellite_analytic(Satellite*); numerical uncomment if want to use basic
 
-    int satellite_Dynamics();
-    void satellite_printState();
+  int satellite_Dynamics();
+  void satellite_printState();
 
   Earth env;
 	STDRandom random;
