@@ -1,11 +1,10 @@
 execfile("Modified_Data/Satellite.dr")
-time = 100
+time = 20
 trick.stop(time)
 
 dyn.satellite.runtime = time
 dyn.satellite.interval = .1
-dyn.satellite.pid.timeInterval = .1
-dyn.satellite.pid.kP = 1;
+dyn.satellite.pid.kP = 30;
 dyn.satellite.pid.kI = 1;
 dyn.satellite.pid.kD = 1;
 

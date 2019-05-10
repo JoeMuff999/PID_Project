@@ -4,6 +4,11 @@ PURPOSE:    (yes )
 #include <stdio.h>
 #include <math.h>
 
+void PID::setTimeInterval(double *x)
+{
+	timeInterval = x;
+}
+
 void PID::setKValues(double p, double i, double d,int x)
 {
 	 kP = p;  //.1,1,.01
@@ -17,10 +22,10 @@ void PID::setKValues(double p, double i, double d,int x)
 double PID::getShifter(double actual, double desired, double previousError, int direction) {
 	//direction is for keeping integral separate
 	 shifter = 0;
-	  error = desired - actual;
+	  error = actual - desired;
 
-	 double derivative = (error - previousError)/timeInterval;
-	 integral[direction] = integral[direction]  + (error*timeInterval);
+	 double derivative = (error - previousError)/(*timeInterval);
+	 integral[direction] = integral[direction]  + (error**timeInterval);
 
 	shifter = (kP * error) + (kD* derivative) + (kI*integral[direction]);
 //	std::cout << " thrust == " << shifter;
@@ -32,7 +37,7 @@ double PID::getShifter(double actual, double desired, double previousError, int 
 double PID::getError(double actual, double desired)
 {
 
-		error = desired - actual;
+		error = actual-desired;
 
 
 	return error;

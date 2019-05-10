@@ -7,3 +7,6 @@ log_my_satellite	double	     1	dyn.satellite.scorer.previousE
 log_my_satellite	double	     m	dyn.satellite.r[0]
 log_my_satellite	double	     m	dyn.satellite.r[1]
 log_my_satellite	double	     m	dyn.satellite.r[2]
+log_my_satellite	double	     1	dyn.satellite.error[0]
+log_my_satellite	double	     1	dyn.satellite.error[1]
+log_my_satellite	double	     1	dyn.satellite.error[2]

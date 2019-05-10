@@ -7,6 +7,7 @@ PURPOSE:    (Satellite Eulers)
 #include "../headers/satellite.h"
 #include "../../Math/headers/Vector.hh"
 #include "../../Math/headers/Algebra.hh"
+#include "trick/exec_proto.h"
 
 int Satellite::satellite_Dynamics( ) {
 
@@ -21,7 +22,7 @@ int Satellite::satellite_Dynamics( ) {
 		}
 
 			thrust[i] = pid.getShifter(r[i], rtarget[i], previousError[i], i);
-			previousError[i] = rtarget[i] - r[i];
+			previousError[i] =  r[i]-rtarget[i];
 
 			sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
 			a[i] = sumForces[i]/mass;
@@ -76,11 +77,12 @@ if(counter == runtime/10 || counter ==0)
 		error[i] = pid.getError(r[i], rtarget[i]);
 		if(error[i]!=0)
 		{reachedTarget=false;
-		break;}
+		}
 	}
 	if(reachedTarget)
 	{
-	//Trick::exit();
+	std::string error = "sim succesful";
+	exec_terminate_with_return(-1, __FILE__,__LINE__, error.c_str());
 	}
 
 

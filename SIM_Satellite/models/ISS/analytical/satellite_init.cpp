@@ -17,7 +17,7 @@ PURPOSE: (Set the initial data values)
 /* default data job */
 int Satellite::satellite_default_data() {
 
-
+  pid.setTimeInterval(&interval);
   standardVelocity = 0; //change this
   time = 0.0 ;
 	counter = 0;
@@ -32,7 +32,7 @@ int Satellite::satellite_default_data() {
 /* initialization job */
 int Satellite::satellite_init() {
 
-  randomNumber = random.getRandomNumber(0,700);
+  randomNumber = random.getRandomNumber(975.0,5.0);
 
   while(abs(randomNumber) < 950 || abs(randomNumber) >1000 )
   {
@@ -41,9 +41,16 @@ int Satellite::satellite_init() {
  //giving the initial error to the scorer so it knows if it crossed or not
   scorer.setCross(randomNumber);
 
+
+
   error[0] = 0;
   error[1] = randomNumber;
   error[2] = 0;
+
+  for(int i = 0; i < 3; i++)
+  {
+    previousError[i] = error[i];
+  }
 
   rtarget[0] = 0.0;
   rtarget[1] = 0.0;
