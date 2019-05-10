@@ -32,32 +32,37 @@ int Satellite::satellite_default_data() {
 /* initialization job */
 int Satellite::satellite_init() {
 
-  randomNumber = random.getRandomNumber(0,700);
-
-  while(abs(randomNumber) < 950 || abs(randomNumber) >1000 )
-  {
-    randomNumber = random.getRandomNumber(0,700);
-  }
- //giving the initial error to the scorer so it knows if it crossed or not
-  scorer.setCross(randomNumber);
+  // TODO 3D-ify
+    randomNumber = random.getRandomNumber(975.0,5.0);
 
   error[0] = 0;
   error[1] = randomNumber;
   error[2] = 0;
 
+  previousError[0] = 0;
+  previousError[1] = randomNumber;
+  previousError[2] = 0;
+    // end TODO 3D-ify 
+
+
+  //giving the initial error to the scorer so it knows if it crossed or not
+  scorer.setCross(randomNumber);
+
   rtarget[0] = 0.0;
   rtarget[1] = 0.0;
-  rtarget[2] = 408773 + 6371393;
+  rtarget[2] = 408773 + 6371393; // orbital altitude + earth radius
 
-  vtarget[0] = 7664.832; //m/s
+  vtarget[0] = 7664.832; //m/s v = sqrt( G*M/R )
   vtarget[1] = 0;
   vtarget[2] = 0;
+    
+  // error = state - target ==> state = target + error
 
   r[0] = rtarget[0] + error[0];
   r[1] = rtarget[1] + error[1];
   r[2] = rtarget[2] + error[2];//randomNumber+ 408773 + 6371393;
 
-  v[0] = 7664.832; //m/s
+  v[0] = 7664.832; //m/s // no velocity error at init
   v[1] = 0;
   v[2] = 0;
 

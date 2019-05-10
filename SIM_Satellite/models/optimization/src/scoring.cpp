@@ -8,6 +8,10 @@ void Scorer::setTwoPercent(double two)
 		twoPercent = two;//get within 100 meters, really isnt that hard so, 2 percent is wayyy too big, most will start in that range so
 }
 
+/**
+ * If startingError is negative, then we are initially moving in the positive direction, so set startPos = true;
+ * vice versa.
+ */
 void Scorer::setCross(double startingError)
 {
 	if(startingError <0)

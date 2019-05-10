@@ -17,7 +17,7 @@ public:
 	double shifter;
 	double integral[3];
 
-	double error;
+	double* error; //
 
 	double timeInterval;
 

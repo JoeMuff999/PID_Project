@@ -15,7 +15,8 @@ int Satellite::satellite_Dynamics( ) {
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
-		if(counter == 0)
+		// FIXME do not add one time jobs inside of derivative loop
+        if(counter == 0)
 		{
 			previousError[i] = error[i];
 		}
@@ -37,6 +38,8 @@ int Satellite::satellite_Dynamics( ) {
 
 	}
 
+    return 0;
+}
 	/*
   //to prevent previous error from being 0 and making derivative controller very large
 	double error = pid.getError(actualRadius, desiredRadius);
@@ -63,23 +66,8 @@ int Satellite::satellite_Dynamics( ) {
 	actualRadius = actualRadius + (actualVelocity*interval);
 	actualVelocity = actualVelocity + (actualAcceleration*interval); //move below because eulers !*/
 
-if(counter == runtime/10 || counter ==0)
-	{
+void satellite_print() {
 		printf("\n Satellite state: Position (x,y,z) = (%.5f,%.5f,%.5f), Velocity (vx,vy,vz) = (%.5f,%.5f,%.5f), Acceleration (ax,ay,az) = (%.5f,%.5f,%.5f)", r[0],r[1],r[2], v[0],v[1],v[2], a[0],a[1],a[2]);
-		counter = 0;
-	}
-	bool reachedTarget = true;
-	for(int i = 0; i < 3; i++)
-	{
-		error[i] = pid.getError(r[i], rtarget[i]);
-		if(error[i]!=0)
-		{reachedTarget=false;
-		break;}
-	}
-	if(reachedTarget)
-	{
-	//Trick::exit();
-	}
 
 
   time += interval;

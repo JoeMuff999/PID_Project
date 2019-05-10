@@ -31,9 +31,8 @@ double PID::getShifter(double actual, double desired, double previousError, int 
 }
 double PID::getError(double actual, double desired)
 {
-
-		error = desired - actual;
-
+	// error = state - target
+    error =  actual - desired;
 
 	return error;
 }
