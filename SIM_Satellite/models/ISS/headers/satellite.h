@@ -19,7 +19,6 @@ class Satellite { //sat class
 public:
   double mass;
   double standardVelocity ;    /* *i m Constant factual velocity of satellite */
-	double previousError[3];
 	double randomNumber;
 
   double sumForces[3];
@@ -32,8 +31,7 @@ public:
   double rtarget[3]; /* m r-position */
   double vtarget[3]; /* m/s r-velocity */
   double error[3];
-
-
+  
 
   double interval;
 	double time;        /* s Model time */
@@ -52,10 +50,12 @@ public:
 	int satellite_default_data() ;
   int satellite_init() ;
   int satellite_shutdown() ;
+  void satellite_checkShutdown();
   //int satellite_analytic(Satellite*); numerical uncomment if want to use basic
 
   int satellite_Dynamics();
-  void satellite_printState();
+
+  void satellite_printState(bool);
 
   Earth env;
 	STDRandom random;

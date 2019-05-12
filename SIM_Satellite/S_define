@@ -3,9 +3,10 @@ PURPOSE:
     (This S_define works with the RUN_analytic input file)
 LIBRARY DEPENDENCIES:
     (
-      (ISS/analytical/satellite_init.cpp)
-      (ISS/analytical/satellite_dynamics.cpp)
-      (ISS/analytical/satellite_shutdown.cpp)
+      (ISS/src/satellite_init.cpp)
+      (ISS/src/satellite_dynamics.cpp)
+      (ISS/src/satellite_shutdown.cpp)
+      (ISS/src/satellite_print.cpp)
       (optimization/src/montecarloImproved.cpp)
     )
 *************************************************************/
@@ -19,6 +20,7 @@ class SatelliteSimObject : public Trick::SimObject {
     public:
         Satellite satellite;
         monte money;
+        bool x = true;
 
 
         SatelliteSimObject() {
@@ -27,6 +29,8 @@ class SatelliteSimObject : public Trick::SimObject {
 
             //(0.1, "scheduled") satellite.satellite_analytic()) ;
  	          (0.1, "scheduled") satellite.satellite_Dynamics( ) ;
+            (0.1, "scheduled") satellite.satellite_printState(x) ;
+
             ("shutdown") satellite.satellite_shutdown( ) ;
             ("monte_master_init") money.satellite_master_init(&satellite);
             ("monte_master_pre")  money.satellite_master_pre(&satellite);

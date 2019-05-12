@@ -4,7 +4,21 @@ PURPOSE: (Print the final satellite state.)
 #include <stdio.h>
 #include "../headers/satellite.h"
 #include "trick/exec_proto.h"
-
+void Satellite::satellite_checkShutdown()
+{
+  bool reachedTarget = true;
+	for(int i = 0; i < 3; i++)
+	{
+		if(error[i]>= 20)
+		{reachedTarget=false;
+		}
+	}
+	if(reachedTarget)
+	{
+	std::string error = "sim succesful";
+	exec_terminate_with_return(-1, __FILE__,__LINE__, error.c_str());
+	}
+}
 int Satellite::satellite_shutdown() {
     double t = exec_get_sim_time();
 

@@ -49,7 +49,7 @@ int Satellite::satellite_init() {
 
   for(int i = 0; i < 3; i++)
   {
-    previousError[i] = error[i];
+    pid.previousError[i] = error[i];
   }
 
   rtarget[0] = 0.0;

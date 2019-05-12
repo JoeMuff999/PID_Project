@@ -244,8 +244,9 @@ int monte::satellite_master_shutdown(Satellite* S)
 	fp = fopen(filename.c_str(), "w");
   for(Satellite p :satelliteArray)
   {
+    bool x = false;
     Satellite* f = &p;
-    p.satellite_printState();
+    p.satellite_printState(x);
   }
   //some printing stuff..
   for(Score s : scoreArray)
