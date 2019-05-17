@@ -47,10 +47,16 @@ int Satellite::satellite_init() {
   error[1] = randomNumber;
   error[2] = 0;
 
-  for(int i = 0; i < 3; i++)
+  /*for(int i = 0; i < 3; i++)
   {
     pid.previousError[i] = error[i];
-  }
+  }*/
+  double error_mag = 0;
+  for(int i = 0; i < 3; i++)
+  {
+		error_mag += error[i]*error[i];
+    }
+  pid.previousError = sqrt(error_mag);
 
   rtarget[0] = 0.0;
   rtarget[1] = 0.0;

@@ -5,7 +5,7 @@ trick.stop(time)
 dyn.satellite.runtime = time
 dyn.satellite.interval = .1
 dyn.satellite.pid.kP = 30;
-dyn.satellite.pid.kI = 1;
+dyn.satellite.pid.kI = 0; #set to 0 because of the way controller is setup
 dyn.satellite.pid.kD = 1;
 
 #pid.setKValues(789.568,1,2513.274,1); set in input file now

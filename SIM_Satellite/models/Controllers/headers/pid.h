@@ -15,8 +15,8 @@ public:
 	double kD;
 
 	double shifter;
-	double integral[3];
-	double previousError[3];
+	double integral;
+	double previousError;
 
 
 

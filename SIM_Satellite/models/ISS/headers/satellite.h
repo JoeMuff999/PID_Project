@@ -30,8 +30,9 @@ public:
   double atarget[3]; /* m/s2 r-acceleration  */
   double rtarget[3]; /* m r-position */
   double vtarget[3]; /* m/s r-velocity */
-  double error[3];
-  
+  double error[3];  /* m position error */
+  double verror[3]; /* m/s velocity error */
+
 
   double interval;
 	double time;        /* s Model time */

@@ -19,18 +19,22 @@ void PID::setKValues(double p, double i, double d,int x)
 
 }
 
-double PID::getShifter(double *e, int direction) {
-	//direction is for keeping integral separate
+double PID::getShifter(double *e, int vOrNot){//, int direction) {
+	//direction is for keeping integral separate, to implement again, just add direction to previous error and integral
+	//vOrNot = use d controller or use p controller
 		shifter = 0;
-
 		double error;
 		error = *e;
 
-		double derivative = (error - previousError[direction])/(*timeInterval);
- 		integral[direction] = integral[direction]  + (error**timeInterval);
+		if(vOrNot == 0) //positional error
+		{
+			shifter = (kP * error);
+		}
+		else
+		{
+			shifter = (kD* error);
+		}
 
-		shifter = (kP * error) + (kD* derivative) + (kI*integral[direction]);
-		previousError[direction] = error;
 		return shifter;
 
 

@@ -11,17 +11,28 @@ PURPOSE:    (Satellite Eulers)
 
 int Satellite::satellite_Dynamics( ) {
 
+	double error_mag = 0.0;
+	double verror_mag = 0.0;
 	for(int i = 0; i < 3; i++)
 	{
 		error[i] = r[i] - rtarget[i];
-	}
+		error_mag += error[i]*error[i];
+
+		verror[i] = v[i] - vtarget[i];
+		verror_mag += verror[i]*verror[i];
+    }
+  error_mag = sqrt(error_mag);
+	verror_mag = sqrt(verror_mag);
+
+	double shifter = pid.getShifter(&error_mag,0);
+	double vshifter = pid.getShifter(&verror_mag,1);
+
 	satellite_checkShutdown();
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
-			//send over values as pointer?
-			thrust[i] = pid.getShifter(&error[i],	 i);
-
+			//multiply by neg because state-target gives opposite of what we want
+			thrust[i] = -1*(shifter+vshifter)*error[i]/error_mag;
 			sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
 			a[i] = sumForces[i]/mass;
 
