@@ -13,6 +13,7 @@ PURPOSE: (Set the initial data values)
 #include "../models/Controllers/src/pid.cpp"
 #include "../models/optimization/include/scoring.h"
 #include "../models/optimization/src/scoring.cpp"
+#include "../models/Math/headers/Vector.cpp"
 
 /* default data job */
 int Satellite::satellite_default_data() {
@@ -32,25 +33,16 @@ int Satellite::satellite_default_data() {
 /* initialization job */
 int Satellite::satellite_init() {
 
-  randomNumber = random.getRandomNumber(975.0,5.0);
-
-  while(abs(randomNumber) < 950 || abs(randomNumber) >1000 )
+  for(int i = 0; i < 6; i++)
   {
-    randomNumber = random.getRandomNumber(0,700);
-  }
- //giving the initial error to the scorer so it knows if it crossed or not
-  scorer.setCross(randomNumber);
+		randomNumber[i]= random.getRandomNumber(975.0,5.0);
+    }
+    //giving the initial error to the scorer so it knows if it crossed or not
+  //scorer.setCross(randomNumber);
+  error[0] = randomNumber[0];
+  error[1] = randomNumber[1];
+  error[2] = randomNumber[2];
 
-
-
-  error[0] = 0;
-  error[1] = randomNumber;
-  error[2] = 0;
-
-  /*for(int i = 0; i < 3; i++)
-  {
-    pid.previousError[i] = error[i];
-  }*/
   double error_mag = 0;
   for(int i = 0; i < 3; i++)
   {
@@ -74,7 +66,34 @@ int Satellite::satellite_init() {
   v[1] = 0;
   v[2] = 0;
 
+//angular dynamics intialization
 
+  pyrerror[0] = randomNumber[3];
+  pyrerror[1] = randomNumber[4];
+  pyrerror[2] = randomNumber[5];
 
-	return 0;
+  double pyrerror_mag = 0;
+  for(int i = 0; i < 3; i++)
+  {
+		pyrerror_mag += pyrerror[i]*pyrerror[i];
+  }
+  pyrpid.previousError = sqrt(pyrerror_mag);
+
+  pyrtarget[0] = 0.0;
+  pyrtarget[1] = 0.0;
+  pyrtarget[2] = 0.0;
+
+  vpyrtarget[0] = 0; //m/s
+  vpyrtarget[1] = 0;
+  vpyrtarget[2] = 0;
+
+  pyr[0] = pyrtarget[0] + error[3];
+  pyr[1] = pyrtarget[1] + error[4];
+  pyr[2] = pyrtarget[2] + error[5];
+
+  vpyr[0] = 0; //m/s
+  vpyr[1] = 0;
+  vpyr[2] = 0;
+
+  return 0;
 }

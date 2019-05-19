@@ -19,7 +19,7 @@ PURPOSE:    (Periodically print state)
   	}
   	if(randomNumber!=0 && !autoOrAsk)
   	{
-  	printf("\n Satellite state... Settling Time = %.9f, Percent Overshoot = %.9f, Random = %.9f, kP = %.9f, kD = %.9f, kI = %.9f ",finalSettlingTime, finalPercentOvershoot, randomNumber, pid.kP, pid.kD, pid.kI);
+  	printf("\n Satellite state... Settling Time = %.9f, Percent Overshoot = %.9f, kP = %.9f, kD = %.9f, kI = %.9f ",finalSettlingTime, finalPercentOvershoot,  pid.kP, pid.kD, pid.kI);
     }
     counter+=1;
   }

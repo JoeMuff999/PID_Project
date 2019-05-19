@@ -1,12 +1,12 @@
 execfile("Modified_Data/Satellite.dr")
-time = 20
+time = 50
 trick.stop(time)
 
 dyn.satellite.runtime = time
 dyn.satellite.interval = .1
 dyn.satellite.pid.kP = 30;
 dyn.satellite.pid.kI = 0; #set to 0 because of the way controller is setup
-dyn.satellite.pid.kD = 1;
+dyn.satellite.pid.kD = 15;
 
 #pid.setKValues(789.568,1,2513.274,1); set in input file now
 #pid.setKValues(7.89,1,251.332,1);

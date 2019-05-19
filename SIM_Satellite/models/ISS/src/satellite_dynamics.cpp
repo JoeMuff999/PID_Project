@@ -5,7 +5,6 @@ PURPOSE:    (Satellite Eulers)
 #include <math.h>
 #include <string>
 #include "../headers/satellite.h"
-#include "../../Math/headers/Vector.hh"
 #include "../../Math/headers/Algebra.hh"
 #include "trick/exec_proto.h"
 
@@ -27,21 +26,19 @@ int Satellite::satellite_Dynamics( ) {
 	double shifter = pid.getShifter(&error_mag,0);
 	double vshifter = pid.getShifter(&verror_mag,1);
 
-	satellite_checkShutdown();
+	//satellite_checkShutdown();
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
 			//multiply by neg because state-target gives opposite of what we want
-			thrust[i] = -1*(shifter+vshifter)*error[i]/error_mag;
+			thrust[i] = -10*(shifter+vshifter)*error[i]/error_mag;
 			sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
 			a[i] = sumForces[i]/mass;
 
       v[i] = v[i] + (a[i]*interval);
 			r[i] = r[i] + v[i]*interval;
 
-
 			atarget[i] = (-1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(rtarget) , 3 ) ) * rtarget[i])/mass;
-
 			vtarget[i] = vtarget[i] + (atarget[i]*interval);
 			rtarget[i] = rtarget[i] + vtarget[i]*interval;
 

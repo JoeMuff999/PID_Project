@@ -5,6 +5,7 @@ LIBRARY DEPENDENCIES:
     (
       (ISS/src/satellite_init.cpp)
       (ISS/src/satellite_dynamics.cpp)
+      (ISS/src/satellite_angularDynamics.cpp)
       (ISS/src/satellite_shutdown.cpp)
       (ISS/src/satellite_print.cpp)
       (optimization/src/montecarloImproved.cpp)
@@ -29,6 +30,7 @@ class SatelliteSimObject : public Trick::SimObject {
 
             //(0.1, "scheduled") satellite.satellite_analytic()) ;
  	          (0.1, "scheduled") satellite.satellite_Dynamics( ) ;
+            (0.1, "scheduled") satellite.satellite_angularDynamics( ) ;
             (0.1, "scheduled") satellite.satellite_printState(x) ;
 
             ("shutdown") satellite.satellite_shutdown( ) ;
