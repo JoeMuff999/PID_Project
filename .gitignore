@@ -15,3 +15,4 @@ S_default.dat
 S_sie.resource
 S_source.hh
 SIM_*/makefile
+RUN_test/log_my_satellite.trk
