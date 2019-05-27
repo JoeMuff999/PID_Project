@@ -17,15 +17,13 @@ public:
 	double shifter;
 	double integral;
 	double previousError;
-
-
-
+	
 	double * timeInterval;
 
 	int runneth; //used for run number for verifying which gain value set you are adding values to.
 
 	void setKValues(double,double,double,int);
-	double getShifter(double*,int);
+	double getShifter(double*,double*);
 	void setTimeInterval(double*);
 
 

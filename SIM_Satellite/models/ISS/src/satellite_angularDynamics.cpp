@@ -10,27 +10,22 @@ PURPOSE:    (Satellite Angular Control)
 int Satellite::satellite_angularDynamics()
 {
   double pyrerror_mag = 0.0;
-	double vpyrerror_mag = 0.0;
+
 	for(int i = 0; i < 3; i++)
 	{
 		pyrerror[i] = pyr[i] - pyrtarget[i];
 		pyrerror_mag += pyrerror[i]*pyrerror[i];
-
-		vpyrerror[i] = vpyr[i] - vpyrtarget[i];
-		vpyrerror_mag += vpyrerror[i]*vpyrerror[i];
-    }
+  }
   pyrerror_mag = sqrt(pyrerror_mag);
-	vpyrerror_mag = sqrt(vpyrerror_mag);
 
-	double pyrshifter = pyrpid.getShifter(&pyrerror_mag,0);
-	double vpyrshifter = pyrpid.getShifter(&vpyrerror_mag,1);
-
+	double pyrshifter = pyrpid.getShifter(&pyrerror_mag);
+  
 	//satellite_checkShutdown();
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
 			//multiply by neg because state-target gives opposite of what we want
-			pyrthrust[i] = -10*(pyrshifter+vpyrshifter)*pyrerror[i]/pyrerror_mag;
+			pyrthrust[i] = -10*(pyrshifter)*pyrerror[i]/pyrerror_mag;
 			pyrsumForces[i] = pyrthrust[i];
 			apyr[i] = pyrsumForces[i]/mass;
 

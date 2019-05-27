@@ -19,23 +19,33 @@ void PID::setKValues(double p, double i, double d,int x)
 
 }
 
-double PID::getShifter(double *e, int vOrNot){//, int direction) {
+double PID::getShifter(double *e, double *ve){//, int direction) {
 	//direction is for keeping integral separate, to implement again, just add direction to previous error and integral
-	//vOrNot = use d controller or use p controller
+
+		shifter = 0;
+		double error;
+		double verror;
+
+		error = *e;
+		verror = *e;
+
+		shifter = (kP * error)+(kD* verror);
+
+		return shifter;
+
+}
+
+double PID::getAngularShifter(double *e){//, int direction) {
+	//direction is for keeping integral separate, to implement again, just add direction to previous error and integral
+
 		shifter = 0;
 		double error;
 		error = *e;
 
-		if(vOrNot == 0) //positional error
-		{
-			shifter = (kP * error);
-		}
-		else
-		{
-			shifter = (kD* error);
-		}
+		integral+=error;
 
+		shifter = (kP * error)+(kD* (error-previousError)/timeInterval)+(kI*error*timeInterval);
+		double previousError = *e;
 		return shifter;
-
 
 }

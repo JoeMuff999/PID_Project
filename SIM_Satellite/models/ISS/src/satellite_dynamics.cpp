@@ -23,15 +23,14 @@ int Satellite::satellite_Dynamics( ) {
   error_mag = sqrt(error_mag);
 	verror_mag = sqrt(verror_mag);
 
-	double shifter = pid.getShifter(&error_mag,0);
-	double vshifter = pid.getShifter(&verror_mag,1);
+	double shifter = pid.getShifter(&error_mag,&verror_mag);
 
 	//satellite_checkShutdown();
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
 	{
 			//multiply by neg because state-target gives opposite of what we want
-			thrust[i] = -10*(shifter+vshifter)*error[i]/error_mag;
+			thrust[i] = -10*(shifter)*error[i]/error_mag;
 			sumForces[i] = thrust[i] + -1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(r) , 3 ) ) * r[i];
 			a[i] = sumForces[i]/mass;
 

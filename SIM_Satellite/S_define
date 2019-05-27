@@ -30,7 +30,7 @@ class SatelliteSimObject : public Trick::SimObject {
 
             //(0.1, "scheduled") satellite.satellite_analytic()) ;
  	          (0.1, "scheduled") satellite.satellite_Dynamics( ) ;
-            (0.1, "scheduled") satellite.satellite_angularDynamics( ) ;
+            (0.1, "scheduled") satellite.satellite_angularDynamics() ;
             (0.1, "scheduled") satellite.satellite_printState(x) ;
 
             ("shutdown") satellite.satellite_shutdown( ) ;
