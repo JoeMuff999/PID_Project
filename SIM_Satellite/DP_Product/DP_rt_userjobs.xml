@@ -17,12 +17,21 @@
             </curve>
         </plot>
         <plot grid="yes" background_color="cornsilk2">
-            <title>JOB_dyn.satellite.satellite_printState.22.03(scheduled_0.100)</title>
+            <title>JOB_dyn.satellite.satellite_angularDynamics.22.03(scheduled_0.100)</title>
             <xaxis> <label>Time</label> <units>s</units> </xaxis>
             <yaxis> <label>Execution Time</label> </yaxis>
             <curve>
                 <var>sys.exec.out.time</var>
-                <var line_color="red" scale="1e-06">JOB_dyn.satellite.satellite_printState.22.03(scheduled_0.100)</var>
+                <var line_color="red" scale="1e-06">JOB_dyn.satellite.satellite_angularDynamics.22.03(scheduled_0.100)</var>
+            </curve>
+        </plot>
+        <plot grid="yes" background_color="cornsilk2">
+            <title>JOB_dyn.satellite.satellite_printState.22.04(scheduled_0.100)</title>
+            <xaxis> <label>Time</label> <units>s</units> </xaxis>
+            <yaxis> <label>Execution Time</label> </yaxis>
+            <curve>
+                <var>sys.exec.out.time</var>
+                <var line_color="red" scale="1e-06">JOB_dyn.satellite.satellite_printState.22.04(scheduled_0.100)</var>
             </curve>
         </plot>
     </page>

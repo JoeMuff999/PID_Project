@@ -9,7 +9,13 @@ PURPOSE:    (Satellite Angular Control)
 
 int Satellite::satellite_angularDynamics()
 {
-  double pyrerror_mag = 0.0;
+  //satellite starts with dish pointing towards earth, only do control if the two vectors are not 180
+  //determine satellite vector with pyr based on axes
+
+  
+  double* crossP = Math::Vector::crossProduct(r,)
+
+  /*double pyrerror_mag = 0.0;
 
 	for(int i = 0; i < 3; i++)
 	{
@@ -18,8 +24,8 @@ int Satellite::satellite_angularDynamics()
   }
   pyrerror_mag = sqrt(pyrerror_mag);
 
-	double pyrshifter = pyrpid.getShifter(&pyrerror_mag);
-  
+	double pyrshifter = pyrpid.getAngularShifter(&pyrerror_mag);
+
 	//satellite_checkShutdown();
     // ACCELERATIONS
 	for(int i = 0; i < 3; i++)
@@ -40,7 +46,7 @@ int Satellite::satellite_angularDynamics()
 
 	time += interval;
 	finalSettlingTime = scorer.settlingTime;
-	finalPercentOvershoot = scorer.maxPercentOvershoot;    //i want to put this in shutdown but idk why monte ignores shutdowns very dumb :(
+	finalPercentOvershoot = scorer.maxPercentOvershoot;    //i want to put this in shutdown but idk why monte ignores shutdowns very dumb :(*/
 
 	return 0 ;
 

@@ -9,7 +9,7 @@ namespace Math
         public:
         double crossP[3];
         static double Vmag( double vector[3] );
-        static double* crossProduct(double vector1[3], double vector2[3]);
+        double* crossProduct(double vector1[3], double vector2[3]);
     };
 }
 #endif

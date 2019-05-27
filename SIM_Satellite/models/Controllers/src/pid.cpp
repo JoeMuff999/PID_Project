@@ -35,17 +35,18 @@ double PID::getShifter(double *e, double *ve){//, int direction) {
 
 }
 
-double PID::getAngularShifter(double *e){//, int direction) {
-	//direction is for keeping integral separate, to implement again, just add direction to previous error and integral
+double PID::getAngularShifter(double *e){
 
 		shifter = 0;
 		double error;
 		error = *e;
 
-		integral+=error;
+		double derivative = (error-previousError)/ (*timeInterval);
 
-		shifter = (kP * error)+(kD* (error-previousError)/timeInterval)+(kI*error*timeInterval);
+		shifter = (kP * error)+(kD * derivative);
+
 		double previousError = *e;
+
 		return shifter;
 
 }
