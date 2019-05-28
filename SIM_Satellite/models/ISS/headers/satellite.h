@@ -37,15 +37,18 @@ public:
 
   double pyrsumForces[3];
   double pyrthrust[3];
-  double apyr[3];  /* degrees/s2 PYR */
-  double vpyr [3]; /*degrees/s PYR*/
-  double pyr[3]; /* degrees PYR */
+  double apyr[3];  /* radians/s2 PYR */
+  double vpyr [3]; /*radians/s PYR*/
+  double pyr[3]; /* radians PYR */
 
-  double pyrtarget[3];  /* degrees PYR */
-  double vpyrtarget[3]; /* degrees/s PYR */
-  double apyrtarget[3]; /* degrees/s2 PYR */
-  double pyrerror[3];  /* degrees PYR */
-  double vpyrerror[3]; /* degrees/s PYR */
+  double pyrtarget[3];  /* radians PYR */
+  double vpyrtarget[3]; /* radians/s PYR */
+  double apyrtarget[3]; /* radians/s2 PYR */
+  double pyrerror[3];  /* radians PYR */
+  double vpyrerror[3]; /* radians/s PYR */
+
+  double angleVector[3]; /*radians*/
+  double sToEVector[3]; /*radians*/
 
   double interval;
 	double time;        /* s Model time */
@@ -77,6 +80,7 @@ public:
 	PID pid;
   PID pyrpid;
 	Scorer scorer;
+  Math::Vector vector;
 
 
 

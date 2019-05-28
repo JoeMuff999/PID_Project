@@ -13,8 +13,17 @@ double Math::Vector::Vmag(double vector[3])
 }
 double* Math::Vector::crossProduct(double vector1[3], double vector2[3])
 {
+
     crossP[0] = vector1[1] * vector2[2] - vector1[2] * vector2[1];
-    crossP[1] = vector1[0] * vector2[2] - vector1[2] * vector2[0];
+    crossP[1] = vector1[2] * vector2[0] - vector1[0] * vector2[2];
     crossP[2] = vector1[0] * vector2[1] - vector1[1] * vector2[0];
     return crossP;
+}
+
+double Math::Vector::dotProduct(double vector1[3], double vector2[3])
+{
+  double dot = vector1[0] * vector2[0];
+  dot += vector1[1] * vector2[1];
+  dot += vector1[2] * vector2[2];
+  return dot;
 }
