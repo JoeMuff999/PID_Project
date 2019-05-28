@@ -39,13 +39,13 @@ int Satellite::satellite_default_data( Satellite* S ) {
 /* initialization job */
 int Satellite::satellite_init( Satellite* S) {
 
-    /*randomNumber = random.getRandomNumber(0,700);
-
+    randomNumber = random.getRandomNumber(950,10);
+/*
     while(abs(randomNumber) < 950 || abs(randomNumber) >1000 )
     {
       randomNumber = random.getRandomNumber(0,700);
     }*/
-    randomNumber = 1000;
+    //randomNumber = 1000;
 
  //giving the initial error to the scorer so it knows if it crossed or not
   scorer.setCross(randomNumber);

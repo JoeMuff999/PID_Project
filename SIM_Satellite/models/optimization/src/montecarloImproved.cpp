@@ -27,7 +27,7 @@ int monte::satellite_slave_post(Satellite* S)
 int monte::satellite_master_init(Satellite* S)
 {
   double percentageToKeep = .2; //how many runs I want to keep for each generation
-  int setsToRun = 1800; //currently 3600 is all
+  int setsToRun = 3600; //currently 3600 is all
   timeToSwitchGain = false;
   runsPerGainValueSet = 1;
   int numRuns = setsToRun *runsPerGainValueSet;
