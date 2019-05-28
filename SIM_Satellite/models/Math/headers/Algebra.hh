@@ -1,7 +1,7 @@
 
 namespace Math
 {
-    class Algebra 
+    class Algebra
     {
         public:
         static double pow_int( double val, int pow );
@@ -27,6 +27,6 @@ inline double Math::Algebra::pow_int( double val, int pow )
             ret /= val;
         }
     }
-    
+
     return ret;
 }
