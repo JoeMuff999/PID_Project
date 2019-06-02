@@ -49,6 +49,8 @@ public:
 
   double angleVector[3]; /*radians*/
   double sToEVector[3]; /*radians*/
+  double previousSToEVector[3];
+  double previouspyr[3];
 
   double interval;
 	double time;        /* s Model time */

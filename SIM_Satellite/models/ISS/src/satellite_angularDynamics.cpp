@@ -13,6 +13,7 @@ int Satellite::satellite_angularDynamics()
   //satellite starts with dish pointing towards earth, only do control if the two vectors are not 180
   //determine satellite vector with pyr based on axes
   //angle vector, theta, phi, psi, rotation about forward (pitch), rotation about cross (yaw), rotation about down (roll)
+
   double pi = M_PI;
   double pos_Mag = 0;
   for(int i = 0; i < 3; i++)
@@ -25,14 +26,35 @@ int Satellite::satellite_angularDynamics()
   {
     angleVector[i] = pyr[i];
   }
-  sToEVector[0] = -r[0]; //Forward, Cross, Down, (down is the same, FC are both negative)
-  sToEVector[1] = -r[1];
-  sToEVector[2] = r[2];
+  double deltapyr[3];
+  for(int i = 0; i <3; i++)
+  {
+    deltapyr[i] = pyr[i] - previouspyr[i];
+  }
+  double r_mag = 0;
+    for(int i = 0; i < 3; i++)
+    {
+  r_mag += r[i]*r[i];
+    }
+    r_mag = sqrt(r_mag);
 
 
+  sToEVector[0] = (r[0]/r_mag * cos(deltapyr[2])*cos(deltapyr[1])) + (r[1]/r_mag * sin(deltapyr[2])*cos(deltapyr[1])) + (-1*r[2]/r_mag*-1*sin(deltapyr[1]));
+  sToEVector[1] = (r[0]/r_mag* (cos(deltapyr[2])*sin(deltapyr[1])*sin(deltapyr[0])-sin(deltapyr[2])*cos(deltapyr[0])))
+  + (r[1]/r_mag*(sin(deltapyr[2])*sin(deltapyr[1])*sin(deltapyr[0])+cos(deltapyr[2])*cos(deltapyr[0])))+ (-1*r[2]/r_mag*cos(deltapyr[1])*sin(deltapyr[0]));
+  sToEVector[2] = (r[0]/r_mag*(cos(deltapyr[2])*sin(deltapyr[1])*cos(deltapyr[0])+sin(deltapyr[2])*sin(deltapyr[0])))
+  + (r[1]/r_mag*(sin(deltapyr[2])*sin(deltapyr[1])*cos(deltapyr[0])-cos(deltapyr[2])*sin(deltapyr[0])))+(-1*r[2]/r_mag*cos(deltapyr[1])*cos(deltapyr[0]));
 
-  double* crossP = vector.crossProduct(sToEVector,angleVector);
-  double dotP = Math::Vector::dotProduct(sToEVector,angleVector);
+
+  //double* crossP = vector.crossProduct(sToEVector,angleVector);
+  //double dotP = Math::Vector::dotProduct(sToEVector,angleVector);
+
+  //set for next
+  for(int i = 0; i <3; i++)
+  {
+    previousSToEVector[i] = sToEVector[i];
+    previouspyr[i] = pyr[i];
+  }
 
   /*double pyrerror_mag = 0.0;
 

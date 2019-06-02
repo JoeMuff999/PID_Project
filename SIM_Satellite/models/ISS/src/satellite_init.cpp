@@ -67,6 +67,19 @@ int Satellite::satellite_init() {
   v[2] = 0;
 
 //angular dynamics intialization
+double r_mag = 0;
+  for(int i = 0; i < 3; i++)
+  {
+r_mag += r[i]*r[i];
+  }
+  r_mag = sqrt(r_mag);
+
+
+  sToEVector[0] = r[0]/r_mag;
+  sToEVector[1] = r[1]/r_mag;
+  sToEVector[2] = -r[2]/r_mag;
+
+
 
   pyrerror[0] = randomNumber[3];
   pyrerror[1] = randomNumber[4];
@@ -86,14 +99,20 @@ int Satellite::satellite_init() {
   vpyrtarget[0] = 0; //m/s
   vpyrtarget[1] = 0;
   vpyrtarget[2] = 0;
-
-  pyr[0] = pyrtarget[0] + error[3];
-  pyr[1] = pyrtarget[1] + error[4];
-  pyr[2] = pyrtarget[2] + error[5];
+  //desired - state :) reverse of the position stuff but who cares
+  pyr[0] = pyrtarget[0] ;//- pyrerror[3];
+  pyr[1] = pyrtarget[1] ;//- error[4];
+  pyr[2] = pyrtarget[2] ;//- error[5];
 
   vpyr[0] = 0; //m/s
   vpyr[1] = 0;
   vpyr[2] = 0;
+
+  for(int i = 0; i < 3; i++)
+  {
+    previouspyr[i] = pyr[i];
+    previousSToEVector[i] = sToEVector[i];
+  }
 
   return 0;
 }

@@ -37,7 +37,7 @@ int Satellite::satellite_Dynamics( ) {
       v[i] = v[i] + (a[i]*interval);
 			r[i] = r[i] + v[i]*interval;
 
-			atarget[i] = (-1*(env.earthMass * env.gravitationalConstant *mass)/( Math::Algebra::pow_int( Math::Vector::Vmag(rtarget) , 3 ) ) * rtarget[i])/mass;
+			atarget[i] = (-1*(env.earthMass * env.gravitationalConstant)/( Math::Algebra::pow_int( Math::Vector::Vmag(rtarget) , 3 ) ) * rtarget[i]);
 			vtarget[i] = vtarget[i] + (atarget[i]*interval);
 			rtarget[i] = rtarget[i] + vtarget[i]*interval;
 
