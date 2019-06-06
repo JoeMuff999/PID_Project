@@ -15,39 +15,40 @@ int Satellite::satellite_angularDynamics()
   //angle vector, theta, phi, psi, rotation about forward (pitch), rotation about cross (yaw), rotation about down (roll)
 
   double pi = M_PI;
+  double deltapyr[3];
   double pos_Mag = 0;
+  double r_mag = 0;
   for(int i = 0; i < 3; i++)
   {
     pos_Mag += r[i]*r[i];
-  }
-  pos_Mag = sqrt(pos_Mag);
-
-  for(int i = 0; i <3; i++)
-  {
-    angleVector[i] = pyr[i];
-  }
-  double deltapyr[3];
-  for(int i = 0; i <3; i++)
-  {
+    r_mag += r[i]*r[i];
     deltapyr[i] = pyr[i] - previouspyr[i];
   }
-  double r_mag = 0;
-    for(int i = 0; i < 3; i++)
-    {
-  r_mag += r[i]*r[i];
-    }
-    r_mag = sqrt(r_mag);
+  pos_Mag = sqrt(pos_Mag);
+  r_mag = sqrt(r_mag);
+
+  downVector[0] = 0;;
+  downVector[1] = 0;
+  downVector[2] = 1;
+
+  //pyr[0] += pi/16;
+
+  /*sToEVector[0] = (r[0]/r_mag * cos(pyr[2])*cos(pyr[1])) + (r[1]/r_mag * sin(pyr[2])*cos(pyr[1])) + (-1*r[2]/r_mag*-1*sin(pyr[1]));
+  sToEVector[1] = (r[0]/r_mag* (cos(pyr[2])*sin(pyr[1])*sin(pyr[0])-sin(pyr[2])*cos(pyr[0])))
+  + (r[1]/r_mag*(sin(pyr[2])*sin(pyr[1])*sin(pyr[0])+cos(pyr[2])*cos(pyr[0])))+ (-1*r[2]/r_mag*cos(pyr[1])*sin(pyr[0]));
+  sToEVector[2] = (r[0]/r_mag*(cos(pyr[2])*sin(pyr[1])*cos(pyr[0])+sin(pyr[2])*sin(pyr[0])))
+  + (r[1]/r_mag*(sin(pyr[2])*sin(pyr[1])*cos(pyr[0])-cos(pyr[2])*sin(pyr[0])))+(-1*r[2]/r_mag*cos(pyr[1])*cos(pyr[0]));*/
+
+  sToEVector[0] = (-1*r[0]/r_mag *cos(pyr[2])*cos(pyr[1])) + r[1]/r_mag*((cos(pyr[2])*sin(pyr[1])*sin(pyr[0]))+(sin(pyr[2])*cos(pyr[0]))) +
+  (r[2]/r_mag*(-1*cos(pyr[2])*sin(pyr[1])*cos(pyr[0])+(sin(pyr[2])*sin(pyr[0]))));
+  sToEVector[1] = (-1*r[0]/r_mag * -1*sin(pyr[2])*cos(pyr[1])) + (r[1]/r_mag*((-1*sin(pyr[2])*sin(pyr[1])*sin(pyr[0]))+(cos(pyr[2])*cos(pyr[0]))))+
+  (r[2]/r_mag*(sin(pyr[2])*sin(pyr[1])*cos(pyr[0])+(cos(pyr[2])*sin(pyr[0]))));
+  sToEVector[2] = (-1*r[0]/r_mag*sin(pyr[1])) + (-1*r[1]/r_mag*cos(pyr[1])*sin(pyr[0])) + (r[2]/r_mag*cos(pyr[1])*cos(pyr[0]));
 
 
-  sToEVector[0] = (r[0]/r_mag * cos(deltapyr[2])*cos(deltapyr[1])) + (r[1]/r_mag * sin(deltapyr[2])*cos(deltapyr[1])) + (-1*r[2]/r_mag*-1*sin(deltapyr[1]));
-  sToEVector[1] = (r[0]/r_mag* (cos(deltapyr[2])*sin(deltapyr[1])*sin(deltapyr[0])-sin(deltapyr[2])*cos(deltapyr[0])))
-  + (r[1]/r_mag*(sin(deltapyr[2])*sin(deltapyr[1])*sin(deltapyr[0])+cos(deltapyr[2])*cos(deltapyr[0])))+ (-1*r[2]/r_mag*cos(deltapyr[1])*sin(deltapyr[0]));
-  sToEVector[2] = (r[0]/r_mag*(cos(deltapyr[2])*sin(deltapyr[1])*cos(deltapyr[0])+sin(deltapyr[2])*sin(deltapyr[0])))
-  + (r[1]/r_mag*(sin(deltapyr[2])*sin(deltapyr[1])*cos(deltapyr[0])-cos(deltapyr[2])*sin(deltapyr[0])))+(-1*r[2]/r_mag*cos(deltapyr[1])*cos(deltapyr[0]));
-
-
-  //double* crossP = vector.crossProduct(sToEVector,angleVector);
-  //double dotP = Math::Vector::dotProduct(sToEVector,angleVector);
+  double* crossP = vector.crossProduct(sToEVector,downVector);
+  //printf("\nCrossProduct (%.9f, %.9f, %.9f)", crossP[0], crossP[1], crossP[2]);
+  double dotP = Math::Vector::dotProduct(sToEVector,downVector);
 
   //set for next
   for(int i = 0; i <3; i++)

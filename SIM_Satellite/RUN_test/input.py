@@ -1,5 +1,5 @@
 execfile("Modified_Data/Satellite.dr")
-time = 6000
+time = 10
 trick.stop(time)
 
 dyn.satellite.runtime = time

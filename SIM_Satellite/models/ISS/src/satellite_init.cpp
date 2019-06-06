@@ -81,9 +81,9 @@ r_mag += r[i]*r[i];
 
 
 
-  pyrerror[0] = randomNumber[3];
-  pyrerror[1] = randomNumber[4];
-  pyrerror[2] = randomNumber[5];
+  pyrerror[0];
+  pyrerror[1];
+  pyrerror[2];
 
   double pyrerror_mag = 0;
   for(int i = 0; i < 3; i++)

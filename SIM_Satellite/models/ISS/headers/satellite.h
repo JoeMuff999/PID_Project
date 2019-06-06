@@ -47,7 +47,7 @@ public:
   double pyrerror[3];  /* radians PYR */
   double vpyrerror[3]; /* radians/s PYR */
 
-  double angleVector[3]; /*radians*/
+  double downVector[3]; /*radians*/
   double sToEVector[3]; /*radians*/
   double previousSToEVector[3];
   double previouspyr[3];
