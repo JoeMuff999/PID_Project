@@ -27,11 +27,11 @@ int Satellite::satellite_angularDynamics()
   pos_Mag = sqrt(pos_Mag);
   r_mag = sqrt(r_mag);
 
-  downVector[0] = 0;;
+  downVector[0] = 0;
   downVector[1] = 0;
   downVector[2] = 1;
 
-  //pyr[0] += pi/16;
+  //pyr[1] = pi/2;
 
   /*sToEVector[0] = (r[0]/r_mag * cos(pyr[2])*cos(pyr[1])) + (r[1]/r_mag * sin(pyr[2])*cos(pyr[1])) + (-1*r[2]/r_mag*-1*sin(pyr[1]));
   sToEVector[1] = (r[0]/r_mag* (cos(pyr[2])*sin(pyr[1])*sin(pyr[0])-sin(pyr[2])*cos(pyr[0])))
@@ -39,16 +39,32 @@ int Satellite::satellite_angularDynamics()
   sToEVector[2] = (r[0]/r_mag*(cos(pyr[2])*sin(pyr[1])*cos(pyr[0])+sin(pyr[2])*sin(pyr[0])))
   + (r[1]/r_mag*(sin(pyr[2])*sin(pyr[1])*cos(pyr[0])-cos(pyr[2])*sin(pyr[0])))+(-1*r[2]/r_mag*cos(pyr[1])*cos(pyr[0]));*/
 
+  pyrtarget[0] = atan((cos(sToEVector[2]*pi/2))/(cos(sToEVector[0]*pi/2)));
+  pyrtarget[1] = atan((cos(sToEVector[0]*pi/2))/(cos(sToEVector[]*pi/2)));
+  //pyrtarget[2] = atan(sToEVector[0]/sToEVector[1])*pi;
+  pyr[0] = pyrtarget[0];
+  pyr[1] = pyrtarget[1];
+  //printf("%.9f, %.9f", pyr[0], pyr[1]);
+  //pyr[2] = pyrtarget[2];
+  negate = 1;
+  if(r[2] < 0)
+  {
+    //negate =-1;
+  }
+  else
+  {
+    //negate =1;
+  }
   sToEVector[0] = (-1*r[0]/r_mag *cos(pyr[2])*cos(pyr[1])) + r[1]/r_mag*((cos(pyr[2])*sin(pyr[1])*sin(pyr[0]))+(sin(pyr[2])*cos(pyr[0]))) +
-  (r[2]/r_mag*(-1*cos(pyr[2])*sin(pyr[1])*cos(pyr[0])+(sin(pyr[2])*sin(pyr[0]))));
-  sToEVector[1] = (-1*r[0]/r_mag * -1*sin(pyr[2])*cos(pyr[1])) + (r[1]/r_mag*((-1*sin(pyr[2])*sin(pyr[1])*sin(pyr[0]))+(cos(pyr[2])*cos(pyr[0]))))+
-  (r[2]/r_mag*(sin(pyr[2])*sin(pyr[1])*cos(pyr[0])+(cos(pyr[2])*sin(pyr[0]))));
-  sToEVector[2] = (-1*r[0]/r_mag*sin(pyr[1])) + (-1*r[1]/r_mag*cos(pyr[1])*sin(pyr[0])) + (r[2]/r_mag*cos(pyr[1])*cos(pyr[0]));
-
-
+  (negate*r[2]/r_mag*(-1*cos(pyr[2])*sin(pyr[1])*cos(pyr[0])+(sin(pyr[2])*sin(pyr[0]))));
+  sToEVector[1] = (-1 *r[0]/r_mag * -1*sin(pyr[2])*cos(pyr[1])) + (r[1]/r_mag*((-1*sin(pyr[2])*sin(pyr[1])*sin(pyr[0]))+(cos(pyr[2])*cos(pyr[0]))))+
+  (negate*r[2]/r_mag*(sin(pyr[2])*sin(pyr[1])*cos(pyr[0])+(cos(pyr[2])*sin(pyr[0]))));
+  sToEVector[2] = (-1*r[0]/r_mag*sin(pyr[1])) + (-1*r[1]/r_mag*cos(pyr[1])*sin(pyr[0])) + (negate*r[2]/r_mag*cos(pyr[1])*cos(pyr[0]));
   double* crossP = vector.crossProduct(sToEVector,downVector);
+
+
   //printf("\nCrossProduct (%.9f, %.9f, %.9f)", crossP[0], crossP[1], crossP[2]);
-  double dotP = Math::Vector::dotProduct(sToEVector,downVector);
+  //double dotP = Math::Vector::dotProduct(sToEVector,downVector);
 
   //set for next
   for(int i = 0; i <3; i++)
