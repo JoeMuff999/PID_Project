@@ -7,6 +7,9 @@ dyn.satellite.interval = .1
 dyn.satellite.pid.kP = 30;
 dyn.satellite.pid.kI = 0; #set to 0 because of the way controller is setup
 dyn.satellite.pid.kD = 15;
+dyn.satellite.pyrpid.kP = 1;
+dyn.satellite.pyrpid.kI = 0; #set to 0 because of the way controller is setup
+dyn.satellite.pyrpid.kD = 1;
 
 #pid.setKValues(789.568,1,2513.274,1); set in input file now
 #pid.setKValues(7.89,1,251.332,1);

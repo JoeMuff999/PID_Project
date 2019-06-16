@@ -51,7 +51,9 @@ public:
   double sToEVector[3]; /*radians*/
   double previousSToEVector[3];
   double previouspyr[3];
-  int negate;
+  int negatez;
+  int negatex;
+  int negatey;
 
   double interval;
 	double time;        /* s Model time */

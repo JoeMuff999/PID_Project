@@ -19,7 +19,8 @@ PURPOSE: (Set the initial data values)
 int Satellite::satellite_default_data() {
 
   pid.setTimeInterval(&interval);
-  standardVelocity = 0; //change this
+  pyrpid.setTimeInterval(&interval);
+
   time = 0.0 ;
 	counter = 0;
   mass = 2000;
@@ -58,9 +59,9 @@ int Satellite::satellite_init() {
   vtarget[1] = 0;
   vtarget[2] = 0;
 
-  r[0] = rtarget[0] +1;// + error[0];
-  r[1] = rtarget[1] +1;// + error[1];
-  r[2] = rtarget[2]+1;// + error[2];//randomNumber+ 408773 + 6371393;
+  r[0] = rtarget[0]  + error[0];
+  r[1] = rtarget[1]  + error[1];
+  r[2] = rtarget[2] + error[2];//randomNumber+ 408773 + 6371393;
 
   v[0] = 7664.832; //m/s
   v[1] = 0;
@@ -78,9 +79,7 @@ r_mag += r[i]*r[i];
   sToEVector[0] = -r[0]/r_mag;
   sToEVector[1] = r[1]/r_mag;
   sToEVector[2] = r[2]/r_mag;
-
-  negate = -1;
-
+  
   pyrerror[0];
   pyrerror[1];
   pyrerror[2];
