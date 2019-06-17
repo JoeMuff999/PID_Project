@@ -42,7 +42,7 @@ double PID::getAngularShifter(double *e){
 		error = *e;
 
 		double derivative = (error-previousError)/ (*timeInterval);
-
+		
 		shifter = (kP * error)+(kD * derivative);
 
 		double previousError = *e;

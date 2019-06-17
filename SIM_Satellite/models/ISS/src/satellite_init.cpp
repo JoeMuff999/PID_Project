@@ -40,9 +40,9 @@ int Satellite::satellite_init() {
     }
     //giving the initial error to the scorer so it knows if it crossed or not
   //scorer.setCross(randomNumber);
-  error[0] = randomNumber[0];
+  error[0] = 0;//randomNumber[0];
   error[1] = randomNumber[1];
-  error[2] = randomNumber[2];
+  error[2] = 0;//randomNumber[2];
 
   double error_mag = 0;
   for(int i = 0; i < 3; i++)
@@ -59,9 +59,9 @@ int Satellite::satellite_init() {
   vtarget[1] = 0;
   vtarget[2] = 0;
 
-  r[0] = rtarget[0]  + error[0];
-  r[1] = rtarget[1]  + error[1];
-  r[2] = rtarget[2] + error[2];//randomNumber+ 408773 + 6371393;
+  r[0] = rtarget[0]  - error[0];
+  r[1] = rtarget[1]  - error[1];
+  r[2] = rtarget[2] - error[2];//randomNumber+ 408773 + 6371393;
 
   v[0] = 7664.832; //m/s
   v[1] = 0;
@@ -79,7 +79,7 @@ r_mag += r[i]*r[i];
   sToEVector[0] = -r[0]/r_mag;
   sToEVector[1] = r[1]/r_mag;
   sToEVector[2] = r[2]/r_mag;
-  
+
   pyrerror[0];
   pyrerror[1];
   pyrerror[2];
