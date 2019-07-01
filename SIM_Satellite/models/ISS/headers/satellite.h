@@ -64,6 +64,7 @@ public:
   double finalSettlingTime;
   double finalPercentOvershoot;
 
+  double gainRatio;
 
 
 

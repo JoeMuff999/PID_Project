@@ -22,6 +22,9 @@ int Satellite::satellite_angularDynamics()
     r_mag += r[i]*r[i];
   }
   r_mag = sqrt(r_mag);
+  negatex =1;
+  negatey=1;
+  negatez =1;
 
   if(r[2] <0)
   {
@@ -47,6 +50,7 @@ int Satellite::satellite_angularDynamics()
   {
     negatex = 1;
   }
+  //pyr[1] = pi/2;
 
   sToEVector[0] = (negatex*-1*r[0]/r_mag *cos(pyr[2])*cos(pyr[1])) + negatey*r[1]/r_mag*((cos(pyr[2])*sin(pyr[1])*sin(pyr[0]))+(sin(pyr[2])*cos(pyr[0]))) +
   (negatez*r[2]/r_mag*(-1*cos(pyr[2])*sin(pyr[1])*cos(pyr[0])+(sin(pyr[2])*sin(pyr[0]))));

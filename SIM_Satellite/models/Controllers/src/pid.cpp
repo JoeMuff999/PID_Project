@@ -19,6 +19,11 @@ void PID::setKValues(double p, double i, double d,int x)
 
 }
 
+void PID::setGainRatio(double x)
+{
+	gainRatio = x;
+}
+
 double PID::getShifter(double *e, double *ve){//, int direction) {
 	//direction is for keeping integral separate, to implement again, just add direction to previous error and integral
 
@@ -35,6 +40,23 @@ double PID::getShifter(double *e, double *ve){//, int direction) {
 
 }
 
+double PID::getVariableShifter(double *e){
+
+		shifter = 0;
+		double error;
+		error = *e;
+
+
+		double derivative = (error-previousError)/ (*timeInterval);
+		double integral = integral + error**timeInterval;
+		shifter = (kP * error)+(kD * derivative)+(kI*integral);
+
+		double previousError = *e;
+
+		return shifter;
+
+}
+
 double PID::getAngularShifter(double *e){
 
 		shifter = 0;
@@ -42,7 +64,7 @@ double PID::getAngularShifter(double *e){
 		error = *e;
 
 		double derivative = (error-previousError)/ (*timeInterval);
-		
+
 		shifter = (kP * error)+(kD * derivative);
 
 		double previousError = *e;

@@ -24,7 +24,13 @@ int Satellite::satellite_Dynamics( ) {
 	verror_mag = sqrt(verror_mag);
 
 	//double shifter = pid.getShifter(&error_mag,&verror_mag);
-	double shifter = pid.getAngularShifter(&error_mag);
+	double shifter = pid.getVariableShifter(&error_mag);
+	/*double gainConstant = 20;
+
+
+	double dDummy = gainConstant/(gainRatio+1);
+	double kDummy = (1-dDummy);
+	pid.setKValues(kDummy, 1, dDummy,1);*/
 
 	//satellite_checkShutdown();
     // ACCELERATIONS
@@ -45,7 +51,7 @@ int Satellite::satellite_Dynamics( ) {
 			rtarget[i] = rtarget[i] + vtarget[i]*interval;
 
 	}
-
+	//gainRatio = error[1]*a[1]/(v[1]*v[1]*mass);
 	time += interval;
 	finalSettlingTime = scorer.settlingTime;
 	finalPercentOvershoot = scorer.maxPercentOvershoot;    //i want to put this in shutdown but idk why monte ignores shutdowns very dumb :(
