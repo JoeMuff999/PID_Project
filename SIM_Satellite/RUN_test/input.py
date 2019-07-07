@@ -21,7 +21,7 @@ satellitedrg.add_variable("dyn.satellite.r[2]")
 satellitedrg.add_variable("dyn.satellite.rtarget[0]")
 satellitedrg.add_variable("dyn.satellite.rtarget[1]")
 satellitedrg.add_variable("dyn.satellite.rtarget[2]")
-satellitedrg.set_cycle(0.2)
+satellitedrg.set_cycle(0.5)
 trick.add_data_record_group(satellitedrg, trick.DR_Buffer)
 
 #pid.setKValues(789.568,1,2513.274,1); set in input file now

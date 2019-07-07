@@ -3,10 +3,12 @@ MONTE_RUN_test
 trick
 build
 
+*.csv
 *.exe
 *.bin
 *.out
 *.o
+
 send_hs
 S_job_execution
 S_run_summary
