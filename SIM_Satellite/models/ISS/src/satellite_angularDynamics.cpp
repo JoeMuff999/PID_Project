@@ -61,7 +61,8 @@ int Satellite::satellite_angularDynamics()
 //determine target
 
   pyrerror[0] = -1*atan(sToEVector[1]/sToEVector[2]);
-  pyrerror[1] = atan(sToEVector[0]/sToEVector[2]);
+  //pyrerror[1] = atan(sToEVector[0]/sToEVector[2]);
+  pyrerror[1] = asin(sToEVector[0]);
 
   //pyrtarget[2] = atan(sToEVector[0]/sToEVector[1])*pi;
 

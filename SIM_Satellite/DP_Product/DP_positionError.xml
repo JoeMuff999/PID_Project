@@ -40,4 +40,28 @@
             </curve>
         </plot>
     </page>
+    <page hcells="0" vcells="0">
+        <title>Page</title>
+        <plot grid="Yes" grid_color="#b2b2b2">
+            <title>Plot</title>
+            <curve>
+                <var units="s">sys.exec.out.time</var>
+                <var units="1">dyn.satellite.graphErrorTracker[0]</var>
+            </curve>
+        </plot>
+        <plot grid="Yes" grid_color="#b2b2b2">
+            <title>Plot</title>
+            <curve>
+                <var units="s">sys.exec.out.time</var>
+                <var units="1">dyn.satellite.graphErrorTracker[1]</var>
+            </curve>
+        </plot>
+        <plot grid="Yes" grid_color="#b2b2b2">
+            <title>Plot</title>
+            <curve>
+                <var units="s">sys.exec.out.time</var>
+                <var units="1">dyn.satellite.graphErrorTracker[2]</var>
+            </curve>
+        </plot>
+    </page>
 </product>

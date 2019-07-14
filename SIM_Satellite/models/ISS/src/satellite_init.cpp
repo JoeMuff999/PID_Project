@@ -36,13 +36,13 @@ int Satellite::satellite_init() {
 
   for(int i = 0; i < 6; i++)
   {
-		randomNumber[i]= random.getRandomNumber(975.0,5.0);
+		randomNumber[i]= random.getRandomNumber(975.0,10);
     }
     //giving the initial error to the scorer so it knows if it crossed or not
   //scorer.setCross(randomNumber);
-  error[0] = 0;//randomNumber[0];
+  error[0] = randomNumber[0];
   error[1] = randomNumber[1];
-  error[2] = 0;//randomNumber[2];
+  error[2] = randomNumber[2];
 
   double error_mag = 0;
   for(int i = 0; i < 3; i++)

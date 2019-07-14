@@ -64,7 +64,7 @@ public:
   double finalSettlingTime;
   double finalPercentOvershoot;
 
-  double gainRatio;
+  double graphErrorTracker[3];
 
 
 

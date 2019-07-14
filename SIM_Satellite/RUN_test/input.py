@@ -4,12 +4,12 @@ trick.stop(time)
 
 dyn.satellite.runtime = time
 dyn.satellite.interval = .1
-dyn.satellite.pid.kP = 9.98;
-dyn.satellite.pid.kI = .02; #set to 0 because of the way controller is setup
-dyn.satellite.pid.kD = 1;
-dyn.satellite.pyrpid.kP = 1;
-dyn.satellite.pyrpid.kI = 0; #set to 0 because of the way controller is setup
-dyn.satellite.pyrpid.kD = 1;
+dyn.satellite.pid.kP = 10
+dyn.satellite.pid.kI = 0.02 #set to 0 because of the way controller is setup
+dyn.satellite.pid.kD = 1
+dyn.satellite.pyrpid.kP = 2
+dyn.satellite.pyrpid.kI = 0 #set to 0 because of the way controller is setup
+dyn.satellite.pyrpid.kD = 15
 
 satellitedrg = trick.DRAscii("Satellite")
 satellitedrg.add_variable("dyn.satellite.pyr[0]")

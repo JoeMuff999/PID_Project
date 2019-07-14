@@ -19,6 +19,8 @@ int Satellite::satellite_Dynamics( ) {
 
 		verror[i] = vtarget[i]-v[i] ;
 		verror_mag += verror[i]*verror[i];
+
+		graphErrorTracker[i] = error[i] *-1;
     }
   error_mag = sqrt(error_mag);
 	verror_mag = sqrt(verror_mag);
